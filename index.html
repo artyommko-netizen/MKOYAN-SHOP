@@ -4,364 +4,526 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>MKOYAN SHOP 💎</title>
+<title>🔥 MKOYAN SHOP 🔥</title>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Noto+Sans+Armenian:wght@400;700;900&display=swap');
 
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Noto+Sans+Armenian:wght@400;600;700;900&display=swap');
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-html {
-    scroll-behavior: smooth;
+html{
+    scroll-behavior:smooth;
 }
 
-body {
-    font-family: 'Noto Sans Armenian', Arial, sans-serif;
-    color: white;
-    min-height: 100vh;
+body{
+    font-family:'Noto Sans Armenian',Arial,sans-serif;
+    color:white;
+    min-height:100vh;
+    overflow-x:hidden;
 
     background-image:
-        linear-gradient(rgba(0,0,0,0.48), rgba(0,0,0,0.68)),
+        linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.72)),
         url("file_00000000799081f4a645b2fa3c325f48.png");
 
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
+    background-size:cover;
+    background-position:center;
+    background-attachment:fixed;
 }
 
-/* Փայլուն նախշեր */
+/* ✨ Փայլող ֆոն */
 
-body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
+body:before{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
 
     background:
-        radial-gradient(circle at 10% 20%, rgba(255,255,255,.15) 0 2px, transparent 3px),
-        radial-gradient(circle at 80% 30%, rgba(255,255,255,.12) 0 2px, transparent 3px),
-        radial-gradient(circle at 30% 80%, rgba(255,255,255,.1) 0 2px, transparent 3px);
+      radial-gradient(circle at 10% 20%,rgba(255,255,255,.25) 0 2px,transparent 3px),
+      radial-gradient(circle at 80% 40%,rgba(255,255,255,.20) 0 2px,transparent 3px),
+      radial-gradient(circle at 40% 80%,rgba(255,255,255,.15) 0 2px,transparent 3px);
 
-    background-size: 90px 90px, 130px 130px, 170px 170px;
-    z-index: -1;
+    background-size:80px 80px,120px 120px,160px 160px;
+
+    animation:bgmove 8s linear infinite;
+
+    z-index:-1;
 }
 
-/* HEADER */
+@keyframes bgmove{
+    from{
+        background-position:0 0,0 0,0 0;
+    }
 
-header {
-    text-align: center;
-    padding: 35px 15px 25px;
-
-    background: rgba(0,0,0,.65);
-    backdrop-filter: blur(12px);
-
-    border-bottom: 1px solid rgba(255,255,255,.25);
+    to{
+        background-position:160px 160px,-200px 200px,250px -150px;
+    }
 }
 
-.logo {
-    font-family: 'Orbitron', sans-serif;
-    font-size: clamp(30px, 8vw, 60px);
-    font-weight: 900;
-    letter-spacing: 4px;
+/* 🔥 HEADER */
 
-    text-shadow:
-        0 0 10px #fff,
-        0 0 25px #8b5cf6,
-        0 0 45px #6366f1;
+header{
+    text-align:center;
+    padding:35px 15px;
+
+    background:rgba(0,0,0,.65);
+    backdrop-filter:blur(12px);
+
+    border-bottom:1px solid rgba(255,255,255,.3);
 }
 
-.subtitle {
-    margin-top: 10px;
-    font-size: 16px;
-    color: #ddd;
+.logo{
+    font-family:'Orbitron',sans-serif;
+
+    font-size:clamp(35px,9vw,70px);
+
+    font-weight:900;
+
+    letter-spacing:5px;
+
+    animation:logoGlow 2s infinite alternate;
 }
 
-/* NAVIGATION */
+@keyframes logoGlow{
+    from{
+        text-shadow:
+        0 0 5px white,
+        0 0 15px #7c3aed,
+        0 0 30px #7c3aed;
+    }
 
-nav {
-    display: flex;
-    justify-content: center;
-    gap: 12px;
-    flex-wrap: wrap;
-
-    padding: 18px;
-
-    background: rgba(0,0,0,.55);
-    backdrop-filter: blur(10px);
+    to{
+        text-shadow:
+        0 0 15px white,
+        0 0 35px #00eaff,
+        0 0 60px #ff00ff;
+    }
 }
 
-nav a {
-    color: white;
-    text-decoration: none;
-
-    padding: 10px 20px;
-
-    border: 1px solid rgba(255,255,255,.35);
-    border-radius: 30px;
-
-    background: rgba(255,255,255,.08);
-
-    transition: .3s;
+.subtitle{
+    margin-top:12px;
+    font-size:17px;
+    color:#eee;
 }
 
-nav a:hover {
-    transform: translateY(-3px);
-    background: rgba(255,255,255,.2);
-    box-shadow: 0 0 20px rgba(255,255,255,.3);
+/* ▶️ YOUTUBE */
+
+.youtube{
+    margin-top:20px;
+
+    display:inline-block;
+
+    font-family:'Orbitron',sans-serif;
+
+    font-size:22px;
+    font-weight:900;
+
+    color:#fff;
+
+    text-decoration:none;
+
+    padding:12px 25px;
+
+    border-radius:40px;
+
+    background:linear-gradient(
+        90deg,
+        #ff0000,
+        #ff0066,
+        #ff0000
+    );
+
+    background-size:300% 100%;
+
+    animation:
+        youtubeMove 3s linear infinite,
+        youtubePulse 1.5s infinite;
+
+    box-shadow:
+        0 0 15px red,
+        0 0 35px rgba(255,0,0,.6);
+}
+
+@keyframes youtubeMove{
+    from{background-position:0%;}
+    to{background-position:300%;}
+}
+
+@keyframes youtubePulse{
+    50%{
+        transform:scale(1.06);
+    }
+}
+
+/* 🧭 NAV */
+
+nav{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:12px;
+
+    padding:18px;
+
+    background:rgba(0,0,0,.55);
+    backdrop-filter:blur(10px);
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+
+    padding:10px 20px;
+
+    border-radius:30px;
+
+    background:rgba(255,255,255,.08);
+
+    border:1px solid rgba(255,255,255,.3);
+
+    transition:.3s;
+}
+
+nav a:hover{
+    transform:translateY(-5px) scale(1.05);
+
+    box-shadow:
+      0 0 20px rgba(255,255,255,.5);
+}
+
+/* ⭐ FLOATING EMOJIS */
+
+.emoji{
+    position:fixed;
+
+    font-size:25px;
+
+    pointer-events:none;
+
+    animation:floatEmoji 6s linear infinite;
+
+    z-index:5;
+}
+
+@keyframes floatEmoji{
+    0%{
+        transform:translateY(100vh) rotate(0deg);
+        opacity:0;
+    }
+
+    20%{
+        opacity:1;
+    }
+
+    100%{
+        transform:translateY(-120px) rotate(360deg);
+        opacity:0;
+    }
 }
 
 /* MAIN */
 
-.container {
-    width: min(1100px, 92%);
-    margin: auto;
-    padding: 45px 0;
+.container{
+    width:min(1100px,92%);
+    margin:auto;
+
+    padding:45px 0;
 }
 
-.welcome {
-    text-align: center;
-    margin-bottom: 45px;
+.welcome{
+    text-align:center;
+
+    margin-bottom:45px;
 }
 
-.welcome h2 {
-    font-size: clamp(25px, 6vw, 42px);
-    margin-bottom: 12px;
+.welcome h2{
+    font-size:clamp(25px,6vw,45px);
 
-    text-shadow: 0 0 20px rgba(255,255,255,.6);
+    text-shadow:
+      0 0 10px white,
+      0 0 25px #8b5cf6;
 }
 
-.welcome p {
-    color: #ddd;
-    font-size: 17px;
+.welcome p{
+    margin-top:12px;
+
+    color:#ddd;
+
+    font-size:17px;
 }
 
 /* SECTION */
 
-.section-title {
-    text-align: center;
-    margin: 50px 0 25px;
+.section-title{
+    text-align:center;
+
+    margin:50px 0 25px;
 }
 
-.section-title h2 {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 30px;
-}
+.section-title h2{
+    font-family:'Orbitron',sans-serif;
 
-.section-title p {
-    color: #ccc;
-    margin-top: 8px;
-}
-
-/* CARDS */
-
-.products {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 22px;
-}
-
-.card {
-    position: relative;
-    overflow: hidden;
-
-    padding: 28px 22px;
-
-    text-align: center;
-
-    background: rgba(10,10,20,.68);
-    backdrop-filter: blur(14px);
-
-    border: 1px solid rgba(255,255,255,.25);
-    border-radius: 25px;
-
-    box-shadow:
-        0 15px 35px rgba(0,0,0,.35),
-        inset 0 0 25px rgba(255,255,255,.03);
-
-    transition: .35s;
-}
-
-.card::before {
-    content: "";
-    position: absolute;
-
-    width: 180px;
-    height: 180px;
-
-    background: rgba(139,92,246,.22);
-
-    filter: blur(60px);
-
-    top: -100px;
-    left: -80px;
-}
-
-.card:hover {
-    transform: translateY(-10px) scale(1.02);
-
-    box-shadow:
-        0 20px 50px rgba(0,0,0,.5),
-        0 0 30px rgba(139,92,246,.35);
-}
-
-.icon {
-    font-size: 55px;
-    margin-bottom: 12px;
-
-    filter: drop-shadow(0 0 10px rgba(255,255,255,.6));
-}
-
-.card h3 {
-    font-size: 22px;
-    margin-bottom: 8px;
-}
-
-.description {
-    color: #ccc;
-    font-size: 14px;
-    min-height: 42px;
-}
-
-.price {
-    font-family: 'Orbitron', sans-serif;
-
-    font-size: 25px;
-    font-weight: 900;
-
-    margin: 18px 0;
-
-    color: #fff;
+    font-size:32px;
 
     text-shadow:
-        0 0 8px #8b5cf6,
-        0 0 20px #6366f1;
+      0 0 10px white,
+      0 0 25px #8b5cf6;
 }
 
-/* BUY BUTTON */
+/* PRODUCTS */
 
-.buy {
-    display: inline-block;
+.products{
+    display:grid;
 
-    padding: 12px 25px;
+    grid-template-columns:
+      repeat(auto-fit,minmax(220px,1fr));
 
-    color: white;
-    text-decoration: none;
+    gap:22px;
+}
 
-    font-weight: 900;
+.card{
+    position:relative;
 
-    border-radius: 30px;
+    padding:28px 22px;
 
-    background: linear-gradient(135deg, #7c3aed, #2563eb);
+    text-align:center;
+
+    background:rgba(0,0,0,.68);
+
+    backdrop-filter:blur(14px);
+
+    border:
+      1px solid rgba(255,255,255,.3);
+
+    border-radius:25px;
 
     box-shadow:
-        0 5px 20px rgba(99,102,241,.45);
+      0 15px 35px rgba(0,0,0,.5);
 
-    transition: .3s;
+    overflow:hidden;
+
+    transition:.4s;
 }
 
-.buy:hover {
-    transform: scale(1.08);
+.card:hover{
+    transform:
+      translateY(-12px)
+      scale(1.03);
 
     box-shadow:
-        0 0 25px rgba(139,92,246,.8);
+      0 0 30px #8b5cf6,
+      0 20px 50px rgba(0,0,0,.7);
 }
 
-/* CONTACT */
+.card:after{
+    content:"✨";
 
-.contact {
-    margin-top: 60px;
+    position:absolute;
 
-    padding: 35px 20px;
+    right:-10px;
+    top:-15px;
 
-    text-align: center;
+    font-size:50px;
 
-    background: rgba(0,0,0,.65);
-    backdrop-filter: blur(12px);
-
-    border-radius: 25px;
-
-    border: 1px solid rgba(255,255,255,.2);
+    animation:spin 4s linear infinite;
 }
 
-.instagram {
-    display: inline-block;
+@keyframes spin{
+    to{
+        transform:rotate(360deg);
+    }
+}
 
-    margin-top: 18px;
+.icon{
+    font-size:58px;
 
-    padding: 14px 28px;
+    margin-bottom:12px;
 
-    color: white;
-    text-decoration: none;
+    animation:bounce 2s infinite;
 
-    font-weight: bold;
+    filter:
+      drop-shadow(0 0 12px white);
+}
 
-    border-radius: 30px;
+@keyframes bounce{
+    50%{
+        transform:translateY(-8px);
+    }
+}
 
-    background: linear-gradient(
+.card h3{
+    font-size:22px;
+
+    margin-bottom:8px;
+}
+
+.description{
+    color:#ccc;
+
+    font-size:14px;
+
+    min-height:42px;
+}
+
+.price{
+    font-family:'Orbitron',sans-serif;
+
+    font-size:25px;
+
+    font-weight:900;
+
+    margin:18px 0;
+
+    text-shadow:
+      0 0 10px #00eaff,
+      0 0 25px #8b5cf6;
+}
+
+/* 🛒 BUY */
+
+.buy{
+    display:inline-block;
+
+    padding:13px 28px;
+
+    color:white;
+
+    text-decoration:none;
+
+    font-weight:900;
+
+    border-radius:35px;
+
+    background:
+      linear-gradient(
+        135deg,
+        #7c3aed,
+        #2563eb,
+        #00eaff
+      );
+
+    background-size:200% 200%;
+
+    animation:buttonGlow 3s infinite;
+
+    box-shadow:
+      0 0 20px rgba(99,102,241,.6);
+
+    transition:.3s;
+}
+
+@keyframes buttonGlow{
+    50%{
+        background-position:100% 100%;
+
+        box-shadow:
+          0 0 35px #00eaff;
+    }
+}
+
+.buy:hover{
+    transform:scale(1.1);
+}
+
+/* 📱 CONTACT */
+
+.contact{
+    margin-top:60px;
+
+    padding:35px 20px;
+
+    text-align:center;
+
+    background:rgba(0,0,0,.7);
+
+    backdrop-filter:blur(12px);
+
+    border-radius:25px;
+
+    border:1px solid rgba(255,255,255,.25);
+}
+
+.instagram{
+    display:inline-block;
+
+    margin-top:18px;
+
+    padding:14px 28px;
+
+    color:white;
+
+    text-decoration:none;
+
+    font-weight:900;
+
+    border-radius:35px;
+
+    background:
+      linear-gradient(
         45deg,
         #feda75,
         #fa7e1e,
         #d62976,
         #962fbf,
         #4f5bd5
-    );
+      );
 
-    box-shadow: 0 8px 25px rgba(214,41,118,.35);
+    animation:insta 2s infinite alternate;
 
-    transition: .3s;
+    box-shadow:
+      0 0 25px rgba(214,41,118,.6);
 }
 
-.instagram:hover {
-    transform: scale(1.06);
+@keyframes insta{
+    to{
+        transform:scale(1.06);
+    }
 }
 
 /* FOOTER */
 
-footer {
-    margin-top: 60px;
+footer{
+    margin-top:60px;
 
-    padding: 30px 15px;
+    padding:30px 15px;
 
-    text-align: center;
+    text-align:center;
 
-    background: rgba(0,0,0,.75);
+    background:rgba(0,0,0,.8);
 
-    color: #bbb;
-
-    border-top: 1px solid rgba(255,255,255,.15);
+    border-top:
+      1px solid rgba(255,255,255,.2);
 }
 
-.footer-logo {
-    font-family: 'Orbitron', sans-serif;
-    color: white;
-    font-size: 22px;
-    margin-bottom: 8px;
+.footerLogo{
+    font-family:'Orbitron',sans-serif;
+
+    font-size:25px;
+
+    margin-bottom:10px;
+
+    animation:logoGlow 2s infinite alternate;
 }
 
-/* MOBILE */
+/* 📱 MOBILE */
 
-@media (max-width: 600px) {
+@media(max-width:600px){
 
-    header {
-        padding-top: 28px;
+    .products{
+        grid-template-columns:1fr;
     }
 
-    .products {
-        grid-template-columns: 1fr;
+    .card{
+        padding:25px 18px;
     }
 
-    .card {
-        padding: 25px 18px;
-    }
-
-    nav a {
-        padding: 8px 15px;
-        font-size: 14px;
+    nav a{
+        padding:8px 15px;
+        font-size:14px;
     }
 
 }
@@ -371,17 +533,35 @@ footer {
 
 <body>
 
+<!-- ✨ Շարժվող emoji-ներ -->
+
+<div class="emoji" style="left:5%;animation-delay:0s;">💎</div>
+<div class="emoji" style="left:20%;animation-delay:2s;">🔥</div>
+<div class="emoji" style="left:35%;animation-delay:4s;">👑</div>
+<div class="emoji" style="left:55%;animation-delay:1s;">✨</div>
+<div class="emoji" style="left:70%;animation-delay:3s;">💰</div>
+<div class="emoji" style="left:90%;animation-delay:5s;">⚡</div>
+
+
 <header>
 
     <div class="logo">
-        MKOYAN SHOP
+        🔥 MKOYAN 🔥
     </div>
 
     <div class="subtitle">
-        💎 Premium Gaming Shop • 👑 VIP • ⚡ Fast Service
+        💎 PREMIUM SHOP • 👑 VIP • ⚡ FAST SERVICE
     </div>
 
+    <a
+      class="youtube"
+      href="#"
+      onclick="return false;">
+      ▶️ MKOYAN YOUTUBE ▶️
+    </a>
+
 </header>
+
 
 <nav>
 
@@ -389,286 +569,302 @@ footer {
 
     <a href="#vip">👑 VIP</a>
 
-    <a href="#contact">📱 Կապ</a>
+    <a href="#contact">📱 Instagram</a>
 
 </nav>
 
+
 <main class="container">
 
-    <section class="welcome">
+<section class="welcome">
 
-        <h2>
-            ✨ Բարի գալուստ MKOYAN SHOP ✨
-        </h2>
+    <h2>
+        ✨💎 Բարի գալուստ MKOYAN SHOP 💎✨
+    </h2>
 
-        <p>
-            Ընտրիր քո ուզած Diamond-ը կամ VIP-ը և սեղմիր «Գնել»։
-        </p>
+    <p>
+        🔥 Ընտրիր ապրանքդ • 🛒 Սեղմիր «Գնել» • 📱 Գրիր Instagram-ում 🔥
+    </p>
 
-    </section>
+</section>
 
 
-    <!-- DIAMOND -->
+<!-- 💎 DIAMOND -->
 
-    <section id="diamond">
+<section id="diamond">
 
-        <div class="section-title">
+<div class="section-title">
 
-            <h2>💎 Diamond</h2>
+    <h2>
+        💎✨ DIAMOND ✨💎
+    </h2>
 
-            <p>✨ Ընտրիր քո Diamond փաթեթը ✨</p>
+</div>
 
-        </div>
+<div class="products">
 
-        <div class="products">
 
-            <div class="card">
+<div class="card">
 
-                <div class="icon">💎</div>
+    <div class="icon">💎</div>
 
-                <h3>100 Diamond</h3>
+    <h3>100 Diamond</h3>
 
-                <p class="description">
-                    Փոքր Diamond փաթեթ
-                </p>
+    <p class="description">
+        💎 Սկսնակ փաթեթ
+    </p>
 
-                <div class="price">
-                    500 ֏
-                </div>
+    <div class="price">
+        500 ֏
+    </div>
 
-                <a
-                    class="buy"
-                    href="https://www.instagram.com/a.mkoyannhhh/"
-                    target="_blank">
-                    🛒 Գնել
-                </a>
+    <a
+      class="buy"
+      href="https://www.instagram.com/a.mkoyannhhh/"
+      target="_blank"
+      rel="noopener">
+      🛒 Գնել 🔥
+    </a>
 
-            </div>
+</div>
 
 
-            <div class="card">
+<div class="card">
 
-                <div class="icon">💎</div>
+    <div class="icon">💎</div>
 
-                <h3>500 Diamond</h3>
+    <h3>500 Diamond</h3>
 
-                <p class="description">
-                    Միջին Diamond փաթեթ
-                </p>
+    <p class="description">
+        🔥 Միջին փաթեթ
+    </p>
 
-                <div class="price">
-                    2,000 ֏
-                </div>
+    <div class="price">
+        2,000 ֏
+    </div>
 
-                <a
-                    class="buy"
-                    href="https://www.instagram.com/a.mkoyannhhh/"
-                    target="_blank">
-                    🛒 Գնել
-                </a>
+    <a
+      class="buy"
+      href="https://www.instagram.com/a.mkoyannhhh/"
+      target="_blank"
+      rel="noopener">
+      🛒 Գնել 🔥
+    </a>
 
-            </div>
+</div>
 
 
-            <div class="card">
+<div class="card">
 
-                <div class="icon">💎</div>
+    <div class="icon">💎</div>
 
-                <h3>1000 Diamond</h3>
+    <h3>1000 Diamond</h3>
 
-                <p class="description">
-                    Մեծ Diamond փաթեթ
-                </p>
+    <p class="description">
+        ⚡ Մեծ փաթեթ
+    </p>
 
-                <div class="price">
-                    3,500 ֏
-                </div>
+    <div class="price">
+        3,500 ֏
+    </div>
 
-                <a
-                    class="buy"
-                    href="https://www.instagram.com/a.mkoyannhhh/"
-                    target="_blank">
-                    🛒 Գնել
-                </a>
+    <a
+      class="buy"
+      href="https://www.instagram.com/a.mkoyannhhh/"
+      target="_blank"
+      rel="noopener">
+      🛒 Գնել 🔥
+    </a>
 
-            </div>
+</div>
 
 
-            <div class="card">
+<div class="card">
 
-                <div class="icon">💎</div>
+    <div class="icon">💎</div>
 
-                <h3>2500 Diamond</h3>
+    <h3>2500 Diamond</h3>
 
-                <p class="description">
-                    MAX Diamond փաթեթ
-                </p>
+    <p class="description">
+        👑 MAX փաթեթ
+    </p>
 
-                <div class="price">
-                    7,000 ֏
-                </div>
+    <div class="price">
+        7,000 ֏
+    </div>
 
-                <a
-                    class="buy"
-                    href="https://www.instagram.com/a.mkoyannhhh/"
-                    target="_blank">
-                    🛒 Գնել
-                </a>
+    <a
+      class="buy"
+      href="https://www.instagram.com/a.mkoyannhhh/"
+      target="_blank"
+      rel="noopener">
+      🛒 Գնել 🔥
+    </a>
 
-            </div>
+</div>
 
-        </div>
+</div>
 
-    </section>
+</section>
 
 
-    <!-- VIP -->
+<!-- 👑 VIP -->
 
-    <section id="vip">
+<section id="vip">
 
-        <div class="section-title">
+<div class="section-title">
 
-            <h2>👑 VIP</h2>
+    <h2>
+        👑✨ VIP ✨👑
+    </h2>
 
-            <p>✨ Ընտրիր քո VIP կարգավիճակը ✨</p>
+</div>
 
-        </div>
+<div class="products">
 
-        <div class="products">
 
-            <div class="card">
+<div class="card">
 
-                <div class="icon">🥉</div>
+    <div class="icon">🥉</div>
 
-                <h3>VIP Bronze</h3>
+    <h3>VIP Bronze</h3>
 
-                <p class="description">
-                    Սկսնակ VIP կարգավիճակ
-                </p>
+    <p class="description">
+        🥉 Bronze VIP
+    </p>
 
-                <div class="price">
-                    1,000 ֏
-                </div>
+    <div class="price">
+        1,000 ֏
+    </div>
 
-                <a
-                    class="buy"
-                    href="https://www.instagram.com/a.mkoyannhhh/"
-                    target="_blank">
-                    🛒 Գնել
-                </a>
+    <a
+      class="buy"
+      href="https://www.instagram.com/a.mkoyannhhh/"
+      target="_blank"
+      rel="noopener">
+      🛒 Գնել 🔥
+    </a>
 
-            </div>
+</div>
 
 
-            <div class="card">
+<div class="card">
 
-                <div class="icon">🥈</div>
+    <div class="icon">🥈</div>
 
-                <h3>VIP Silver</h3>
+    <h3>VIP Silver</h3>
 
-                <p class="description">
-                    Ավելի շատ VIP հնարավորություններ
-                </p>
+    <p class="description">
+        🥈 Silver VIP
+    </p>
 
-                <div class="price">
-                    2,500 ֏
-                </div>
+    <div class="price">
+        2,500 ֏
+    </div>
 
-                <a
-                    class="buy"
-                    href="https://www.instagram.com/a.mkoyannhhh/"
-                    target="_blank">
-                    🛒 Գնել
-                </a>
+    <a
+      class="buy"
+      href="https://www.instagram.com/a.mkoyannhhh/"
+      target="_blank"
+      rel="noopener">
+      🛒 Գնել 🔥
+    </a>
 
-            </div>
+</div>
 
 
-            <div class="card">
+<div class="card">
 
-                <div class="icon">🥇</div>
+    <div class="icon">🥇</div>
 
-                <h3>VIP Gold</h3>
+    <h3>VIP Gold</h3>
 
-                <p class="description">
-                    Հզոր VIP կարգավիճակ
-                </p>
+    <p class="description">
+        🥇 Gold VIP
+    </p>
 
-                <div class="price">
-                    5,000 ֏
-                </div>
+    <div class="price">
+        5,000 ֏
+    </div>
 
-                <a
-                    class="buy"
-                    href="https://www.instagram.com/a.mkoyannhhh/"
-                    target="_blank">
-                    🛒 Գնել
-                </a>
+    <a
+      class="buy"
+      href="https://www.instagram.com/a.mkoyannhhh/"
+      target="_blank"
+      rel="noopener">
+      🛒 Գնել 🔥
+    </a>
 
-            </div>
+</div>
 
 
-            <div class="card">
+<div class="card">
 
-                <div class="icon">👑</div>
+    <div class="icon">👑</div>
 
-                <h3>VIP Premium</h3>
+    <h3>VIP Premium</h3>
 
-                <p class="description">
-                    Ամենաբարձր VIP մակարդակը
-                </p>
+    <p class="description">
+        👑 Ամենաբարձր VIP
+    </p>
 
-                <div class="price">
-                    10,000 ֏
-                </div>
+    <div class="price">
+        10,000 ֏
+    </div>
 
-                <a
-                    class="buy"
-                    href="https://www.instagram.com/a.mkoyannhhh/"
-                    target="_blank">
-                    🛒 Գնել
-                </a>
+    <a
+      class="buy"
+      href="https://www.instagram.com/a.mkoyannhhh/"
+      target="_blank"
+      rel="noopener">
+      🛒 Գնել 🔥
+    </a>
 
-            </div>
+</div>
 
-        </div>
+</div>
 
-    </section>
+</section>
 
 
-    <!-- CONTACT -->
+<!-- 📱 CONTACT -->
 
-    <section id="contact" class="contact">
+<section id="contact" class="contact">
 
-        <h2>
-            📱 Պատվիրե՞լ ես ուզում։
-        </h2>
+    <h2>
+        📱🔥 Պատվե՞ր ես ուզում 🔥📱
+    </h2>
 
-        <p style="margin-top:10px;color:#ccc;">
-            Գրիր մեզ Instagram-ում և կատարիր պատվերդ։
-        </p>
+    <p style="margin-top:12px;color:#ccc;">
+        Գրիր մեզ Instagram-ում և կատարիր պատվերդ։
+    </p>
 
-        <a
-            class="instagram"
-            href="https://www.instagram.com/a.mkoyannhhh/"
-            target="_blank">
-            📸 Instagram — @a.mkoyannhhh
-        </a>
+    <a
+      class="instagram"
+      href="https://www.instagram.com/a.mkoyannhhh/"
+      target="_blank"
+      rel="noopener">
+      📸 @a.mkoyannhhh
+    </a>
 
-    </section>
+</section>
 
 </main>
 
 
 <footer>
 
-    <div class="footer-logo">
-        💎 MKOYAN SHOP 👑
+    <div class="footerLogo">
+        💎🔥 MKOYAN SHOP 🔥💎
     </div>
 
-    <div>
-        © 2026 MKOYAN SHOP — Բոլոր իրավունքները պաշտպանված են։
-    </div>
+    <p>
+        ✨💎👑 Thank you for choosing MKOYAN 👑💎✨
+    </p>
+
+    <p style="margin-top:10px;">
+        © 2026 MKOYAN SHOP
+    </p>
 
 </footer>
 

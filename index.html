@@ -3,239 +3,111 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>MKOYAN SHOP</title>
 
   <style>
     * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
-      font-family: Arial, sans-serif;
     }
 
     body {
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      color: #222;
     }
 
     header {
-      background: linear-gradient(135deg, #111525, #08090f);
-      padding: 25px 8%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 1px solid #252a3d;
-      position: sticky;
-      top: 0;
-      z-index: 10;
+      background: #111;
+      color: white;
+      padding: 20px;
+      text-align: center;
     }
 
-    .logo {
-      font-size: 28px;
-      font-weight: 900;
-      color: #fff;
-      letter-spacing: 2px;
+    header h1 {
+      font-size: 32px;
+      margin-bottom: 8px;
     }
 
-    .logo span {
-      color: #7c5cff;
-    }
-
-    nav a {
-      color: #ddd;
-      text-decoration: none;
-      margin-left: 25px;
-      transition: 0.3s;
-    }
-
-    nav a:hover {
-      color: #8c6cff;
+    header p {
+      color: #ccc;
     }
 
     .hero {
+      max-width: 900px;
+      margin: 30px auto;
+      padding: 20px;
       text-align: center;
-      padding: 80px 20px 55px;
-      background:
-        radial-gradient(circle at top, #25204d 0%, #08090f 55%);
     }
 
-    .hero h1 {
-      font-size: 55px;
-      margin-bottom: 15px;
-      font-weight: 900;
+    .hero img {
+      width: 100%;
+      max-width: 500px;
+      max-height: 500px;
+      object-fit: contain;
+      border-radius: 20px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+      background: white;
     }
 
-    .hero h1 span {
-      color: #8b6cff;
+    .hero h2 {
+      margin-top: 25px;
+      font-size: 28px;
     }
 
     .hero p {
-      color: #aaa;
-      font-size: 18px;
-      max-width: 650px;
-      margin: auto;
-      line-height: 1.6;
+      margin-top: 10px;
+      color: #666;
+      font-size: 17px;
     }
 
     .shop {
-      padding: 30px 8% 80px;
-    }
-
-    .section-title {
-      text-align: center;
-      margin: 40px 0 30px;
-      font-size: 32px;
-    }
-
-    .section-title span {
-      color: #8b6cff;
+      max-width: 900px;
+      margin: 30px auto;
+      padding: 20px;
     }
 
     .products {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 25px;
-      max-width: 1100px;
-      margin: auto;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
     }
 
-    .card {
-      background: linear-gradient(145deg, #151827, #0e101a);
-      border: 1px solid #292e44;
+    .product {
+      background: white;
+      padding: 25px;
       border-radius: 18px;
-      padding: 30px 22px;
       text-align: center;
-      transition: 0.3s;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+      box-shadow: 0 5px 20px rgba(0,0,0,0.08);
     }
 
-    .card:hover {
-      transform: translateY(-8px);
-      border-color: #765cff;
-      box-shadow: 0 15px 40px rgba(100,80,255,0.18);
-    }
-
-    .icon {
-      font-size: 55px;
-      margin-bottom: 15px;
-    }
-
-    .card h3 {
-      font-size: 25px;
+    .product h3 {
       margin-bottom: 10px;
-    }
-
-    .card p {
-      color: #999;
-      min-height: 45px;
-      line-height: 1.5;
     }
 
     .price {
-      font-size: 28px;
+      font-size: 22px;
       font-weight: bold;
-      margin: 22px 0;
-      color: #fff;
+      margin: 15px 0;
     }
 
-    .price small {
-      font-size: 15px;
-      color: #888;
-    }
-
-    .buy {
+    .button {
       display: inline-block;
-      width: 100%;
-      padding: 14px;
-      border: none;
-      border-radius: 10px;
-      background: linear-gradient(135deg, #7557ff, #a06cff);
+      padding: 12px 25px;
+      background: #111;
       color: white;
-      font-size: 17px;
-      font-weight: bold;
-      cursor: pointer;
       text-decoration: none;
-      transition: 0.3s;
-    }
-
-    .buy:hover {
-      transform: scale(1.03);
-      filter: brightness(1.15);
-    }
-
-    .vip .card {
-      border-color: #8d6b22;
-      background: linear-gradient(145deg, #1b1810, #10100d);
-    }
-
-    .vip .card:hover {
-      border-color: #d8a936;
-      box-shadow: 0 15px 40px rgba(216,169,54,0.15);
-    }
-
-    .vip .section-title span {
-      color: #e4b63e;
-    }
-
-    .vip .buy {
-      background: linear-gradient(135deg, #b98520, #f0c34d);
-      color: #15110a;
-    }
-
-    .features {
-      max-width: 900px;
-      margin: 70px auto 0;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 20px;
-      text-align: center;
-    }
-
-    .feature {
-      background: #11131e;
-      padding: 25px;
-      border-radius: 15px;
-      border: 1px solid #222638;
-    }
-
-    .feature div {
-      font-size: 30px;
-      margin-bottom: 10px;
-    }
-
-    .feature h4 {
-      margin-bottom: 7px;
-    }
-
-    .feature p {
-      color: #888;
-      font-size: 14px;
+      border-radius: 10px;
     }
 
     footer {
+      margin-top: 40px;
+      padding: 25px;
+      background: #111;
+      color: white;
       text-align: center;
-      padding: 30px 20px;
-      border-top: 1px solid #222638;
-      color: #777;
-      background: #07080d;
-    }
-
-    footer strong {
-      color: #8b6cff;
-    }
-
-    @media (max-width: 650px) {
-      header {
-        flex-direction: column;
-        gap: 15px;
-      }
-
-      nav a {
-        margin: 0 8px;
-        font-size: 14px;
-      }
-
-      .hero h1 {
-        font-size: 38px;
-      }
     }
   </style>
 </head>
@@ -243,151 +115,56 @@
 <body>
 
   <header>
-    <div class="logo">MKOYAN <span>SHOP</span></div>
-
-    <nav>
-      <a href="#diamond">Diamond</a>
-      <a href="#vip">VIP</a>
-      <a href="#contact">Կապ</a>
-    </nav>
+    <h1>MKOYAN SHOP</h1>
+    <p>Բարի գալուստ մեր խանութ 🛍️</p>
   </header>
 
-
   <section class="hero">
-    <h1>Բարի գալուստ <span>MKOYAN SHOP</span></h1>
+
+    <img
+      src="file_00000000799081f4a645b2fa3c325f48.png"
+      alt="MKOYAN SHOP">
+
+    <h2>Բարի գալուստ MKOYAN SHOP</h2>
+
     <p>
-      Ընտրիր քո ուզած Diamond-ը կամ VIP-ը և միացիր
-      MKOYAN SHOP-ի աշխարհին։
+      Այստեղ կարող եք գտնել մեր ապրանքները։
     </p>
+
   </section>
 
-
-  <!-- DIAMOND -->
-  <section class="shop" id="diamond">
-
-    <h2 class="section-title">
-      💎 <span>Diamond</span>
-    </h2>
+  <section class="shop">
 
     <div class="products">
 
-      <div class="card">
-        <div class="icon">💎</div>
-        <h3>100 Diamond</h3>
-        <p>Փոքր Diamond փաթեթ</p>
-        <div class="price">500 ֏</div>
-        <a class="buy" href="#" onclick="buy('100 Diamond')">Գնել</a>
-      </div>
-
-      <div class="card">
-        <div class="icon">💎</div>
-        <h3>500 Diamond</h3>
-        <p>Միջին Diamond փաթեթ</p>
-        <div class="price">2,000 ֏</div>
-        <a class="buy" href="#" onclick="buy('500 Diamond')">Գնել</a>
-      </div>
-
-      <div class="card">
-        <div class="icon">💎</div>
-        <h3>1000 Diamond</h3>
-        <p>Մեծ Diamond փաթեթ</p>
-        <div class="price">3,500 ֏</div>
-        <a class="buy" href="#" onclick="buy('1000 Diamond')">Գնել</a>
-      </div>
-
-      <div class="card">
-        <div class="icon">💎</div>
-        <h3>2500 Diamond</h3>
-        <p>MAX Diamond փաթեթ</p>
-        <div class="price">7,000 ֏</div>
-        <a class="buy" href="#" onclick="buy('2500 Diamond')">Գնել</a>
-      </div>
-
-    </div>
-  </section>
-
-
-  <!-- VIP -->
-  <section class="shop vip" id="vip">
-
-    <h2 class="section-title">
-      👑 <span>VIP</span>
-    </h2>
-
-    <div class="products">
-
-      <div class="card">
-        <div class="icon">🥉</div>
-        <h3>VIP Bronze</h3>
-        <p>Սկսնակ VIP կարգավիճակ</p>
-        <div class="price">1,000 ֏</div>
-        <a class="buy" href="#" onclick="buy('VIP Bronze')">Գնել</a>
-      </div>
-
-      <div class="card">
-        <div class="icon">🥈</div>
-        <h3>VIP Silver</h3>
-        <p>Ավելի շատ VIP հնարավորություններ</p>
-        <div class="price">2,500 ֏</div>
-        <a class="buy" href="#" onclick="buy('VIP Silver')">Գնել</a>
-      </div>
-
-      <div class="card">
-        <div class="icon">🥇</div>
-        <h3>VIP Gold</h3>
-        <p>Հզոր VIP կարգավիճակ</p>
-        <div class="price">5,000 ֏</div>
-        <a class="buy" href="#" onclick="buy('VIP Gold')">Գնել</a>
-      </div>
-
-      <div class="card">
-        <div class="icon">👑</div>
-        <h3>VIP Premium</h3>
-        <p>Ամենաբարձր VIP մակարդակը</p>
+      <div class="product">
+        <h3>Ապրանք 1</h3>
+        <p>Գեղեցիկ և որակյալ ապրանք</p>
         <div class="price">10,000 ֏</div>
-        <a class="buy" href="#" onclick="buy('VIP Premium')">Գնել</a>
+        <a class="button" href="#">Գնել</a>
+      </div>
+
+      <div class="product">
+        <h3>Ապրանք 2</h3>
+        <p>Նոր և հետաքրքիր ապրանք</p>
+        <div class="price">15,000 ֏</div>
+        <a class="button" href="#">Գնել</a>
+      </div>
+
+      <div class="product">
+        <h3>Ապրանք 3</h3>
+        <p>Լավագույն ընտրությունը</p>
+        <div class="price">20,000 ֏</div>
+        <a class="button" href="#">Գնել</a>
       </div>
 
     </div>
-  </section>
-
-
-  <!-- FEATURES -->
-  <section class="features">
-
-    <div class="feature">
-      <div>⚡</div>
-      <h4>Արագ սպասարկում</h4>
-      <p>Պատվերը մշակվում է հնարավորինս արագ։</p>
-    </div>
-
-    <div class="feature">
-      <div>🔒</div>
-      <h4>Անվտանգություն</h4>
-      <p>Ձեր տվյալները պահվում են անվտանգ։</p>
-    </div>
-
-    <div class="feature">
-      <div>🎮</div>
-      <h4>Gaming Shop</h4>
-      <p>Ամեն ինչ խաղային աշխարհի համար։</p>
-    </div>
 
   </section>
 
-
-  <footer id="contact">
-    <p>© 2026 <strong>MKOYAN SHOP</strong> — Բոլոր իրավունքները պաշտպանված են։</p>
+  <footer>
+    © 2026 MKOYAN SHOP
   </footer>
 
-
-  <script>
-   
-function buy(product) {
-    window.open("https://www.instagram.com/a.mkoyannhhh/", "_blank");
-}
-</script> 
-  
-
 </body>
-  </html>
+</html>        

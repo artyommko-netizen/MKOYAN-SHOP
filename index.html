@@ -559,6 +559,45 @@ footer p{
     }
 }
 </style>
+    .youtube{
+    display:inline-flex;
+    align-items:center;
+    gap:12px;
+    animation:youtubeButton 1.5s infinite;
+}
+
+.yt-icon{
+    display:inline-block;
+    color:white;
+    font-size:28px;
+    animation:youtubeIcon .7s infinite alternate;
+
+    text-shadow:
+        0 0 8px white,
+        0 0 18px red,
+        0 0 30px red;
+}
+
+@keyframes youtubeIcon{
+    0%{
+        transform:scale(1) rotate(-8deg);
+    }
+    50%{
+        transform:scale(1.25) rotate(8deg);
+    }
+    100%{
+        transform:scale(.9) rotate(-5deg);
+    }
+}
+
+@keyframes youtubeButton{
+    0%,100%{
+        transform:translateY(0) scale(1);
+    }
+    50%{
+        transform:translateY(-5px) scale(1.04);
+    }
+}
 </head>
 
 <body>
@@ -583,13 +622,16 @@ footer p{
         💎 PREMIUM SHOP • 👑 VIP • ⚡ FAST SERVICE
     </div>
 
-    <a
-        class="youtube"
-        href="https://www.youtube.com/"
-        target="_blank"
-        rel="noopener">
-        ▶️ MKOYAN YOUTUBE ▶️
-    </a>
+    
+<a
+  class="youtube"
+  href="https://www.youtube.com/@mkoyannnaaa"
+  target="_blank"
+  rel="noopener">
+  <span class="yt-icon">▶</span>
+  <span>MKoyan YOUTUBE</span>
+  <span class="yt-icon">▶</span>
+</a>
 
 </header>
 

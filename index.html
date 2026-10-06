@@ -1,1041 +1,154 @@
-<!DOCTYPE html>
-<html lang="hy">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- 💳 ՎՃԱՐՄԱՆ ԲԱԺԻՆ -->
+<section class="payment-section">
 
-<title>🔥 MKOYAN SHOP 🔥</title>
+    <h2>💳 Ընտրիր վճարման եղանակը</h2>
+    <p class="payment-subtitle">Անվտանգ և հարմար վճարում 🛒✨</p>
+
+    <div class="bank-cards">
+
+        <button class="bank-card" onclick="selectBank('IDBank')">
+            <div class="bank-icon">💳</div>
+            <div>
+                <strong>IDBank</strong>
+                <span>Վճարել քարտով</span>
+            </div>
+        </button>
+
+        <button class="bank-card" onclick="selectBank('Ameriabank')">
+            <div class="bank-icon">💳</div>
+            <div>
+                <strong>Ameriabank</strong>
+                <span>Վճարել քարտով</span>
+            </div>
+        </button>
+
+        <button class="bank-card" onclick="selectBank('ACBA')">
+            <div class="bank-icon">💳</div>
+            <div>
+                <strong>ACBA</strong>
+                <span>Վճարել քարտով</span>
+            </div>
+        </button>
+
+        <button class="bank-card" onclick="selectBank('Ardshinbank')">
+            <div class="bank-icon">💳</div>
+            <div>
+                <strong>Ardshinbank</strong>
+                <span>Վճարել քարտով</span>
+            </div>
+        </button>
+
+    </div>
+
+    <div id="selectedBank" class="selected-bank">
+        👆 Ընտրիր բանկը
+    </div>
+
+</section>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Noto+Sans+Armenian:wght@400;700;900&display=swap');
-
-*{
-    box-sizing:border-box;
-    margin:0;
-    padding:0;
-}
-
-html{
-    scroll-behavior:smooth;
-}
-
-body{
-    font-family:'Noto Sans Armenian',Arial,sans-serif;
-    color:white;
-    min-height:100vh;
-    overflow-x:hidden;
-
-    background:
-        linear-gradient(rgba(0,0,0,.58),rgba(0,0,0,.82)),
-        url("file_00000000799081f4a645b2fa3c325f48.png");
-
-    background-size:cover;
-    background-position:center;
-    background-attachment:fixed;
-}
-
-/* ✨ Շարժվող աստղեր */
-
-body::before{
-    content:"";
-    position:fixed;
-    inset:0;
-    pointer-events:none;
-    z-index:-1;
-
-    background-image:
-        radial-gradient(circle,rgba(255,255,255,.8) 1px,transparent 2px),
-        radial-gradient(circle,rgba(0,238,255,.7) 1px,transparent 2px);
-
-    background-size:70px 70px,110px 110px;
-    animation:stars 7s linear infinite;
-}
-
-@keyframes stars{
-    from{background-position:0 0,0 0;}
-    to{background-position:140px 140px,-180px 100px;}
-}
-
-/* HEADER */
-
-header{
-    text-align:center;
-    padding:35px 15px;
-    background:rgba(0,0,0,.65);
-    backdrop-filter:blur(12px);
-    border-bottom:1px solid rgba(255,255,255,.3);
-}
-
-.logo{
-    font-family:Orbitron,sans-serif;
-    font-size:clamp(40px,10vw,75px);
-    font-weight:900;
-    letter-spacing:5px;
-
-    animation:logo 1.8s infinite alternate;
-}
-
-@keyframes logo{
-    from{
-        text-shadow:
-        0 0 5px white,
-        0 0 15px #7c3aed,
-        0 0 30px #7c3aed;
-    }
-
-    to{
-        text-shadow:
-        0 0 15px white,
-        0 0 35px #00eaff,
-        0 0 65px #ff00ff;
-    }
-}
-
-.subtitle{
-    margin-top:12px;
-    color:#eee;
-    font-size:17px;
-}
-
-/* YOUTUBE */
-
-.youtube{
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-    gap:12px;
-
-    margin-top:20px;
-    padding:13px 25px;
-
-    color:white;
-    text-decoration:none;
-    font-family:Orbitron,sans-serif;
-    font-weight:900;
-
-    border-radius:40px;
-
-    background:linear-gradient(
-        90deg,
-        red,
-        #ff0080,
-        red
-    );
-
-    background-size:300% 100%;
-
-    animation:
-        youtube 2s linear infinite,
-        youtubeButton 1.5s infinite;
-
-    box-shadow:
-        0 0 15px red,
-        0 0 40px rgba(255,0,0,.7);
-}
-
-.yt-icon{
-    font-size:28px;
-    animation:youtubeIcon .7s infinite alternate;
-
-    text-shadow:
-        0 0 8px white,
-        0 0 18px red,
-        0 0 30px red;
-}
-
-@keyframes youtube{
-    0%{background-position:0%;}
-    50%{background-position:100%;}
-    100%{background-position:200%;}
-}
-
-@keyframes youtubeButton{
-    0%,100%{
-        transform:translateY(0) scale(1);
-    }
-
-    50%{
-        transform:translateY(-5px) scale(1.04);
-    }
-}
-
-@keyframes youtubeIcon{
-    0%{transform:scale(1) rotate(-8deg);}
-    50%{transform:scale(1.25) rotate(8deg);}
-    100%{transform:scale(.9) rotate(-5deg);}
-}
-
-/* NAV */
-
-nav{
-    display:flex;
-    justify-content:center;
-    flex-wrap:wrap;
-    gap:12px;
-    padding:18px;
-
-    background:rgba(0,0,0,.55);
-    backdrop-filter:blur(10px);
-}
-
-nav a{
-    color:white;
-    text-decoration:none;
-
-    padding:10px 20px;
-    border-radius:30px;
-
-    background:rgba(255,255,255,.1);
-    border:1px solid rgba(255,255,255,.3);
-
-    transition:.3s;
-}
-
-nav a:hover{
-    transform:translateY(-5px) scale(1.08);
-    box-shadow:0 0 25px #00eaff;
-}
-
-/* FLOATING EMOJI */
-
-.floating{
-    position:fixed;
-    bottom:-60px;
-    font-size:28px;
-    pointer-events:none;
-    z-index:20;
-
-    animation:fly 7s linear infinite;
-}
-
-@keyframes fly{
-    0%{
-        transform:translateY(0) rotate(0deg) scale(.7);
-        opacity:0;
-    }
-
-    15%{opacity:1;}
-
-    100%{
-        transform:translateY(-115vh) rotate(500deg) scale(1.5);
-        opacity:0;
-    }
-}
-
-/* MAIN */
-
-.container{
-    width:min(1100px,92%);
-    margin:auto;
-    padding:45px 0;
-}
-
-.welcome{
-    text-align:center;
-    margin-bottom:45px;
-}
-
-.welcome h2{
-    font-size:clamp(25px,6vw,45px);
-    animation:titleGlow 2s infinite alternate;
-}
-
-@keyframes titleGlow{
-    from{
-        text-shadow:0 0 10px white,0 0 25px #8b5cf6;
-    }
-
-    to{
-        text-shadow:0 0 20px white,0 0 45px #00eaff;
-    }
-}
-
-.welcome p{
-    margin-top:15px;
-    color:#ddd;
-}
-
-/* SECTION */
-
-.section-title{
-    text-align:center;
-    margin:55px 0 25px;
-}
-
-.section-title h2{
-    font-family:Orbitron,sans-serif;
-    font-size:32px;
-
-    text-shadow:
-        0 0 10px white,
-        0 0 30px #8b5cf6;
-}
-
-/* PRODUCTS */
-
-.products{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-    gap:22px;
-}
-
-.card{
-    position:relative;
-    text-align:center;
-
-    padding:28px 20px;
-
-    background:rgba(0,0,0,.72);
-    backdrop-filter:blur(15px);
-
-    border:1px solid rgba(255,255,255,.3);
-    border-radius:25px;
-
-    overflow:hidden;
-
-    box-shadow:0 15px 35px rgba(0,0,0,.6);
-
-    transition:.4s;
-}
-
-.card:hover{
-    transform:translateY(-12px) scale(1.03);
-
-    box-shadow:
-        0 0 25px #8b5cf6,
-        0 0 55px rgba(0,234,255,.35);
-}
-
-.card::before{
-    content:"✨ 💎 ✨";
-    position:absolute;
-    top:8px;
-    left:50%;
-    transform:translateX(-50%);
-    white-space:nowrap;
-
-    animation:sideEmoji 2s infinite alternate;
-}
-
-@keyframes sideEmoji{
-    from{
-        letter-spacing:2px;
-        opacity:.5;
-    }
-
-    to{
-        letter-spacing:12px;
-        opacity:1;
-    }
-}
-
-.card::after{
-    content:"🔥";
-    position:absolute;
-    right:10px;
-    bottom:8px;
-    font-size:30px;
-
-    animation:fire 1s infinite alternate;
-}
-
-@keyframes fire{
-    to{
-        transform:scale(1.35) rotate(10deg);
-        filter:drop-shadow(0 0 12px orange);
-    }
-}
-
-.icon{
-    margin-top:15px;
-    font-size:58px;
-
-    animation:iconMove 1.5s infinite alternate;
-
-    filter:drop-shadow(0 0 15px white);
-}
-
-@keyframes iconMove{
-    to{
-        transform:translateY(-10px) rotate(5deg) scale(1.08);
-    }
-}
-
-.card h3{
-    margin:10px 0;
-    font-size:22px;
-}
-
-.description{
-    color:#ccc;
-    min-height:42px;
-}
-
-/* PRICE */
-
-.price{
-    position:relative;
-    display:inline-block;
-
-    margin:20px 0;
-
-    font-family:Orbitron,sans-serif;
-    font-size:27px;
-    font-weight:900;
-
-    animation:price 1.3s infinite alternate;
-
-    text-shadow:
-        0 0 10px #00eaff,
-        0 0 25px #8b5cf6;
-}
-
-@keyframes price{
-    from{transform:scale(1);}
-    to{transform:scale(1.12);}
-}
-
-/* BUY */
-
-.buy{
-    display:inline-block;
-
-    padding:14px 30px;
-
-    color:white;
-    text-decoration:none;
-    font-weight:900;
-
-    border-radius:35px;
-
-    border:0;
-    cursor:pointer;
-
-    font-size:16px;
-
-    background:linear-gradient(
-        135deg,
-        #7c3aed,
-        #2563eb,
-        #00eaff
-    );
-
-    background-size:200% 200%;
-
-    animation:buyGlow 2s infinite;
-
-    box-shadow:0 0 20px rgba(0,234,255,.6);
-
-    transition:.25s;
-}
-
-.buy:hover{
-    transform:scale(1.08);
-}
-
-@keyframes buyGlow{
-    0%,100%{
-        background-position:0% 50%;
-    }
-
-    50%{
-        background-position:100% 50%;
-        box-shadow:
-            0 0 35px #00eaff,
-            0 0 60px rgba(124,58,237,.7);
-    }
-}
-
-/* 💳 PAYMENT */
-
 .payment-section{
-    margin:70px auto 20px;
-    padding:35px 22px;
-
-    max-width:800px;
-
-    background:rgba(0,0,0,.75);
-    backdrop-filter:blur(18px);
-
-    border:2px solid rgba(0,234,255,.35);
-    border-radius:30px;
-
+    margin:40px auto;
+    max-width:700px;
+    padding:28px 20px;
+    border-radius:28px;
+    background:rgba(0,0,0,.65);
+    border:2px solid rgba(255,255,255,.2);
     box-shadow:
-        0 0 25px rgba(0,234,255,.25),
-        0 0 70px rgba(139,92,246,.18);
-
+        0 0 20px rgba(0,255,255,.25),
+        0 0 50px rgba(255,0,255,.15);
     text-align:center;
 }
 
-.payment-title{
-    font-family:Orbitron,sans-serif;
-    font-size:clamp(24px,6vw,38px);
-
-    animation:paymentGlow 1.5s infinite alternate;
-}
-
-@keyframes paymentGlow{
-    from{
-        text-shadow:0 0 10px #00eaff;
-    }
-
-    to{
-        text-shadow:
-            0 0 20px white,
-            0 0 45px #ff00ff;
-    }
+.payment-section h2{
+    margin:0;
+    color:white;
+    font-size:28px;
+    text-shadow:
+        0 0 8px #00ffff,
+        0 0 18px #ff00ff;
 }
 
 .payment-subtitle{
-    color:#ccc;
-    margin:12px 0 28px;
+    color:#ddd;
+    margin:10px 0 25px;
 }
 
-.bank-grid{
+.bank-cards{
     display:grid;
     grid-template-columns:repeat(2,1fr);
-    gap:16px;
+    gap:15px;
 }
 
 .bank-card{
-    position:relative;
-
     display:flex;
     align-items:center;
-    gap:15px;
-
+    gap:14px;
     padding:18px;
-
     border:1px solid rgba(255,255,255,.25);
-    border-radius:22px;
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(0,234,255,.12),
-            rgba(139,92,246,.18)
-        );
-
+    border-radius:20px;
+    background:linear-gradient(
+        135deg,
+        rgba(0,255,255,.12),
+        rgba(255,0,255,.12)
+    );
     color:white;
-
     cursor:pointer;
-
-    text-align:left;
-
     transition:.3s;
+    text-align:left;
 }
 
 .bank-card:hover{
-    transform:translateY(-6px) scale(1.02);
-
-    border-color:#00eaff;
-
+    transform:translateY(-5px) scale(1.02);
+    border-color:#00ffff;
     box-shadow:
-        0 0 20px #00eaff,
-        0 0 40px rgba(255,0,255,.3);
+        0 0 15px #00ffff,
+        0 0 30px rgba(255,0,255,.4);
 }
 
-.bank-card.selected{
-    border-color:#00ff88;
-
-    box-shadow:
-        0 0 20px #00ff88,
-        0 0 40px rgba(0,255,136,.25);
+.bank-icon{
+    font-size:35px;
 }
 
-.bank-logo{
-    width:55px;
-    height:55px;
-
-    flex-shrink:0;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    border-radius:16px;
-
-    font-size:27px;
-
-    background:rgba(255,255,255,.12);
-
-    box-shadow:inset 0 0 15px rgba(255,255,255,.1);
-}
-
-.bank-info strong{
+.bank-card strong{
     display:block;
     font-size:18px;
 }
 
-.bank-info span{
+.bank-card span{
     display:block;
-    margin-top:4px;
-    color:#aaa;
+    color:#bbb;
     font-size:13px;
+    margin-top:4px;
 }
 
-.payment-status{
-    margin-top:22px;
+.selected-bank{
+    margin-top:20px;
     padding:15px;
-
-    border-radius:18px;
-
-    background:rgba(0,234,255,.08);
-    border:1px solid rgba(0,234,255,.2);
-
-    color:#00eaff;
-
-    font-weight:700;
+    border-radius:15px;
+    color:#00ffff;
+    background:rgba(0,255,255,.08);
+    font-weight:bold;
 }
-
-.pay-button{
-    margin-top:18px;
-
-    width:100%;
-
-    padding:16px;
-
-    border:0;
-    border-radius:18px;
-
-    color:white;
-
-    font-size:17px;
-    font-weight:900;
-
-    cursor:pointer;
-
-    background:linear-gradient(
-        90deg,
-        #7c3aed,
-        #00eaff,
-        #ff00aa
-    );
-
-    background-size:250% 100%;
-
-    animation:payMove 3s linear infinite;
-
-    box-shadow:0 0 25px rgba(0,234,255,.4);
-}
-
-.pay-button:hover{
-    transform:scale(1.02);
-}
-
-@keyframes payMove{
-    0%{background-position:0%;}
-    100%{background-position:250%;}
-}
-
-/* INFO */
-
-.info{
-    margin-top:45px;
-
-    padding:25px;
-
-    border-radius:25px;
-
-    background:rgba(0,0,0,.65);
-
-    border:1px solid rgba(255,255,255,.2);
-
-    text-align:center;
-}
-
-.info p{
-    color:#ccc;
-    line-height:1.8;
-}
-
-/* FOOTER */
-
-footer{
-    margin-top:50px;
-    padding:35px 15px;
-
-    text-align:center;
-
-    background:rgba(0,0,0,.75);
-
-    border-top:1px solid rgba(255,255,255,.2);
-}
-
-.footer-logo{
-    font-family:Orbitron,sans-serif;
-    font-size:25px;
-
-    text-shadow:
-        0 0 10px #00eaff,
-        0 0 25px #ff00ff;
-}
-
-footer p{
-    margin-top:10px;
-    color:#aaa;
-}
-
-/* MOBILE */
 
 @media(max-width:600px){
-
-    .bank-grid{
+    .bank-cards{
         grid-template-columns:1fr;
     }
 
-    .payment-section{
-        padding:28px 15px;
-    }
-
-    .logo{
-        letter-spacing:2px;
-    }
-
-    .products{
-        grid-template-columns:1fr;
+    .payment-section h2{
+        font-size:23px;
     }
 }
 </style>
-</head>
-
-<body>
-
-<!-- 🌟 Շարժվող սմայլիկներ -->
-<div class="floating" style="left:8%;animation-delay:0s;">✨</div>
-<div class="floating" style="left:25%;animation-delay:2s;">🔥</div>
-<div class="floating" style="left:45%;animation-delay:4s;">💎</div>
-<div class="floating" style="left:65%;animation-delay:1s;">💰</div>
-<div class="floating" style="left:85%;animation-delay:3s;">❤️</div>
-
-<header>
-
-    <div class="logo">MKOYAN</div>
-
-    <div class="subtitle">
-        🔥 MKOYAN SHOP — Քո ամենասիրելի օնլայն շոփը 🔥
-    </div>
-
-    <!-- Փոխիր հղումը քո YouTube-ի հղումով -->
-    <a
-        class="youtube"
-        href="https://youtube.com/"
-        target="_blank"
-    >
-        <span class="yt-icon">▶</span>
-        MKOYAN YOUTUBE
-    </a>
-
-</header>
-
-<nav>
-    <a href="#shop">🛒 Շոփ</a>
-    <a href="#payment">💳 Վճարում</a>
-    <a href="#info">ℹ️ Մեր մասին</a>
-</nav>
-
-<main class="container">
-
-    <section class="welcome">
-
-        <h2>🔥 Բարի գալուստ MKOYAN SHOP 🔥</h2>
-
-        <p>
-            Ընտրիր քո ապրանքը, սեղմիր «Գնել»
-            և ընտրիր վճարման եղանակը 💳✨
-        </p>
-
-    </section>
-
-    <!-- 🛒 PRODUCTS -->
-
-    <section id="shop">
-
-        <div class="section-title">
-            <h2>🛍️ Մեր ապրանքները 🛍️</h2>
-        </div>
-
-        <div class="products">
-
-            <div class="card">
-
-                <div class="icon">👕</div>
-
-                <h3>MKOYAN T-Shirt</h3>
-
-                <div class="description">
-                    🔥 MKOYAN ոճային շապիկ
-                </div>
-
-                <div class="price">
-                    5,000 ֏
-                </div>
-
-                <button
-                    class="buy"
-                    onclick="chooseProduct('MKOYAN T-Shirt','5,000 ֏')"
-                >
-                    🛒 Գնել
-                </button>
-
-            </div>
-
-            <div class="card">
-
-                <div class="icon">🧢</div>
-
-                <h3>MKOYAN Cap</h3>
-
-                <div class="description">
-                    😎 MKOYAN բրենդային գլխարկ
-                </div>
-
-                <div class="price">
-                    4,000 ֏
-                </div>
-
-                <button
-                    class="buy"
-                    onclick="chooseProduct('MKOYAN Cap','4,000 ֏')"
-                >
-                    🛒 Գնել
-                </button>
-
-            </div>
-
-            <div class="card">
-
-                <div class="icon">🎁</div>
-
-                <h3>MKOYAN Box</h3>
-
-                <div class="description">
-                    🎁 Հատուկ MKOYAN փաթեթ
-                </div>
-
-                <div class="price">
-                    10,000 ֏
-                </div>
-
-                <button
-                    class="buy"
-                    onclick="chooseProduct('MKOYAN Box','10,000 ֏')"
-                >
-                    🛒 Գնել
-                </button>
-
-            </div>
-
-        </div>
-
-    </section>
-
-    <!-- 💳 PAYMENT -->
-
-    <section id="payment" class="payment-section">
-
-        <h2 class="payment-title">
-            💳 Ընտրիր բանկը
-        </h2>
-
-        <p class="payment-subtitle">
-            Ընտրիր քեզ հարմար վճարման եղանակը 👇
-        </p>
-
-        <div class="bank-grid">
-
-            <button
-                class="bank-card"
-                onclick="selectBank(this,'IDBank')"
-            >
-                <div class="bank-logo">💳</div>
-
-                <div class="bank-info">
-                    <strong>IDBank</strong>
-                    <span>Քարտով վճարում</span>
-                </div>
-            </button>
-
-            <button
-                class="bank-card"
-                onclick="selectBank(this,'Ameriabank')"
-            >
-                <div class="bank-logo">💳</div>
-
-                <div class="bank-info">
-                    <strong>Ameriabank</strong>
-                    <span>Քարտով վճարում</span>
-                </div>
-            </button>
-
-            <button
-                class="bank-card"
-                onclick="selectBank(this,'ACBA')"
-            >
-                <div class="bank-logo">💳</div>
-
-                <div class="bank-info">
-                    <strong>ACBA</strong>
-                    <span>Քարտով վճարում</span>
-                </div>
-            </button>
-
-            <button
-                class="bank-card"
-                onclick="selectBank(this,'Ardshinbank')"
-            >
-                <div class="bank-logo">💳</div>
-
-                <div class="bank-info">
-                    <strong>Ardshinbank</strong>
-                    <span>Քարտով վճարում</span>
-                </div>
-            </button>
-
-        </div>
-
-        <div id="paymentStatus" class="payment-status">
-            👆 Նախ ընտրիր ապրանքը և բանկը
-        </div>
-
-        <button
-            class="pay-button"
-            onclick="startPayment()"
-        >
-            🔐 Շարունակել վճարմանը 💳
-        </button>
-
-    </section>
-
-    <!-- ℹ️ INFO -->
-
-    <section id="info" class="info">
-
-        <h2>✨ MKOYAN SHOP ✨</h2>
-
-        <p>
-            🛒 Ընտրիր ապրանք<br>
-            💳 Ընտրիր վճարման եղանակ<br>
-            🔐 Կատարիր անվտանգ վճարում<br>
-            ❤️ Շնորհակալություն MKOYAN SHOP-ից
-        </p>
-
-    </section>
-
-</main>
-
-<footer>
-
-    <div class="footer-logo">
-        🔥 MKOYAN SHOP 🔥
-    </div>
-
-    <p>
-        © 2026 MKOYAN SHOP — Բոլոր իրավունքները պաշտպանված են ❤️
-    </p>
-
-</footer>
 
 <script>
+function selectBank(bank){
 
-let selectedProduct = "";
-let selectedPrice = "";
-let selectedBank = "";
+    document.getElementById("selectedBank").innerHTML =
+        "✅ Ընտրված է՝ <strong>" + bank + "</strong>";
 
-/* 🛒 Ընտրել ապրանք */
-
-function chooseProduct(product, price){
-
-    selectedProduct = product;
-    selectedPrice = price;
-
-    document.getElementById("paymentStatus").innerHTML =
-        "🛒 Ընտրված ապրանք՝ <strong>" +
-        product +
-        "</strong><br>" +
-        "💰 Գին՝ <strong>" +
-        price +
-        "</strong><br>" +
-        "💳 Այժմ ընտրիր բանկը";
-
-    document
-        .getElementById("payment")
-        .scrollIntoView({
-            behavior:"smooth"
-        });
+    // Այստեղ հետո կարող ենք դնել տվյալ բանկի
+    // իրական վճարման հղումը/API-ն։
 }
-
-/* 💳 Ընտրել բանկ */
-
-function selectBank(button, bank){
-
-    selectedBank = bank;
-
-    document
-        .querySelectorAll(".bank-card")
-        .forEach(card => {
-            card.classList.remove("selected");
-        });
-
-    button.classList.add("selected");
-
-    if(selectedProduct){
-
-        document.getElementById("paymentStatus").innerHTML =
-            "✅ Ապրանք՝ <strong>" +
-            selectedProduct +
-            "</strong><br>" +
-            "💰 Գին՝ <strong>" +
-            selectedPrice +
-            "</strong><br>" +
-            "💳 Բանկ՝ <strong>" +
-            bank +
-            "</strong>";
-    }
-    else{
-
-        document.getElementById("paymentStatus").innerHTML =
-            "💳 Ընտրված բանկ՝ <strong>" +
-            bank +
-            "</strong><br>" +
-            "🛒 Այժմ ընտրիր ապրանքը";
-    }
-}
-
-/* 🔐 Վճարում */
-
-function startPayment(){
-
-    if(!selectedProduct){
-
-        alert("🛒 Նախ ընտրիր ապրանքը։");
-
-        document
-            .getElementById("shop")
-            .scrollIntoView({
-                behavior:"smooth"
-            });
-
-        return;
-    }
-
-    if(!selectedBank){
-
-        alert("💳 Նախ ընտրիր բանկը։");
-
-        return;
-    }
-
-    alert(
-        "🔥 MKOYAN SHOP 🔥\n\n" +
-        "Ապրանք՝ " + selectedProduct + "\n" +
-        "Գին՝ " + selectedPrice + "\n" +
-        "Բանկ՝ " + selectedBank + "\n\n" +
-        "🔐 Իրական վճարման հղումը պետք է միացվի բանկի/վճարային համակարգի միջոցով։"
-    );
-}
-
 </script>
-
-</body>
-</html>

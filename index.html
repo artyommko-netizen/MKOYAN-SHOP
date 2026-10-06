@@ -4,10 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>🔥 MKOYAN SHOP 🔥</title>
+<title>🔥 MKOYAN SHOP | Gaming Store</title>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Noto+Sans+Armenian:wght@400;600;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800;900&family=Noto+Sans+Armenian:wght@400;600;700;900&display=swap');
 
 *{
     box-sizing:border-box;
@@ -21,103 +21,117 @@ html{
 
 body{
     font-family:'Noto Sans Armenian',Arial,sans-serif;
-    color:#fff;
+    color:white;
     min-height:100vh;
     overflow-x:hidden;
 
     background:
-        radial-gradient(circle at 15% 15%,rgba(0,255,255,.15),transparent 30%),
-        radial-gradient(circle at 85% 25%,rgba(255,0,255,.16),transparent 30%),
-        radial-gradient(circle at 50% 90%,rgba(255,0,80,.12),transparent 35%),
-        #050511;
+        linear-gradient(
+            rgba(3,4,15,.58),
+            rgba(3,4,15,.72)
+        ),
+        url('./file_00000000799081f4a645b2fa3c325f48.png')
+        center center / cover fixed no-repeat;
 }
 
-/* STARS */
+/* ================= BACKGROUND ================= */
 
-.stars,
-.stars2{
+.overlay{
     position:fixed;
     inset:0;
     pointer-events:none;
     z-index:-1;
+
+    background:
+        radial-gradient(circle at 20% 20%,rgba(0,255,255,.12),transparent 28%),
+        radial-gradient(circle at 80% 20%,rgba(255,0,255,.12),transparent 28%),
+        radial-gradient(circle at 50% 100%,rgba(0,100,255,.12),transparent 35%);
 }
 
-.stars{
-    background-image:
-        radial-gradient(2px 2px at 20px 30px,#fff,transparent),
-        radial-gradient(1px 1px at 90px 70px,#00ffff,transparent),
-        radial-gradient(2px 2px at 160px 120px,#fff,transparent),
-        radial-gradient(1px 1px at 240px 40px,#ff4fff,transparent),
-        radial-gradient(2px 2px at 320px 180px,#fff,transparent);
-    background-size:380px 240px;
-    animation:starsMove 25s linear infinite;
-    opacity:.6;
-}
-
-.stars2{
-    background-image:
-        radial-gradient(1px 1px at 60px 100px,#fff,transparent),
-        radial-gradient(2px 2px at 180px 50px,#00ffff,transparent),
-        radial-gradient(1px 1px at 290px 160px,#ff00ff,transparent);
-    background-size:420px 300px;
-    animation:starsMove 40s linear infinite reverse;
-    opacity:.45;
-}
-
-@keyframes starsMove{
-    from{transform:translateY(0)}
-    to{transform:translateY(240px)}
-}
-
-/* FLOATING */
-
-.float{
+.grid{
     position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:-1;
+
+    background-image:
+        linear-gradient(rgba(0,255,255,.035) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(0,255,255,.035) 1px,transparent 1px);
+
+    background-size:50px 50px;
+
+    mask-image:linear-gradient(to bottom,black,transparent);
+}
+
+.particle{
+    position:fixed;
+    width:4px;
+    height:4px;
+    border-radius:50%;
+
+    background:#00ffff;
+
+    box-shadow:0 0 12px #00ffff;
+
     pointer-events:none;
     z-index:0;
-    font-size:28px;
-    animation:floatEmoji 7s ease-in-out infinite;
-    opacity:.7;
+
+    animation:particleMove linear infinite;
 }
 
-.f1{left:4%;top:25%}
-.f2{right:5%;top:18%;animation-delay:1s}
-.f3{left:8%;bottom:18%;animation-delay:2s}
-.f4{right:8%;bottom:22%;animation-delay:3s}
-.f5{left:48%;top:10%;animation-delay:4s}
+.p1{left:10%;top:80%;animation-duration:8s}
+.p2{left:25%;top:90%;animation-duration:11s}
+.p3{left:50%;top:85%;animation-duration:9s}
+.p4{left:70%;top:90%;animation-duration:13s}
+.p5{left:90%;top:75%;animation-duration:10s}
 
-@keyframes floatEmoji{
-    0%,100%{
-        transform:translateY(0) rotate(0);
+@keyframes particleMove{
+    from{
+        transform:translateY(100px);
+        opacity:0;
     }
 
-    50%{
-        transform:translateY(-30px) rotate(15deg);
+    20%{
+        opacity:1;
+    }
+
+    80%{
+        opacity:1;
+    }
+
+    to{
+        transform:translateY(-700px);
+        opacity:0;
     }
 }
 
-/* HEADER */
+/* ================= HEADER ================= */
 
 header{
     text-align:center;
-    padding:45px 15px 25px;
+    padding:38px 15px 25px;
+
     position:relative;
     z-index:2;
 }
 
 .logo{
     font-family:'Orbitron',sans-serif;
-    font-size:clamp(42px,10vw,85px);
-    font-weight:900;
-    letter-spacing:4px;
 
-    background:linear-gradient(
-        90deg,
-        #00ffff,
-        #fff,
-        #ff00ff,
-        #00ffff
-    );
+    font-size:clamp(42px,11vw,85px);
+
+    font-weight:900;
+
+    letter-spacing:3px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #00ffff,
+            #ffffff,
+            #ff00ff,
+            #00ffff
+        );
 
     background-size:300%;
 
@@ -126,115 +140,122 @@ header{
 
     color:transparent;
 
-    animation:logoGlow 4s linear infinite;
+    animation:logo 4s linear infinite;
+
+    filter:drop-shadow(0 0 20px rgba(0,255,255,.35));
 }
 
-@keyframes logoGlow{
-    0%{
-        background-position:0%;
-    }
-
-    100%{
+@keyframes logo{
+    to{
         background-position:300%;
     }
 }
 
 .subtitle{
-    margin-top:12px;
-    font-family:'Orbitron',sans-serif;
-    font-size:clamp(12px,3vw,19px);
+    margin-top:10px;
+
     color:#ddd;
+
+    font-family:'Orbitron',sans-serif;
+
+    font-size:clamp(11px,2.7vw,17px);
+
     letter-spacing:2px;
 }
 
-/* YOUTUBE */
+/* ================= YOUTUBE ================= */
 
 .youtube{
     display:inline-flex;
+
     align-items:center;
     justify-content:center;
+
     gap:10px;
 
-    margin-top:25px;
-    padding:14px 24px;
+    margin-top:22px;
 
-    border:2px solid #ff1744;
-    border-radius:50px;
-
-    background:linear-gradient(
-        135deg,
-        rgba(255,0,50,.3),
-        rgba(120,0,30,.5)
-    );
+    padding:13px 23px;
 
     color:white;
+
     text-decoration:none;
 
     font-weight:900;
-    font-size:17px;
+
+    border-radius:50px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff1744,
+            #b40025
+        );
+
+    border:2px solid #ff4966;
 
     box-shadow:
-        0 0 10px #ff1744,
-        inset 0 0 15px rgba(255,0,50,.15);
-
-    animation:youtubePulse 1.8s infinite;
+        0 0 15px rgba(255,0,50,.65);
 
     transition:.3s;
 }
 
 .youtube:hover{
-    transform:scale(1.07);
-    box-shadow:0 0 30px #ff1744;
+    transform:scale(1.06);
+
+    box-shadow:
+        0 0 35px rgba(255,0,50,.9);
 }
 
-@keyframes youtubePulse{
-    50%{
-        transform:scale(1.04);
-    }
-}
-
-/* NAV */
+/* ================= NAV ================= */
 
 nav{
     position:sticky;
     top:0;
-    z-index:20;
+    z-index:50;
 
     display:flex;
     justify-content:center;
     flex-wrap:wrap;
-    gap:8px;
+    gap:7px;
 
     padding:10px;
 
-    background:rgba(5,5,17,.84);
-    backdrop-filter:blur(15px);
+    background:rgba(4,5,18,.86);
+
+    backdrop-filter:blur(18px);
 
     border-bottom:1px solid rgba(0,255,255,.15);
 }
 
 nav a{
-    color:#fff;
+    color:white;
     text-decoration:none;
+
+    font-size:13px;
 
     font-weight:800;
 
     padding:9px 13px;
+
     border-radius:20px;
 
-    transition:.3s;
+    transition:.25s;
 }
 
 nav a:hover{
+    color:#001014;
+
     background:#00ffff;
-    color:#050511;
+
     box-shadow:0 0 20px #00ffff;
 }
 
-/* MAIN */
+/* ================= MAIN ================= */
 
 .container{
-    width:min(1100px,94%);
+    width:min(1150px,94%);
+
     margin:auto;
 
     position:relative;
@@ -242,105 +263,126 @@ nav a:hover{
 }
 
 section{
-    padding:45px 0 15px;
+    padding:42px 0 10px;
 }
 
-.section-title{
+.title{
     text-align:center;
+
     margin-bottom:25px;
 }
 
-.section-title h2{
+.title h2{
     font-family:'Orbitron',sans-serif;
-    font-size:clamp(24px,6vw,38px);
-    margin-bottom:7px;
+
+    font-size:clamp(25px,6vw,40px);
 }
 
-.section-title p{
+.title p{
     color:#aaa;
+
+    margin-top:7px;
 }
 
-/* PRODUCTS */
+/* ================= CATEGORY ================= */
+
+.category{
+    margin-bottom:20px;
+}
+
+.category-name{
+    display:flex;
+
+    align-items:center;
+    gap:10px;
+
+    margin-bottom:14px;
+
+    font-family:'Orbitron',sans-serif;
+
+    font-size:21px;
+}
+
+/* ================= PRODUCTS ================= */
 
 .products{
     display:grid;
-    grid-template-columns:repeat(
-        auto-fit,
-        minmax(230px,1fr)
-    );
 
-    gap:18px;
+    grid-template-columns:
+        repeat(auto-fit,minmax(220px,1fr));
+
+    gap:17px;
 }
 
 .card{
     position:relative;
+
     overflow:hidden;
 
-    padding:24px 18px;
+    padding:22px 17px;
 
-    border-radius:22px;
+    border-radius:23px;
 
-    border:1px solid rgba(0,255,255,.22);
+    border:1px solid rgba(255,255,255,.12);
 
     background:
         linear-gradient(
             145deg,
-            rgba(255,255,255,.09),
+            rgba(255,255,255,.095),
             rgba(255,255,255,.025)
         );
 
-    backdrop-filter:blur(12px);
+    backdrop-filter:blur(14px);
 
     box-shadow:
-        0 15px 40px rgba(0,0,0,.35),
-        inset 0 0 25px rgba(255,255,255,.025);
+        0 15px 45px rgba(0,0,0,.35);
 
     transition:.35s;
 }
 
-.card::before{
+.card:hover{
+    transform:translateY(-7px) scale(1.015);
+
+    border-color:#00ffff;
+
+    box-shadow:
+        0 0 25px rgba(0,255,255,.2),
+        0 20px 50px rgba(0,0,0,.5);
+}
+
+.card::after{
     content:"";
 
     position:absolute;
 
-    width:150px;
-    height:150px;
+    width:130px;
+    height:130px;
 
-    top:-80px;
-    right:-80px;
+    right:-65px;
+    top:-65px;
 
     border-radius:50%;
 
     background:#00ffff;
 
-    filter:blur(70px);
+    filter:blur(65px);
 
-    opacity:.18;
+    opacity:.13;
 }
 
-.card:hover{
-    transform:translateY(-8px);
-
-    border-color:#00ffff;
-
-    box-shadow:
-        0 0 25px rgba(0,255,255,.18),
-        0 20px 50px rgba(0,0,0,.5);
-}
-
-.card-icon{
-    font-size:55px;
+.icon{
+    font-size:52px;
 
     text-align:center;
 
-    margin-bottom:10px;
+    margin-bottom:8px;
 
-    animation:iconFloat 3s ease-in-out infinite;
+    animation:bob 3s ease-in-out infinite;
 }
 
-@keyframes iconFloat{
+@keyframes bob{
     50%{
-        transform:translateY(-7px);
+        transform:translateY(-6px);
     }
 }
 
@@ -349,203 +391,187 @@ section{
 
     font-family:'Orbitron',sans-serif;
 
-    font-size:20px;
+    font-size:19px;
 
-    margin-bottom:10px;
+    margin-bottom:8px;
+}
+
+.card-description{
+    text-align:center;
+
+    color:#aaa;
+
+    font-size:13px;
+
+    min-height:39px;
+
+    margin-bottom:13px;
 }
 
 .price{
     text-align:center;
 
-    font-size:24px;
+    color:#00ffff;
 
     font-weight:900;
 
-    color:#00ffff;
+    font-size:21px;
 
-    margin-bottom:18px;
-
-    text-shadow:0 0 12px rgba(0,255,255,.7);
+    margin-bottom:14px;
 }
 
 .buy{
-    display:block;
-
     width:100%;
 
-    text-align:center;
+    border:0;
 
-    border:none;
+    cursor:pointer;
 
-    text-decoration:none;
+    padding:12px;
 
-    padding:12px 16px;
+    border-radius:13px;
 
-    border-radius:14px;
+    font-weight:900;
 
-    color:#050511;
+    color:#03040f;
 
     background:
         linear-gradient(
             90deg,
             #00ffff,
-            #7c4dff,
+            #756cff,
             #ff00ff
         );
 
-    font-weight:900;
-
-    cursor:pointer;
-
     box-shadow:
-        0 0 15px rgba(0,255,255,.25);
+        0 0 16px rgba(0,255,255,.18);
 
-    transition:.3s;
+    transition:.25s;
 }
 
 .buy:hover{
-    transform:scale(1.04);
+    transform:scale(1.035);
 
     box-shadow:
-        0 0 25px rgba(255,0,255,.55);
+        0 0 25px rgba(255,0,255,.5);
 }
 
-.game-card{
-    border-color:rgba(255,0,255,.28);
+/* ================= BADGES ================= */
+
+.badge{
+    position:absolute;
+
+    top:10px;
+    right:10px;
+
+    padding:5px 9px;
+
+    border-radius:20px;
+
+    font-size:10px;
+
+    font-weight:900;
+
+    background:#ff1744;
+
+    box-shadow:0 0 13px rgba(255,23,68,.6);
 }
 
-.game-card:hover{
-    border-color:#ff00ff;
+.badge.hot{
+    background:#ff9800;
 }
 
-/* PAYMENT */
+.badge.new{
+    background:#00c853;
+}
 
-.payment-box{
-    margin-top:35px;
+/* ================= PAYMENT ================= */
 
+.payment{
     padding:25px;
 
-    border-radius:24px;
+    margin-top:25px;
 
-    border:1px solid rgba(255,255,255,.15);
+    border-radius:25px;
 
     background:rgba(255,255,255,.055);
+
+    border:1px solid rgba(0,255,255,.16);
 
     backdrop-filter:blur(15px);
 
     text-align:center;
 }
 
-.payment-box h2{
-    font-family:'Orbitron',sans-serif;
-
-    margin-bottom:8px;
-}
-
-.payment-box p{
-    color:#aaa;
-
-    margin-bottom:20px;
-}
-
 .banks{
     display:grid;
 
     grid-template-columns:
-        repeat(auto-fit,minmax(170px,1fr));
+        repeat(auto-fit,minmax(160px,1fr));
 
-    gap:12px;
+    gap:11px;
+
+    margin-top:18px;
 }
 
 .bank{
-    border:1px solid rgba(0,255,255,.2);
+    padding:15px 10px;
 
     border-radius:15px;
 
-    padding:17px 10px;
-
-    background:rgba(0,0,0,.2);
+    border:1px solid rgba(0,255,255,.2);
 
     color:white;
 
-    cursor:pointer;
+    background:rgba(0,0,0,.25);
 
-    font-size:16px;
+    cursor:pointer;
 
     font-weight:900;
 
-    transition:.3s;
+    transition:.25s;
 }
 
 .bank:hover,
-.bank.selected{
-    background:rgba(0,255,255,.15);
-
+.bank.active{
     border-color:#00ffff;
 
-    box-shadow:
-        0 0 18px rgba(0,255,255,.3);
+    background:rgba(0,255,255,.12);
+
+    box-shadow:0 0 20px rgba(0,255,255,.25);
 
     transform:translateY(-3px);
 }
 
-.selected-bank{
-    margin-top:18px;
-
-    min-height:25px;
-
-    color:#00ffff;
-
-    font-weight:900;
-}
-
-.notice{
-    margin-top:18px;
-
-    padding:13px;
-
-    border-radius:12px;
-
-    background:rgba(255,193,7,.08);
-
-    border:1px solid rgba(255,193,7,.25);
-
-    color:#ddd;
-
-    font-size:13px;
-}
-
-/* ORDER */
+/* ================= ORDER ================= */
 
 .order{
-    margin:40px 0;
+    margin:42px 0;
 
-    padding:30px 20px;
+    padding:32px 20px;
 
     text-align:center;
 
-    border-radius:25px;
+    border-radius:26px;
+
+    border:1px solid rgba(255,255,255,.13);
 
     background:
         linear-gradient(
             135deg,
-            rgba(255,0,100,.12),
+            rgba(255,0,120,.1),
             rgba(0,255,255,.08)
         );
-
-    border:1px solid rgba(255,255,255,.13);
 }
 
 .order h2{
     font-family:'Orbitron',sans-serif;
 
-    font-size:27px;
-
     margin-bottom:10px;
 }
 
 .order p{
-    color:#bbb;
+    color:#aaa;
 
     margin-bottom:20px;
 }
@@ -554,17 +580,18 @@ section{
     display:inline-flex;
 
     align-items:center;
+
     justify-content:center;
 
-    gap:9px;
+    padding:14px 25px;
 
-    padding:14px 24px;
+    border-radius:50px;
 
     color:white;
 
     text-decoration:none;
 
-    border-radius:50px;
+    font-weight:900;
 
     background:
         linear-gradient(
@@ -576,57 +603,34 @@ section{
             #4f5bd5
         );
 
-    font-weight:900;
-
     box-shadow:
-        0 0 20px rgba(214,41,118,.4);
+        0 0 25px rgba(214,41,118,.4);
 
     transition:.3s;
 }
 
 .instagram:hover{
     transform:scale(1.06);
-
-    box-shadow:
-        0 0 35px rgba(214,41,118,.7);
 }
 
-/* FOOTER */
-
-footer{
-    margin-top:30px;
-
-    padding:25px 15px;
-
-    text-align:center;
-
-    color:#777;
-
-    border-top:
-        1px solid rgba(255,255,255,.08);
-}
-
-footer strong{
-    color:#00ffff;
-}
-
-/* MODAL */
+/* ================= MODAL ================= */
 
 .modal{
-    display:none;
-
     position:fixed;
 
     inset:0;
 
     z-index:100;
 
+    display:none;
+
     align-items:center;
+
     justify-content:center;
 
-    padding:18px;
+    padding:15px;
 
-    background:rgba(0,0,0,.78);
+    background:rgba(0,0,0,.82);
 
     backdrop-filter:blur(10px);
 }
@@ -636,7 +640,7 @@ footer strong{
 }
 
 .modal-box{
-    width:min(500px,100%);
+    width:min(510px,100%);
 
     max-height:90vh;
 
@@ -646,209 +650,237 @@ footer strong{
 
     border-radius:25px;
 
+    border:1px solid rgba(0,255,255,.3);
+
     background:
         linear-gradient(
             145deg,
-            #11112b,
-            #090914
+            #11122d,
+            #070812
         );
 
-    border:1px solid rgba(0,255,255,.35);
-
     box-shadow:
-        0 0 50px rgba(0,255,255,.2);
+        0 0 50px rgba(0,255,255,.18);
 
-    animation:modalIn .25s ease;
+    animation:modal .25s ease;
 }
 
-@keyframes modalIn{
+@keyframes modal{
     from{
-        transform:scale(.85);
         opacity:0;
+        transform:scale(.88);
     }
 
     to{
-        transform:scale(1);
         opacity:1;
+        transform:scale(1);
     }
 }
 
-.modal-title{
+.modal h2{
     text-align:center;
 
     font-family:'Orbitron',sans-serif;
 
-    font-size:23px;
-
-    margin-bottom:15px;
+    margin-bottom:17px;
 }
 
-.modal-product{
+.selected-product{
     text-align:center;
 
     padding:15px;
-
-    margin-bottom:18px;
 
     border-radius:15px;
 
     background:rgba(0,255,255,.07);
 
-    border:1px solid rgba(0,255,255,.15);
+    border:1px solid rgba(0,255,255,.16);
+
+    margin-bottom:17px;
 }
 
-.modal-product strong{
+.selected-product strong{
     display:block;
-
-    font-size:20px;
 
     color:#00ffff;
+
+    font-size:21px;
 }
 
-.modal-product span{
+.selected-product span{
     display:block;
 
-    margin-top:5px;
+    margin-top:4px;
 
     color:#ddd;
 }
 
-.modal-info{
-    padding:12px;
+.field{
+    margin-bottom:13px;
+}
 
-    margin-bottom:15px;
+.field label{
+    display:block;
 
-    border-radius:12px;
-
-    background:rgba(255,255,255,.05);
+    margin-bottom:6px;
 
     color:#bbb;
 
     font-size:13px;
-
-    text-align:center;
 }
 
-.card-safe{
-    padding:15px;
+.field input,
+.field select{
+    width:100%;
 
-    border-radius:15px;
+    padding:13px;
+
+    border-radius:12px;
 
     border:1px solid rgba(0,255,255,.18);
 
-    background:rgba(0,0,0,.25);
+    background:#090b18;
 
-    margin-bottom:15px;
+    color:white;
+
+    outline:none;
+
+    font-size:15px;
 }
 
-.card-safe h3{
-    text-align:center;
+.field input:focus,
+.field select:focus{
+    border-color:#00ffff;
 
-    color:#00ffff;
-
-    margin-bottom:8px;
+    box-shadow:0 0 15px rgba(0,255,255,.12);
 }
 
-.card-safe p{
-    color:#aaa;
+.safe{
+    padding:13px;
 
-    font-size:13px;
+    margin:12px 0;
 
-    text-align:center;
+    border-radius:13px;
+
+    background:rgba(255,193,7,.07);
+
+    border:1px solid rgba(255,193,7,.2);
+
+    color:#bbb;
+
+    font-size:12px;
 
     line-height:1.5;
 }
 
-.close-btn{
-    width:100%;
+.modal-buttons{
+    display:grid;
 
-    border:none;
+    gap:9px;
+
+    margin-top:15px;
+}
+
+.confirm{
+    border:0;
 
     padding:13px;
 
     border-radius:13px;
-
-    background:#222;
-
-    color:white;
-
-    font-size:16px;
-
-    font-weight:900;
 
     cursor:pointer;
 
-    margin-top:8px;
-}
-
-.close-btn:hover{
-    background:#333;
-}
-
-.instagram-modal{
-    display:block;
-
-    width:100%;
-
-    padding:13px;
-
-    border-radius:13px;
-
-    text-align:center;
-
-    text-decoration:none;
-
-    color:#fff;
+    color:#03040f;
 
     font-weight:900;
 
     background:
         linear-gradient(
-            45deg,
-            #feda75,
-            #fa7e1e,
-            #d62976,
-            #962fbf,
-            #4f5bd5
+            90deg,
+            #00ffff,
+            #8d70ff,
+            #ff00ff
         );
-
-    margin-top:8px;
 }
 
-/* MOBILE */
+.close{
+    border:0;
+
+    padding:12px;
+
+    border-radius:13px;
+
+    cursor:pointer;
+
+    color:white;
+
+    background:#222538;
+
+    font-weight:800;
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+    padding:27px 15px;
+
+    text-align:center;
+
+    color:#777;
+
+    border-top:1px solid rgba(255,255,255,.08);
+}
+
+footer strong{
+    color:#00ffff;
+}
+
+/* ================= MOBILE ================= */
 
 @media(max-width:600px){
 
     header{
-        padding-top:30px;
+        padding-top:28px;
     }
 
     .logo{
         letter-spacing:1px;
     }
 
-    nav{
-        gap:4px;
-    }
-
     nav a{
-        font-size:12px;
-
+        font-size:11px;
         padding:7px 9px;
     }
 
     .products{
-        grid-template-columns:1fr;
+        grid-template-columns:1fr 1fr;
     }
 
     .card{
-        padding:22px 16px;
+        padding:18px 12px;
     }
 
-    .youtube{
-        font-size:14px;
+    .icon{
+        font-size:43px;
+    }
 
-        padding:12px 18px;
+    .card h3{
+        font-size:15px;
+    }
+
+    .price{
+        font-size:17px;
+    }
+
+    .card-description{
+        font-size:11px;
+    }
+}
+
+@media(max-width:390px){
+
+    .products{
+        grid-template-columns:1fr;
     }
 }
 </style>
@@ -856,14 +888,14 @@ footer strong{
 
 <body>
 
-<div class="stars"></div>
-<div class="stars2"></div>
+<div class="overlay"></div>
+<div class="grid"></div>
 
-<div class="float f1">💎</div>
-<div class="float f2">🎮</div>
-<div class="float f3">🔥</div>
-<div class="float f4">⚡</div>
-<div class="float f5">👑</div>
+<div class="particle p1"></div>
+<div class="particle p2"></div>
+<div class="particle p3"></div>
+<div class="particle p4"></div>
+<div class="particle p5"></div>
 
 
 <header>
@@ -873,17 +905,16 @@ footer strong{
     </div>
 
     <div class="subtitle">
-        💎 PREMIUM SHOP • 👑 VIP • 🎮 GAMING • ⚡ FAST SERVICE
+        🎮 GAMING STORE • 💎 DIAMONDS • ⚡ FAST SERVICE
     </div>
 
-    <!-- ՔՈ YOUTUBE ԱԼԻՔԸ -->
     <a
         class="youtube"
         href="https://www.youtube.com/@mkoyannnaaa"
         target="_blank"
         rel="noopener"
     >
-        ▶️ MKOYAN YOUTUBE ▶️
+        ▶️ MKOYAN YOUTUBE
     </a>
 
 </header>
@@ -891,25 +922,11 @@ footer strong{
 
 <nav>
 
-    <a href="#diamonds">
-        💎 Diamond
-    </a>
-
-    <a href="#vip">
-        👑 VIP
-    </a>
-
-    <a href="#games">
-        🎮 Games
-    </a>
-
-    <a href="#payment">
-        🏦 Վճարում
-    </a>
-
-    <a href="#order">
-        📸 Պատվեր
-    </a>
+    <a href="#games">🎮 Խաղեր</a>
+    <a href="#diamonds">💎 Diamonds</a>
+    <a href="#vip">👑 VIP</a>
+    <a href="#payment">🏦 Վճարում</a>
+    <a href="#order">📸 Պատվեր</a>
 
 </nav>
 
@@ -917,260 +934,16 @@ footer strong{
 <main class="container">
 
 
-<!-- DIAMONDS -->
-
-<section id="diamonds">
-
-    <div class="section-title">
-
-        <h2>
-            💎 DIAMONDS 💎
-        </h2>
-
-        <p>
-            ⚡ Արագ և հեշտ պատվեր
-        </p>
-
-    </div>
-
-
-    <div class="products">
-
-
-        <div class="card">
-
-            <div class="card-icon">
-                💎
-            </div>
-
-            <h3>
-                100 Diamond
-            </h3>
-
-            <div class="price">
-                500 ֏
-            </div>
-
-            <button
-                class="buy"
-                onclick="openPayment('100 Diamond','500 ֏')"
-            >
-                🛒 Գնել 🔥
-            </button>
-
-        </div>
-
-
-        <div class="card">
-
-            <div class="card-icon">
-                💎
-            </div>
-
-            <h3>
-                500 Diamond
-            </h3>
-
-            <div class="price">
-                2,000 ֏
-            </div>
-
-            <button
-                class="buy"
-                onclick="openPayment('500 Diamond','2,000 ֏')"
-            >
-                🛒 Գնել 🔥
-            </button>
-
-        </div>
-
-
-        <div class="card">
-
-            <div class="card-icon">
-                💎
-            </div>
-
-            <h3>
-                1000 Diamond
-            </h3>
-
-            <div class="price">
-                3,500 ֏
-            </div>
-
-            <button
-                class="buy"
-                onclick="openPayment('1000 Diamond','3,500 ֏')"
-            >
-                🛒 Գնել 🔥
-            </button>
-
-        </div>
-
-
-        <div class="card">
-
-            <div class="card-icon">
-                💎
-            </div>
-
-            <h3>
-                2500 Diamond
-            </h3>
-
-            <div class="price">
-                7,000 ֏
-            </div>
-
-            <button
-                class="buy"
-                onclick="openPayment('2500 Diamond','7,000 ֏')"
-            >
-                🛒 Գնել 🔥
-            </button>
-
-        </div>
-
-
-    </div>
-
-</section>
-
-
-<!-- VIP -->
-
-<section id="vip">
-
-    <div class="section-title">
-
-        <h2>
-            👑 VIP MEMBERSHIP 👑
-        </h2>
-
-        <p>
-            🔥 Ընտրիր քո VIP մակարդակը
-        </p>
-
-    </div>
-
-
-    <div class="products">
-
-
-        <div class="card">
-
-            <div class="card-icon">
-                🥉
-            </div>
-
-            <h3>
-                VIP Bronze
-            </h3>
-
-            <div class="price">
-                1,000 ֏
-            </div>
-
-            <button
-                class="buy"
-                onclick="openPayment('VIP Bronze','1,000 ֏')"
-            >
-                🛒 Գնել 🔥
-            </button>
-
-        </div>
-
-
-        <div class="card">
-
-            <div class="card-icon">
-                🥈
-            </div>
-
-            <h3>
-                VIP Silver
-            </h3>
-
-            <div class="price">
-                2,500 ֏
-            </div>
-
-            <button
-                class="buy"
-                onclick="openPayment('VIP Silver','2,500 ֏')"
-            >
-                🛒 Գնել 🔥
-            </button>
-
-        </div>
-
-
-        <div class="card">
-
-            <div class="card-icon">
-                🥇
-            </div>
-
-            <h3>
-                VIP Gold
-            </h3>
-
-            <div class="price">
-                5,000 ֏
-            </div>
-
-            <button
-                class="buy"
-                onclick="openPayment('VIP Gold','5,000 ֏')"
-            >
-                🛒 Գնել 🔥
-            </button>
-
-        </div>
-
-
-        <div class="card">
-
-            <div class="card-icon">
-                👑
-            </div>
-
-            <h3>
-                VIP Premium
-            </h3>
-
-            <div class="price">
-                10,000 ֏
-            </div>
-
-            <button
-                class="buy"
-                onclick="openPayment('VIP Premium','10,000 ֏')"
-            >
-                🛒 Գնել 🔥
-            </button>
-
-        </div>
-
-
-    </div>
-
-</section>
-
-
-<!-- GAMES -->
+<!-- ================= GAMES ================= -->
 
 <section id="games">
 
-    <div class="section-title">
+    <div class="title">
 
-        <h2>
-            🎮 GAMING SHOP 🎮
-        </h2>
+        <h2>🎮 GAME DONATE SHOP</h2>
 
         <p>
-            🔥 Robux • UC • Brawl Stars
+            🔥 Ընտրիր քո խաղը և պատվիրիր դոնաթ
         </p>
 
     </div>
@@ -1179,15 +952,17 @@ footer strong{
     <div class="products">
 
 
-        <div class="card game-card">
+        <div class="card">
 
-            <div class="card-icon">
-                🤑
+            <span class="badge hot">HOT</span>
+
+            <div class="icon">🤑</div>
+
+            <h3>Robux</h3>
+
+            <div class="card-description">
+                Roblox Robux լիցքավորում
             </div>
-
-            <h3>
-                Robux
-            </h3>
 
             <div class="price">
                 Գինը՝ կապ հաստատելուց հետո
@@ -1195,23 +970,25 @@ footer strong{
 
             <button
                 class="buy"
-                onclick="openPayment('Robux','Գինը՝ կապ հաստատելուց հետո')"
+                onclick="openShop('Robux','🤑 Roblox Robux')"
             >
-                🎮 Պատվիրել Robux
+                🛒 Գնել
             </button>
 
         </div>
 
 
-        <div class="card game-card">
+        <div class="card">
 
-            <div class="card-icon">
-                🎯
+            <span class="badge hot">HOT</span>
+
+            <div class="icon">🎯</div>
+
+            <h3>UC</h3>
+
+            <div class="card-description">
+                PUBG Mobile UC
             </div>
-
-            <h3>
-                UC
-            </h3>
 
             <div class="price">
                 Գինը՝ կապ հաստատելուց հետո
@@ -1219,23 +996,25 @@ footer strong{
 
             <button
                 class="buy"
-                onclick="openPayment('UC','Գինը՝ կապ հաստատելուց հետո')"
+                onclick="openShop('UC','🎯 PUBG Mobile UC')"
             >
-                🎯 Պատվիրել UC
+                🛒 Գնել
             </button>
 
         </div>
 
 
-        <div class="card game-card">
+        <div class="card">
 
-            <div class="card-icon">
-                ⭐
+            <span class="badge new">NEW</span>
+
+            <div class="icon">⭐</div>
+
+            <h3>Brawl Stars</h3>
+
+            <div class="card-description">
+                Gems և խաղային գնումներ
             </div>
-
-            <h3>
-                Brawl Stars
-            </h3>
 
             <div class="price">
                 Գինը՝ կապ հաստատելուց հետո
@@ -1243,36 +1022,344 @@ footer strong{
 
             <button
                 class="buy"
-                onclick="openPayment('Brawl Stars','Գինը՝ կապ հաստատելուց հետո')"
+                onclick="openShop('Brawl Stars','⭐ Brawl Stars')"
             >
-                ⭐ Պատվիրել
+                🛒 Գնել
             </button>
 
         </div>
 
+
+        <div class="card">
+
+            <div class="icon">🪙</div>
+
+            <h3>Free Fire</h3>
+
+            <div class="card-description">
+                Diamonds և game donate
+            </div>
+
+            <div class="price">
+                Գինը՝ կապ հաստատելուց հետո
+            </div>
+
+            <button
+                class="buy"
+                onclick="openShop('Free Fire','🪙 Free Fire')"
+            >
+                🛒 Գնել
+            </button>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="icon">💰</div>
+
+            <h3>Fortnite</h3>
+
+            <div class="card-description">
+                V-Bucks և խաղային գնումներ
+            </div>
+
+            <div class="price">
+                Գինը՝ կապ հաստատելուց հետո
+            </div>
+
+            <button
+                class="buy"
+                onclick="openShop('Fortnite','💰 Fortnite')"
+            >
+                🛒 Գնել
+            </button>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="icon">🟣</div>
+
+            <h3>Call of Duty</h3>
+
+            <div class="card-description">
+                CP և խաղային դոնաթ
+            </div>
+
+            <div class="price">
+                Գինը՝ կապ հաստատելուց հետո
+            </div>
+
+            <button
+                class="buy"
+                onclick="openShop('Call of Duty','🟣 Call of Duty')"
+            >
+                🛒 Գնել
+            </button>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="icon">💙</div>
+
+            <h3>Mobile Legends</h3>
+
+            <div class="card-description">
+                Diamonds և game donate
+            </div>
+
+            <div class="price">
+                Գինը՝ կապ հաստատելուց հետո
+            </div>
+
+            <button
+                class="buy"
+                onclick="openShop('Mobile Legends','💙 Mobile Legends')"
+            >
+                🛒 Գնել
+            </button>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="icon">🎮</div>
+
+            <h3>Այլ խաղեր</h3>
+
+            <div class="card-description">
+                Չկա քո խաղը՞։ Գրիր մեզ։
+            </div>
+
+            <div class="price">
+                Պատվեր հարցումով
+            </div>
+
+            <button
+                class="buy"
+                onclick="openShop('Այլ խաղ','🎮 Այլ խաղ')"
+            >
+                📩 Հարցնել
+            </button>
+
+        </div>
 
     </div>
 
 </section>
 
 
-<!-- PAYMENT -->
+<!-- ================= DIAMONDS ================= -->
+
+<section id="diamonds">
+
+    <div class="title">
+
+        <h2>💎 DIAMONDS</h2>
+
+        <p>
+            ⚡ Արագ պատվեր
+        </p>
+
+    </div>
+
+
+    <div class="products">
+
+
+        <div class="card">
+
+            <div class="icon">💎</div>
+
+            <h3>100 Diamond</h3>
+
+            <div class="price">500 ֏</div>
+
+            <button
+                class="buy"
+                onclick="openShop('100 Diamond','💎 100 Diamond — 500 ֏')"
+            >
+                🛒 Գնել 🔥
+            </button>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="icon">💎</div>
+
+            <h3>500 Diamond</h3>
+
+            <div class="price">2,000 ֏</div>
+
+            <button
+                class="buy"
+                onclick="openShop('500 Diamond','💎 500 Diamond — 2,000 ֏')"
+            >
+                🛒 Գնել 🔥
+            </button>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="icon">💎</div>
+
+            <h3>1000 Diamond</h3>
+
+            <div class="price">3,500 ֏</div>
+
+            <button
+                class="buy"
+                onclick="openShop('1000 Diamond','💎 1000 Diamond — 3,500 ֏')"
+            >
+                🛒 Գնել 🔥
+            </button>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="icon">💎</div>
+
+            <h3>2500 Diamond</h3>
+
+            <div class="price">7,000 ֏</div>
+
+            <button
+                class="buy"
+                onclick="openShop('2500 Diamond','💎 2500 Diamond — 7,000 ֏')"
+            >
+                🛒 Գնել 🔥
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= VIP ================= -->
+
+<section id="vip">
+
+    <div class="title">
+
+        <h2>👑 VIP SHOP</h2>
+
+        <p>
+            🔥 Premium մակարդակներ
+        </p>
+
+    </div>
+
+
+    <div class="products">
+
+
+        <div class="card">
+
+            <div class="icon">🥉</div>
+
+            <h3>VIP Bronze</h3>
+
+            <div class="price">1,000 ֏</div>
+
+            <button
+                class="buy"
+                onclick="openShop('VIP Bronze','🥉 VIP Bronze — 1,000 ֏')"
+            >
+                🛒 Գնել
+            </button>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="icon">🥈</div>
+
+            <h3>VIP Silver</h3>
+
+            <div class="price">2,500 ֏</div>
+
+            <button
+                class="buy"
+                onclick="openShop('VIP Silver','🥈 VIP Silver — 2,500 ֏')"
+            >
+                🛒 Գնել
+            </button>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="icon">🥇</div>
+
+            <h3>VIP Gold</h3>
+
+            <div class="price">5,000 ֏</div>
+
+            <button
+                class="buy"
+                onclick="openShop('VIP Gold','🥇 VIP Gold — 5,000 ֏')"
+            >
+                🛒 Գնել
+            </button>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="icon">👑</div>
+
+            <h3>VIP Premium</h3>
+
+            <div class="price">10,000 ֏</div>
+
+            <button
+                class="buy"
+                onclick="openShop('VIP Premium','👑 VIP Premium — 10,000 ֏')"
+            >
+                🛒 Գնել
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= PAYMENT ================= -->
 
 <section id="payment">
 
-    <div class="payment-box">
+    <div class="title">
 
-        <h2>
-            🏦 Ընտրիր վճարման բանկը
-        </h2>
+        <h2>🏦 ՎՃԱՐՄԱՆ ԲԱՆԿ</h2>
 
         <p>
-            Ընտրիր քեզ հարմար բանկը։
+            Ընտրիր քեզ հարմար բանկը
         </p>
 
+    </div>
+
+
+    <div class="payment">
 
         <div class="banks">
-
 
             <button
                 class="bank"
@@ -1281,14 +1368,12 @@ footer strong{
                 🏦 IDBank
             </button>
 
-
             <button
                 class="bank"
                 onclick="selectBank(this,'Ameriabank')"
             >
                 🏦 Ameriabank
             </button>
-
 
             <button
                 class="bank"
@@ -1297,7 +1382,6 @@ footer strong{
                 🏦 ACBA
             </button>
 
-
             <button
                 class="bank"
                 onclick="selectBank(this,'Ardshinbank')"
@@ -1305,21 +1389,6 @@ footer strong{
                 🏦 Ardshinbank
             </button>
 
-
-        </div>
-
-
-        <div
-            class="selected-bank"
-            id="selectedBank"
-        >
-            Բանկ դեռ ընտրված չէ
-        </div>
-
-
-        <div class="notice">
-            ℹ️ Իրական քարտային վճարումների համար անհրաժեշտ է
-            պաշտոնական վճարային համակարգ։
         </div>
 
     </div>
@@ -1327,7 +1396,7 @@ footer strong{
 </section>
 
 
-<!-- ORDER -->
+<!-- ================= ORDER ================= -->
 
 <section id="order">
 
@@ -1338,12 +1407,10 @@ footer strong{
         </h2>
 
         <p>
-            Ընտրիր ապրանքը և գրիր մեզ Instagram-ում։
-            🔥⚡💎
+            Ընտրիր ապրանքը, հետո գրիր մեզ Instagram-ում։
+            🔥🎮💎
         </p>
 
-
-        <!-- Այստեղ հետո կարող ես դնել քո իրական Instagram հղումը -->
         <a
             class="instagram"
             href="https://www.instagram.com/"
@@ -1365,9 +1432,9 @@ footer strong{
 
     🔥 <strong>MKOYAN SHOP</strong> 🔥
 
-    <br>
+    <br><br>
 
-    🎮 Gaming • 💎 Diamonds • 👑 VIP
+    🎮 Gaming • 💎 Diamonds • 🪙 Donate • 👑 VIP
 
     <br><br>
 
@@ -1376,75 +1443,125 @@ footer strong{
 </footer>
 
 
-<!-- PAYMENT MODAL -->
+<!-- ================= MODAL ================= -->
 
 <div
     class="modal"
-    id="paymentModal"
+    id="shopModal"
 >
 
     <div class="modal-box">
 
-        <div class="modal-title">
-            💳 ՎՃԱՐՄԱՆ ՊԱՏՎԵՐ
-        </div>
+        <h2>
+            🛒 ՊԱՏՎԵՐ
+        </h2>
 
 
-        <div class="modal-product">
+        <div class="selected-product">
 
-            <strong id="modalProduct">
+            <strong id="productName">
                 Ապրանք
             </strong>
 
-            <span id="modalPrice">
+            <span id="productInfo">
                 Գին
             </span>
 
         </div>
 
 
-        <div class="modal-info">
+        <div class="field">
 
-            🏦 Ընտրիր բանկը ներքևում,
-            այնուհետև կապվիր մեզ հետ
-            պատվերը հաստատելու համար։
+            <label>
+                🎮 Game ID / Username
+            </label>
 
-        </div>
-
-
-        <div class="card-safe">
-
-            <h3>
-                💳 Քարտային վճարում
-            </h3>
-
-            <p>
-                ⚠️ Այս կայքում քարտի համարը,
-                CVV-ն կամ այլ գաղտնի քարտային տվյալներ
-                մի գրիր։
-                Իրական վճարման համար օգտագործիր
-                պաշտոնական բանկային կամ վճարային էջ։
-            </p>
+            <input
+                id="gameId"
+                type="text"
+                placeholder="Գրեք ձեր Game ID-ն"
+            >
 
         </div>
 
 
-        <a
-            class="instagram-modal"
-            href="https://www.instagram.com/"
-            target="_blank"
-            rel="noopener"
-        >
-            📸 Գրել Instagram-ում և պատվիրել
-        </a>
+        <div class="field">
+
+            <label>
+                🔢 Քանակ
+            </label>
+
+            <input
+                id="quantity"
+                type="number"
+                value="1"
+                min="1"
+            >
+
+        </div>
 
 
-        <button
-            class="close-btn"
-            onclick="closePayment()"
-        >
-            ❌ Փակել
-        </button>
+        <div class="field">
+
+            <label>
+                🏦 Վճարման բանկ
+            </label>
+
+            <select id="bankSelect">
+
+                <option value="">
+                    Ընտրել բանկը
+                </option>
+
+                <option>
+                    IDBank
+                </option>
+
+                <option>
+                    Ameriabank
+                </option>
+
+                <option>
+                    ACBA
+                </option>
+
+                <option>
+                    Ardshinbank
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <div class="safe">
+
+            🔒 Անվտանգություն․ այս կայքում մի գրեք
+            քարտի ամբողջական համարը, CVV-ն,
+            PIN-ը կամ SMS կոդը։
+            Իրական վճարման համար պետք է օգտագործել
+            պաշտոնական վճարային էջ։
+
+        </div>
+
+
+        <div class="modal-buttons">
+
+            <button
+                class="confirm"
+                onclick="sendInstagram()"
+            >
+                📸 Պատվերը ուղարկել Instagram
+            </button>
+
+            <button
+                class="close"
+                onclick="closeModal()"
+            >
+                ❌ Փակել
+            </button>
+
+        </div>
 
     </div>
 
@@ -1453,35 +1570,39 @@ footer strong{
 
 <script>
 
-/* PAYMENT MODAL */
+/* ================= PRODUCT MODAL ================= */
 
-function openPayment(product, price){
+let selectedProduct = "";
+let selectedInfo = "";
+let selectedBank = "";
 
-    document.getElementById("modalProduct").textContent =
+
+function openShop(product, info){
+
+    selectedProduct = product;
+    selectedInfo = info;
+
+    document.getElementById("productName").textContent =
         product;
 
-    document.getElementById("modalPrice").textContent =
-        price;
+    document.getElementById("productInfo").textContent =
+        info;
 
-    document
-        .getElementById("paymentModal")
+    document.getElementById("shopModal")
         .classList.add("show");
 
 }
 
 
-/* CLOSE MODAL */
+function closeModal(){
 
-function closePayment(){
-
-    document
-        .getElementById("paymentModal")
+    document.getElementById("shopModal")
         .classList.remove("show");
 
 }
 
 
-/* BANK */
+/* ================= BANK ================= */
 
 function selectBank(button, bank){
 
@@ -1489,52 +1610,136 @@ function selectBank(button, bank){
         .querySelectorAll(".bank")
         .forEach(function(item){
 
-            item.classList.remove("selected");
+            item.classList.remove("active");
 
         });
 
+    button.classList.add("active");
 
-    button.classList.add("selected");
+    selectedBank = bank;
+
+    openShop(
+        "🏦 " + bank,
+        "Ընտրված վճարման բանկ"
+    );
+
+    document.getElementById("bankSelect").value =
+        bank;
+
+}
 
 
-    document.getElementById("selectedBank").innerHTML =
-        "✅ Ընտրված բանկ՝ " + bank;
+/* ================= INSTAGRAM ================= */
 
+function sendInstagram(){
 
-    openPayment(
-        "Վճարման բանկ՝ " + bank,
-        "Կապ հաստատեք Instagram-ում"
+    const gameId =
+        document.getElementById("gameId").value.trim();
+
+    const quantity =
+        document.getElementById("quantity").value;
+
+    const bank =
+        document.getElementById("bankSelect").value;
+
+    let message =
+        "Բարև 👋%0A%0A" +
+        "🛒 Պատվեր՝ " +
+        selectedProduct +
+        "%0A" +
+        "📦 Տեղեկություն՝ " +
+        selectedInfo +
+        "%0A" +
+        "🔢 Քանակ՝ " +
+        quantity +
+        "%0A" +
+        "🎮 Game ID՝ " +
+        (gameId || "Չի լրացվել") +
+        "%0A" +
+        "🏦 Բանկ՝ " +
+        (bank || "Չի ընտրվել");
+
+    /*
+      Այստեղ պետք է դնել քո իրական Instagram
+      DM/կոնտակտային հղումը։
+    */
+
+    window.open(
+        "https://www.instagram.com/",
+        "_blank"
     );
 
 }
 
 
-/* CLICK OUTSIDE MODAL */
+/* ================= MODAL OUTSIDE ================= */
 
 document
-    .getElementById("paymentModal")
-    .addEventListener("click",function(event){
+    .getElementById("shopModal")
+    .addEventListener("click",function(e){
 
-        if(event.target === this){
-
-            closePayment();
-
+        if(e.target === this){
+            closeModal();
         }
 
     });
 
 
-/* ESC */
+/* ================= ESC ================= */
 
-document.addEventListener("keydown",function(event){
+document.addEventListener("keydown",function(e){
 
-    if(event.key === "Escape"){
-
-        closePayment();
-
+    if(e.key === "Escape"){
+        closeModal();
     }
 
 });
+
+
+/* ================= PARALLAX ================= */
+
+/*
+   Քո ամբողջ ֆոնը թեթև շարժվում է մկնիկի
+   շարժման հետ։ Հեռախոսում նույնպես աշխատում
+   է touch շարժման ժամանակ։
+*/
+
+let px = 0;
+let py = 0;
+
+document.addEventListener("mousemove",function(e){
+
+    px =
+        (e.clientX / window.innerWidth - .5) * 12;
+
+    py =
+        (e.clientY / window.innerHeight - .5) * 12;
+
+    document.body.style.backgroundPosition =
+        `calc(50% + ${px}px) calc(50% + ${py}px)`;
+
+});
+
+
+/* MOBILE TOUCH PARALLAX */
+
+document.addEventListener("touchmove",function(e){
+
+    if(!e.touches.length) return;
+
+    const x = e.touches[0].clientX;
+    const y = e.touches[0].clientY;
+
+    px =
+        (x / window.innerWidth - .5) * 10;
+
+    py =
+        (y / window.innerHeight - .5) * 10;
+
+    document.body.style.backgroundPosition =
+        `calc(50% + ${px}px) calc(50% + ${py}px)`;
+
+},{passive:true});
 
 </script>
 

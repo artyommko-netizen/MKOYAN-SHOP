@@ -35,6 +35,7 @@ body{
 }
 
 /* 🌟 Փայլող կետեր */
+
 body::before{
     content:"";
     position:fixed;
@@ -99,7 +100,11 @@ header{
 /* ▶️ YOUTUBE */
 
 .youtube{
-    display:inline-block;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:12px;
+
     margin-top:20px;
     padding:13px 25px;
 
@@ -126,6 +131,19 @@ header{
         0 0 40px rgba(255,0,0,.7);
 }
 
+.yt-icon{
+    display:inline-block;
+    color:white;
+    font-size:28px;
+
+    animation:youtubeIcon .7s infinite alternate;
+
+    text-shadow:
+        0 0 8px white,
+        0 0 18px red,
+        0 0 30px red;
+}
+
 @keyframes youtube{
     0%{
         background-position:0%;
@@ -140,6 +158,20 @@ header{
     100%{
         background-position:200%;
         transform:scale(1);
+    }
+}
+
+@keyframes youtubeIcon{
+    0%{
+        transform:scale(1) rotate(-8deg);
+    }
+
+    50%{
+        transform:scale(1.25) rotate(8deg);
+    }
+
+    100%{
+        transform:scale(.9) rotate(-5deg);
     }
 }
 
@@ -286,8 +318,6 @@ nav a:hover{
         0 0 55px rgba(0,234,255,.35);
 }
 
-/* ✨ emoji-ներ քարտերի շուրջ */
-
 .card::before{
     content:"✨ 💎 ✨";
     position:absolute;
@@ -374,8 +404,6 @@ nav a:hover{
         0 0 25px #8b5cf6;
 }
 
-/* Գնի կողքի շարժվող emoji */
-
 .price::before{
     content:"💰";
     position:absolute;
@@ -395,33 +423,18 @@ nav a:hover{
 }
 
 @keyframes price{
-    from{
-        transform:scale(1);
-    }
-
-    to{
-        transform:scale(1.12);
-    }
+    from{transform:scale(1);}
+    to{transform:scale(1.12);}
 }
 
 @keyframes moneyLeft{
-    from{
-        transform:translateX(0) rotate(-15deg);
-    }
-
-    to{
-        transform:translateX(-8px) rotate(15deg);
-    }
+    from{transform:translateX(0) rotate(-15deg);}
+    to{transform:translateX(-8px) rotate(15deg);}
 }
 
 @keyframes moneyRight{
-    from{
-        transform:translateX(0) rotate(15deg);
-    }
-
-    to{
-        transform:translateX(8px) rotate(-15deg);
-    }
+    from{transform:translateX(0) rotate(15deg);}
+    to{transform:translateX(8px) rotate(-15deg);}
 }
 
 /* 🛒 BUY */
@@ -508,9 +521,7 @@ nav a:hover{
 }
 
 @keyframes instagram{
-    to{
-        transform:scale(1.08);
-    }
+    to{transform:scale(1.08);}
 }
 
 /* FOOTER */
@@ -537,6 +548,243 @@ footer p{
     color:#ddd;
 }
 
+/* =========================
+   🛒 ORDER MODAL
+========================= */
+
+.modal{
+    position:fixed;
+    inset:0;
+
+    display:none;
+    align-items:center;
+    justify-content:center;
+
+    padding:20px;
+
+    background:rgba(0,0,0,.85);
+    backdrop-filter:blur(12px);
+
+    z-index:9999;
+}
+
+.modal.show{
+    display:flex;
+}
+
+.order-box{
+    position:relative;
+
+    width:min(500px,100%);
+    max-height:90vh;
+    overflow:auto;
+
+    padding:30px 22px;
+
+    text-align:center;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(20,20,30,.98),
+            rgba(5,10,20,.98)
+        );
+
+    border:2px solid #00eaff;
+    border-radius:28px;
+
+    box-shadow:
+        0 0 25px #00eaff,
+        0 0 70px rgba(124,58,237,.7);
+
+    animation:modalIn .4s ease;
+}
+
+@keyframes modalIn{
+    from{
+        opacity:0;
+        transform:scale(.75) translateY(30px);
+    }
+
+    to{
+        opacity:1;
+        transform:scale(1) translateY(0);
+    }
+}
+
+.close{
+    position:absolute;
+    top:10px;
+    right:14px;
+
+    width:40px;
+    height:40px;
+
+    border:none;
+    border-radius:50%;
+
+    background:#ff1744;
+    color:white;
+
+    font-size:22px;
+    font-weight:bold;
+
+    cursor:pointer;
+
+    box-shadow:0 0 15px red;
+}
+
+.order-icon{
+    font-size:55px;
+    margin-bottom:8px;
+
+    animation:iconMove 1s infinite alternate;
+}
+
+.order-title{
+    font-family:Orbitron,sans-serif;
+    font-size:25px;
+    margin-bottom:8px;
+
+    text-shadow:
+        0 0 10px white,
+        0 0 25px #00eaff;
+}
+
+.selected-product{
+    margin:15px 0;
+    padding:12px;
+
+    border-radius:15px;
+
+    background:rgba(0,234,255,.1);
+    border:1px solid rgba(0,234,255,.4);
+}
+
+.order-step{
+    display:none;
+}
+
+.order-step.active{
+    display:block;
+    animation:appear .35s ease;
+}
+
+.order-input{
+    width:100%;
+
+    padding:15px;
+
+    margin:10px 0;
+
+    border-radius:15px;
+
+    border:2px solid #555;
+
+    background:#090909;
+    color:white;
+
+    outline:none;
+
+    text-align:center;
+
+    font-size:17px;
+}
+
+.order-input:focus{
+    border-color:#00eaff;
+    box-shadow:0 0 15px #00eaff;
+}
+
+.order-button{
+    width:100%;
+
+    padding:15px;
+
+    margin-top:10px;
+
+    border:none;
+    border-radius:15px;
+
+    background:linear-gradient(
+        90deg,
+        #7c3aed,
+        #2563eb,
+        #00eaff
+    );
+
+    color:white;
+
+    font-size:17px;
+    font-weight:900;
+
+    cursor:pointer;
+
+    box-shadow:0 0 20px rgba(0,234,255,.5);
+
+    transition:.25s;
+}
+
+.order-button:hover{
+    transform:scale(1.04);
+}
+
+.back-button{
+    background:#333;
+    box-shadow:none;
+}
+
+.message{
+    min-height:28px;
+    margin-top:12px;
+
+    font-size:17px;
+    font-weight:900;
+}
+
+.success{
+    color:#00ff66;
+    text-shadow:0 0 12px #00ff66;
+}
+
+.error{
+    color:#ff3030;
+    text-shadow:0 0 12px red;
+}
+
+.info{
+    color:#00eaff;
+}
+
+.loading{
+    display:inline-block;
+    animation:dots 1s infinite;
+}
+
+@keyframes dots{
+    0%{opacity:.3;}
+    50%{opacity:1;}
+    100%{opacity:.3;}
+}
+
+.summary{
+    margin:15px 0;
+    padding:15px;
+
+    text-align:left;
+    line-height:1.8;
+
+    border-radius:15px;
+
+    background:rgba(255,255,255,.06);
+    border:1px solid rgba(255,255,255,.12);
+}
+
+.final-message{
+    font-size:20px;
+    line-height:1.7;
+}
+
 /* 📱 MOBILE */
 
 @media(max-width:600px){
@@ -557,47 +805,12 @@ footer p{
     .price{
         font-size:24px;
     }
+
+    .order-box{
+        padding:28px 17px;
+    }
 }
 </style>
-    .youtube{
-    display:inline-flex;
-    align-items:center;
-    gap:12px;
-    animation:youtubeButton 1.5s infinite;
-}
-
-.yt-icon{
-    display:inline-block;
-    color:white;
-    font-size:28px;
-    animation:youtubeIcon .7s infinite alternate;
-
-    text-shadow:
-        0 0 8px white,
-        0 0 18px red,
-        0 0 30px red;
-}
-
-@keyframes youtubeIcon{
-    0%{
-        transform:scale(1) rotate(-8deg);
-    }
-    50%{
-        transform:scale(1.25) rotate(8deg);
-    }
-    100%{
-        transform:scale(.9) rotate(-5deg);
-    }
-}
-
-@keyframes youtubeButton{
-    0%,100%{
-        transform:translateY(0) scale(1);
-    }
-    50%{
-        transform:translateY(-5px) scale(1.04);
-    }
-}
 </head>
 
 <body>
@@ -614,6 +827,7 @@ footer p{
 <div class="floating" style="left:82%;animation-delay:1.5s;">🔥</div>
 <div class="floating" style="left:94%;animation-delay:3.5s;">✨</div>
 
+
 <header>
 
     <div class="logo">🔥 MKOYAN 🔥</div>
@@ -622,24 +836,25 @@ footer p{
         💎 PREMIUM SHOP • 👑 VIP • ⚡ FAST SERVICE
     </div>
 
-    
-<a
-  class="youtube"
-  href="https://www.youtube.com/@mkoyannnaaa"
-  target="_blank"
-  rel="noopener">
-  <span class="yt-icon">▶</span>
-  <span>MKoyan YOUTUBE</span>
-  <span class="yt-icon">▶</span>
-</a>
+    <a
+        class="youtube"
+        href="https://www.youtube.com/@mkoyannnaaa"
+        target="_blank"
+        rel="noopener">
+        <span class="yt-icon">▶</span>
+        <span>MKoyan YOUTUBE</span>
+        <span class="yt-icon">▶</span>
+    </a>
 
 </header>
+
 
 <nav>
     <a href="#diamond">💎 Diamond</a>
     <a href="#vip">👑 VIP</a>
     <a href="#contact">📱 Instagram</a>
 </nav>
+
 
 <main class="container">
 
@@ -648,10 +863,13 @@ footer p{
     <h2>✨💎 Բարի գալուստ MKOYAN SHOP 💎✨</h2>
 
     <p>
-        🔥 Ընտրիր ապրանքդ • 🛒 Սեղմիր «Գնել» • 📱 Գրիր Instagram-ում 🔥
+        🔥 Ընտրիր ապրանքդ • 🛒 Սեղմիր «Գնել» • 🔐 Մուտքագրիր կոդը
     </p>
 
 </section>
+
+
+<!-- 💎 DIAMOND -->
 
 <section id="diamond">
 
@@ -661,64 +879,107 @@ footer p{
 
 <div class="products">
 
+
 <div class="card">
+
     <div class="icon">💎</div>
+
     <h3>100 Diamond</h3>
-    <p class="description">💎 Սկսնակ փաթեթ</p>
-    <div class="price">500 ֏</div>
 
-    <a class="buy"
-       href="https://www.instagram.com/a.mkoyannhhh/"
-       target="_blank"
-       rel="noopener">
-       🛒 Գնել 🔥
+    <p class="description">
+        💎 Սկսնակ փաթեթ
+    </p>
+
+    <div class="price">
+        500 ֏
+    </div>
+
+    <a
+        class="buy"
+        href="#"
+        onclick="openOrder('100 Diamond','500 ֏'); return false;">
+        🛒 Գնել 🔥
     </a>
+
 </div>
 
+
 <div class="card">
+
     <div class="icon">💎</div>
+
     <h3>500 Diamond</h3>
-    <p class="description">🔥 Միջին փաթեթ</p>
-    <div class="price">2,000 ֏</div>
 
-    <a class="buy"
-       href="https://www.instagram.com/a.mkoyannhhh/"
-       target="_blank"
-       rel="noopener">
-       🛒 Գնել 🔥
+    <p class="description">
+        🔥 Միջին փաթեթ
+    </p>
+
+    <div class="price">
+        2,000 ֏
+    </div>
+
+    <a
+        class="buy"
+        href="#"
+        onclick="openOrder('500 Diamond','2,000 ֏'); return false;">
+        🛒 Գնել 🔥
     </a>
+
 </div>
 
+
 <div class="card">
+
     <div class="icon">💎</div>
+
     <h3>1000 Diamond</h3>
-    <p class="description">⚡ Մեծ փաթեթ</p>
-    <div class="price">3,500 ֏</div>
 
-    <a class="buy"
-       href="https://www.instagram.com/a.mkoyannhhh/"
-       target="_blank"
-       rel="noopener">
-       🛒 Գնել 🔥
+    <p class="description">
+        ⚡ Մեծ փաթեթ
+    </p>
+
+    <div class="price">
+        3,500 ֏
+    </div>
+
+    <a
+        class="buy"
+        href="#"
+        onclick="openOrder('1000 Diamond','3,500 ֏'); return false;">
+        🛒 Գնել 🔥
     </a>
+
 </div>
 
-<div class="card">
-    <div class="icon">💎</div>
-    <h3>2500 Diamond</h3>
-    <p class="description">👑 MAX փաթեթ</p>
-    <div class="price">7,000 ֏</div>
 
-    <a class="buy"
-       href="https://www.instagram.com/a.mkoyannhhh/"
-       target="_blank"
-       rel="noopener">
-       🛒 Գնել 🔥
+<div class="card">
+
+    <div class="icon">💎</div>
+
+    <h3>2500 Diamond</h3>
+
+    <p class="description">
+        👑 MAX փաթեթ
+    </p>
+
+    <div class="price">
+        7,000 ֏
+    </div>
+
+    <a
+        class="buy"
+        href="#"
+        onclick="openOrder('2500 Diamond','7,000 ֏'); return false;">
+        🛒 Գնել 🔥
     </a>
+
 </div>
 
 </div>
 </section>
+
+
+<!-- 👑 VIP -->
 
 <section id="vip">
 
@@ -728,71 +989,114 @@ footer p{
 
 <div class="products">
 
+
 <div class="card">
+
     <div class="icon">🥉</div>
+
     <h3>VIP Bronze</h3>
-    <p class="description">🥉 Bronze VIP</p>
-    <div class="price">1,000 ֏</div>
 
-    <a class="buy"
-       href="https://www.instagram.com/a.mkoyannhhh/"
-       target="_blank"
-       rel="noopener">
-       🛒 Գնել 🔥
+    <p class="description">
+        🥉 Bronze VIP
+    </p>
+
+    <div class="price">
+        1,000 ֏
+    </div>
+
+    <a
+        class="buy"
+        href="#"
+        onclick="openOrder('VIP Bronze','1,000 ֏'); return false;">
+        🛒 Գնել 🔥
     </a>
+
 </div>
 
+
 <div class="card">
+
     <div class="icon">🥈</div>
+
     <h3>VIP Silver</h3>
-    <p class="description">🥈 Silver VIP</p>
-    <div class="price">2,500 ֏</div>
 
-    <a class="buy"
-       href="https://www.instagram.com/a.mkoyannhhh/"
-       target="_blank"
-       rel="noopener">
-       🛒 Գնել 🔥
+    <p class="description">
+        🥈 Silver VIP
+    </p>
+
+    <div class="price">
+        2,500 ֏
+    </div>
+
+    <a
+        class="buy"
+        href="#"
+        onclick="openOrder('VIP Silver','2,500 ֏'); return false;">
+        🛒 Գնել 🔥
     </a>
+
 </div>
 
+
 <div class="card">
+
     <div class="icon">🥇</div>
-    <h3>VIP Gold</h3>
-    <p class="description">🥇 Gold VIP</p>
-    <div class="price">5,000 ֏</div>
 
-    <a class="buy"
-       href="https://www.instagram.com/a.mkoyannhhh/"
-       target="_blank"
-       rel="noopener">
-       🛒 Գնել 🔥
+    <h3>VIP Gold</h3>
+
+    <p class="description">
+        🥇 Gold VIP
+    </p>
+
+    <div class="price">
+        5,000 ֏
+    </div>
+
+    <a
+        class="buy"
+        href="#"
+        onclick="openOrder('VIP Gold','5,000 ֏'); return false;">
+        🛒 Գնել 🔥
     </a>
+
 </div>
 
-<div class="card">
-    <div class="icon">👑</div>
-    <h3>VIP Premium</h3>
-    <p class="description">👑 Ամենաբարձր VIP</p>
-    <div class="price">10,000 ֏</div>
 
-    <a class="buy"
-       href="https://www.instagram.com/a.mkoyannhhh/"
-       target="_blank"
-       rel="noopener">
-       🛒 Գնել 🔥
+<div class="card">
+
+    <div class="icon">👑</div>
+
+    <h3>VIP Premium</h3>
+
+    <p class="description">
+        👑 Ամենաբարձր VIP
+    </p>
+
+    <div class="price">
+        10,000 ֏
+    </div>
+
+    <a
+        class="buy"
+        href="#"
+        onclick="openOrder('VIP Premium','10,000 ֏'); return false;">
+        🛒 Գնել 🔥
     </a>
+
 </div>
 
 </div>
 </section>
+
+
+<!-- 📱 CONTACT -->
 
 <section id="contact" class="contact">
 
     <h2>📱🔥 Պատվե՞ր ես ուզում 🔥📱</h2>
 
     <p style="margin-top:12px;color:#ccc;">
-        Գրիր մեզ Instagram-ում և կատարիր պատվերդ։
+        Ընտրիր ապրանքը և անցիր պատվերի քայլերով։
     </p>
 
     <a
@@ -807,17 +1111,531 @@ footer p{
 
 </main>
 
+
 <footer>
 
     <div class="footerLogo">
         💎🔥 MKOYAN SHOP 🔥💎
     </div>
 
-    <p>✨💎👑 Thank you for choosing MKOYAN 👑💎✨</p>
+    <p>
+        ✨💎👑 Thank you for choosing MKOYAN 👑💎✨
+    </p>
 
-    <p>© 2026 MKOYAN SHOP</p>
+    <p>
+        © 2026 MKOYAN SHOP
+    </p>
 
 </footer>
+
+
+<!-- =========================
+     🛒 ORDER WINDOW
+========================= -->
+
+<div class="modal" id="orderModal">
+
+    <div class="order-box">
+
+        <button class="close" onclick="closeOrder()">×</button>
+
+
+        <!-- STEP 1 -->
+
+        <div class="order-step active" id="orderStep1">
+
+            <div class="order-icon">
+                🛒
+            </div>
+
+            <div class="order-title">
+                MKOYAN ORDER
+            </div>
+
+            <div class="selected-product" id="selectedProduct">
+                Ապրանք
+            </div>
+
+            <p>
+                🔐 Մուտքագրեք ձեր պատվերի կոդը
+            </p>
+
+            <input
+                class="order-input"
+                id="orderCode"
+                type="text"
+                placeholder="Գրեք կոդը..."
+                autocomplete="off">
+
+            <button
+                class="order-button"
+                onclick="checkCode()">
+                🔓 Ստուգել կոդը
+            </button>
+
+            <div
+                class="message"
+                id="codeMessage">
+            </div>
+
+        </div>
+
+
+        <!-- STEP 2 -->
+
+        <div class="order-step" id="orderStep2">
+
+            <div class="order-icon">
+                👤
+            </div>
+
+            <div class="order-title">
+                UID
+            </div>
+
+            <p>
+                ✅ Ճիշտ է։
+            </p>
+
+            <p style="margin-top:10px;">
+                🎮 Այժմ գրեք ձեր UID-ը
+            </p>
+
+            <input
+                class="order-input"
+                id="uid"
+                type="text"
+                placeholder="Գրեք ձեր UID-ը..."
+                autocomplete="off">
+
+            <button
+                class="order-button"
+                onclick="checkUID()">
+                ➡️ Շարունակել
+            </button>
+
+            <div
+                class="message"
+                id="uidMessage">
+            </div>
+
+        </div>
+
+
+        <!-- STEP 3 -->
+
+        <div class="order-step" id="orderStep3">
+
+            <div class="order-icon">
+                📱
+            </div>
+
+            <div class="order-title">
+                Instagram
+            </div>
+
+            <p>
+                👤 Գրեք ձեր Instagram-ի username-ը
+            </p>
+
+            <input
+                class="order-input"
+                id="instagram"
+                type="text"
+                placeholder="@username"
+                autocomplete="off">
+
+            <button
+                class="order-button"
+                onclick="checkInstagram()">
+                ➡️ Շարունակել
+            </button>
+
+            <div
+                class="message"
+                id="instagramMessage">
+            </div>
+
+        </div>
+
+
+        <!-- STEP 4 -->
+
+        <div class="order-step" id="orderStep4">
+
+            <div class="order-icon">
+                📋
+            </div>
+
+            <div class="order-title">
+                Հաստատեք պատվերը
+            </div>
+
+            <div class="summary" id="orderSummary">
+            </div>
+
+            <button
+                class="order-button"
+                onclick="finishOrder()">
+                ✅ Հաստատել պատվերը
+            </button>
+
+            <button
+                class="order-button back-button"
+                onclick="goToStep(3)">
+                ↩️ Հետ գնալ
+            </button>
+
+        </div>
+
+
+        <!-- STEP 5 -->
+
+        <div class="order-step" id="orderStep5">
+
+            <div class="order-icon">
+                🎉
+            </div>
+
+            <div class="order-title">
+                Պատվերը պատրաստ է!
+            </div>
+
+            <div class="final-message">
+
+                <div class="success">
+                    ✅ Պատվերը հաստատված է։
+                </div>
+
+                <br>
+
+                📦 Ձեր տվյալները պատրաստ են։
+
+                <br><br>
+
+                📱 Այժմ սեղմեք Instagram-ի կոճակը
+                և ուղարկեք պատվերը։
+
+            </div>
+
+            <a
+                class="instagram"
+                id="sendInstagram"
+                href="#"
+                target="_blank"
+                rel="noopener">
+                📸 Ուղարկել Instagram
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script>
+
+/* ==================================
+   🔐 ՊԱՏՎԵՐԻ ԿՈԴ
+   ================================== */
+
+const CORRECT_CODE = "MKOYAN2026";
+
+
+/* ==================================
+   📦 ՊԱՏՎԵՐԻ ՏՎՅԱԼՆԵՐ
+   ================================== */
+
+let selectedProduct = "";
+let selectedPrice = "";
+let userUID = "";
+let userInstagram = "";
+
+
+/* ==================================
+   🛒 ԲԱՑԵԼ ՊԱՏՎԵՐԸ
+   ================================== */
+
+function openOrder(product, price){
+
+    selectedProduct = product;
+    selectedPrice = price;
+
+    document.getElementById("selectedProduct").innerHTML =
+        "🛒 <b>" + product + "</b><br>💰 " + price;
+
+    document.getElementById("orderModal").classList.add("show");
+
+    goToStep(1);
+
+    document.getElementById("orderCode").value = "";
+    document.getElementById("codeMessage").innerHTML = "";
+
+    setTimeout(function(){
+        document.getElementById("orderCode").focus();
+    },300);
+}
+
+
+/* ==================================
+   ❌ ՓԱԿԵԼ
+   ================================== */
+
+function closeOrder(){
+
+    document.getElementById("orderModal").classList.remove("show");
+
+}
+
+
+/* ==================================
+   🔄 ՔԱՅԼ ՓՈԽԵԼ
+   ================================== */
+
+function goToStep(step){
+
+    document.querySelectorAll(".order-step").forEach(function(el){
+        el.classList.remove("active");
+    });
+
+    document
+        .getElementById("orderStep" + step)
+        .classList.add("active");
+}
+
+
+/* ==================================
+   🔐 ԿՈԴԻ ՍՏՈՒԳՈՒՄ
+   ================================== */
+
+function checkCode(){
+
+    const code =
+        document
+        .getElementById("orderCode")
+        .value
+        .trim();
+
+    const message =
+        document.getElementById("codeMessage");
+
+
+    if(code === ""){
+
+        message.innerHTML =
+            "⚠️ Խնդրում ենք գրել կոդը։";
+
+        message.className =
+            "message error";
+
+        return;
+    }
+
+
+    if(code !== CORRECT_CODE){
+
+        message.innerHTML =
+            "❌ Սխալ է։ Փորձեք նորից։";
+
+        message.className =
+            "message error";
+
+        return;
+    }
+
+
+    message.innerHTML =
+        "✅ Ճիշտ է!";
+
+    message.className =
+        "message success";
+
+
+    setTimeout(function(){
+
+        goToStep(2);
+
+    },700);
+}
+
+
+/* ==================================
+   👤 UID
+   ================================== */
+
+function checkUID(){
+
+    const uid =
+        document
+        .getElementById("uid")
+        .value
+        .trim();
+
+    const message =
+        document.getElementById("uidMessage");
+
+
+    if(uid === ""){
+
+        message.innerHTML =
+            "⚠️ Գրեք ձեր UID-ը։";
+
+        message.className =
+            "message error";
+
+        return;
+    }
+
+
+    if(uid.length < 3){
+
+        message.innerHTML =
+            "❌ UID-ը կարծես սխալ է։";
+
+        message.className =
+            "message error";
+
+        return;
+    }
+
+
+    userUID = uid;
+
+    goToStep(3);
+}
+
+
+/* ==================================
+   📱 INSTAGRAM
+   ================================== */
+
+function checkInstagram(){
+
+    const instagram =
+        document
+        .getElementById("instagram")
+        .value
+        .trim()
+        .replace("@","");
+
+    const message =
+        document.getElementById("instagramMessage");
+
+
+    if(instagram === ""){
+
+        message.innerHTML =
+            "⚠️ Գրեք ձեր Instagram-ը։";
+
+        message.className =
+            "message error";
+
+        return;
+    }
+
+
+    if(instagram.length < 3){
+
+        message.innerHTML =
+            "❌ Instagram username-ը սխալ է։";
+
+        message.className =
+            "message error";
+
+        return;
+    }
+
+
+    userInstagram = instagram;
+
+
+    document.getElementById("orderSummary").innerHTML =
+
+        "🛒 <b>Ապրանք:</b> " +
+        selectedProduct +
+
+        "<br>💰 <b>Գին:</b> " +
+        selectedPrice +
+
+        "<br>👤 <b>UID:</b> " +
+        userUID +
+
+        "<br>📱 <b>Instagram:</b> @" +
+        userInstagram;
+
+
+    goToStep(4);
+}
+
+
+/* ==================================
+   🎉 ՎԵՐՋՆԱԿԱՆ ՀԱՍՏԱՏՈՒՄ
+   ================================== */
+
+function finishOrder(){
+
+    const text =
+        "🔥 MKOYAN SHOP ՊԱՏՎԵՐ 🔥\n\n" +
+
+        "🛒 Ապրանք: " +
+        selectedProduct +
+
+        "\n💰 Գին: " +
+        selectedPrice +
+
+        "\n👤 UID: " +
+        userUID +
+
+        "\n📱 Instagram: @" +
+        userInstagram +
+
+        "\n\n✅ Պատրաստ եմ պատվերը հաստատել։";
+
+
+    const instagramURL =
+        "https://www.instagram.com/a.mkoyannhhh/";
+
+
+    document
+        .getElementById("sendInstagram")
+        .href = instagramURL;
+
+
+    goToStep(5);
+}
+
+
+/* ==================================
+   ❌ MODAL-ԻՑ ԴՈՒՐՍ ՍԵՂՄԵԼ
+   ================================== */
+
+document
+.getElementById("orderModal")
+.addEventListener("click",function(e){
+
+    if(e.target === this){
+        closeOrder();
+    }
+
+});
+
+
+/* ==================================
+   ⌨️ ENTER
+   ================================== */
+
+document
+.getElementById("orderCode")
+.addEventListener("keydown",function(e){
+
+    if(e.key === "Enter"){
+        checkCode();
+    }
+
+});
+
+</script>
 
 </body>
 </html>

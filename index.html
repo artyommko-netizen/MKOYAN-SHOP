@@ -7,12 +7,12 @@
 <title>🔥 MKOYAN SHOP 🔥</title>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Noto+Sans+Armenian:wght@400;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Noto+Sans+Armenian:wght@400;700;900&display=swap');
 
 *{
+    box-sizing:border-box;
     margin:0;
     padding:0;
-    box-sizing:border-box;
 }
 
 html{
@@ -25,8 +25,8 @@ body{
     min-height:100vh;
     overflow-x:hidden;
 
-    background-image:
-        linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.72)),
+    background:
+        linear-gradient(rgba(0,0,0,.58),rgba(0,0,0,.78)),
         url("file_00000000799081f4a645b2fa3c325f48.png");
 
     background-size:cover;
@@ -34,34 +34,25 @@ body{
     background-attachment:fixed;
 }
 
-/* ✨ Փայլող ֆոն */
-
-body:before{
+/* 🌟 Փայլող կետեր */
+body::before{
     content:"";
     position:fixed;
     inset:0;
     pointer-events:none;
-
-    background:
-      radial-gradient(circle at 10% 20%,rgba(255,255,255,.25) 0 2px,transparent 3px),
-      radial-gradient(circle at 80% 40%,rgba(255,255,255,.20) 0 2px,transparent 3px),
-      radial-gradient(circle at 40% 80%,rgba(255,255,255,.15) 0 2px,transparent 3px);
-
-    background-size:80px 80px,120px 120px,160px 160px;
-
-    animation:bgmove 8s linear infinite;
-
     z-index:-1;
+
+    background-image:
+        radial-gradient(circle,rgba(255,255,255,.8) 1px,transparent 2px),
+        radial-gradient(circle,rgba(0,238,255,.7) 1px,transparent 2px);
+
+    background-size:70px 70px,110px 110px;
+    animation:stars 7s linear infinite;
 }
 
-@keyframes bgmove{
-    from{
-        background-position:0 0,0 0,0 0;
-    }
-
-    to{
-        background-position:160px 160px,-200px 200px,250px -150px;
-    }
+@keyframes stars{
+    from{background-position:0 0,0 0;}
+    to{background-position:140px 140px,-180px 100px;}
 }
 
 /* 🔥 HEADER */
@@ -69,26 +60,21 @@ body:before{
 header{
     text-align:center;
     padding:35px 15px;
-
     background:rgba(0,0,0,.65);
     backdrop-filter:blur(12px);
-
     border-bottom:1px solid rgba(255,255,255,.3);
 }
 
 .logo{
-    font-family:'Orbitron',sans-serif;
-
-    font-size:clamp(35px,9vw,70px);
-
+    font-family:Orbitron,sans-serif;
+    font-size:clamp(40px,10vw,75px);
     font-weight:900;
-
     letter-spacing:5px;
 
-    animation:logoGlow 2s infinite alternate;
+    animation:logo 1.8s infinite alternate;
 }
 
-@keyframes logoGlow{
+@keyframes logo{
     from{
         text-shadow:
         0 0 5px white,
@@ -100,62 +86,60 @@ header{
         text-shadow:
         0 0 15px white,
         0 0 35px #00eaff,
-        0 0 60px #ff00ff;
+        0 0 65px #ff00ff;
     }
 }
 
 .subtitle{
     margin-top:12px;
-    font-size:17px;
     color:#eee;
+    font-size:17px;
 }
 
 /* ▶️ YOUTUBE */
 
 .youtube{
-    margin-top:20px;
-
     display:inline-block;
+    margin-top:20px;
+    padding:13px 25px;
 
-    font-family:'Orbitron',sans-serif;
-
-    font-size:22px;
-    font-weight:900;
-
-    color:#fff;
-
+    color:white;
     text-decoration:none;
-
-    padding:12px 25px;
+    font-family:Orbitron,sans-serif;
+    font-weight:900;
 
     border-radius:40px;
 
     background:linear-gradient(
         90deg,
-        #ff0000,
-        #ff0066,
-        #ff0000
+        red,
+        #ff0080,
+        red
     );
 
     background-size:300% 100%;
 
-    animation:
-        youtubeMove 3s linear infinite,
-        youtubePulse 1.5s infinite;
+    animation:youtube 2s linear infinite;
 
     box-shadow:
         0 0 15px red,
-        0 0 35px rgba(255,0,0,.6);
+        0 0 40px rgba(255,0,0,.7);
 }
 
-@keyframes youtubeMove{
-    from{background-position:0%;}
-    to{background-position:300%;}
-}
+@keyframes youtube{
+    0%{
+        background-position:0%;
+        transform:scale(1);
+    }
 
-@keyframes youtubePulse{
     50%{
+        background-position:100%;
         transform:scale(1.06);
+    }
+
+    100%{
+        background-position:200%;
+        transform:scale(1);
     }
 }
 
@@ -166,7 +150,6 @@ nav{
     justify-content:center;
     flex-wrap:wrap;
     gap:12px;
-
     padding:18px;
 
     background:rgba(0,0,0,.55);
@@ -178,49 +161,43 @@ nav a{
     text-decoration:none;
 
     padding:10px 20px;
-
     border-radius:30px;
 
-    background:rgba(255,255,255,.08);
-
+    background:rgba(255,255,255,.1);
     border:1px solid rgba(255,255,255,.3);
 
     transition:.3s;
 }
 
 nav a:hover{
-    transform:translateY(-5px) scale(1.05);
-
-    box-shadow:
-      0 0 20px rgba(255,255,255,.5);
+    transform:translateY(-5px) scale(1.08);
+    box-shadow:0 0 25px #00eaff;
 }
 
-/* ⭐ FLOATING EMOJIS */
+/* ✨ Թռչող emoji */
 
-.emoji{
+.floating{
     position:fixed;
-
-    font-size:25px;
-
+    bottom:-60px;
+    font-size:28px;
     pointer-events:none;
+    z-index:20;
 
-    animation:floatEmoji 6s linear infinite;
-
-    z-index:5;
+    animation:fly 7s linear infinite;
 }
 
-@keyframes floatEmoji{
+@keyframes fly{
     0%{
-        transform:translateY(100vh) rotate(0deg);
+        transform:translateY(0) rotate(0deg) scale(.7);
         opacity:0;
     }
 
-    20%{
+    15%{
         opacity:1;
     }
 
     100%{
-        transform:translateY(-120px) rotate(360deg);
+        transform:translateY(-115vh) rotate(500deg) scale(1.5);
         opacity:0;
     }
 }
@@ -230,157 +207,221 @@ nav a:hover{
 .container{
     width:min(1100px,92%);
     margin:auto;
-
     padding:45px 0;
 }
 
 .welcome{
     text-align:center;
-
     margin-bottom:45px;
 }
 
 .welcome h2{
     font-size:clamp(25px,6vw,45px);
 
-    text-shadow:
-      0 0 10px white,
-      0 0 25px #8b5cf6;
+    animation:titleGlow 2s infinite alternate;
+}
+
+@keyframes titleGlow{
+    from{
+        text-shadow:0 0 10px white,0 0 25px #8b5cf6;
+    }
+
+    to{
+        text-shadow:0 0 20px white,0 0 45px #00eaff;
+    }
 }
 
 .welcome p{
-    margin-top:12px;
-
+    margin-top:15px;
     color:#ddd;
-
-    font-size:17px;
 }
 
 /* SECTION */
 
 .section-title{
     text-align:center;
-
-    margin:50px 0 25px;
+    margin:55px 0 25px;
 }
 
 .section-title h2{
-    font-family:'Orbitron',sans-serif;
-
+    font-family:Orbitron,sans-serif;
     font-size:32px;
-
     text-shadow:
-      0 0 10px white,
-      0 0 25px #8b5cf6;
+        0 0 10px white,
+        0 0 30px #8b5cf6;
 }
 
 /* PRODUCTS */
 
 .products{
     display:grid;
-
-    grid-template-columns:
-      repeat(auto-fit,minmax(220px,1fr));
-
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
     gap:22px;
 }
 
 .card{
     position:relative;
-
-    padding:28px 22px;
-
     text-align:center;
 
-    background:rgba(0,0,0,.68);
+    padding:28px 20px;
 
-    backdrop-filter:blur(14px);
+    background:rgba(0,0,0,.72);
+    backdrop-filter:blur(15px);
 
-    border:
-      1px solid rgba(255,255,255,.3);
-
+    border:1px solid rgba(255,255,255,.3);
     border-radius:25px;
 
-    box-shadow:
-      0 15px 35px rgba(0,0,0,.5);
-
     overflow:hidden;
+
+    box-shadow:0 15px 35px rgba(0,0,0,.6);
 
     transition:.4s;
 }
 
 .card:hover{
-    transform:
-      translateY(-12px)
-      scale(1.03);
+    transform:translateY(-12px) scale(1.03);
 
     box-shadow:
-      0 0 30px #8b5cf6,
-      0 20px 50px rgba(0,0,0,.7);
+        0 0 25px #8b5cf6,
+        0 0 55px rgba(0,234,255,.35);
 }
 
-.card:after{
-    content:"✨";
+/* ✨ emoji-ներ քարտերի շուրջ */
 
+.card::before{
+    content:"✨ 💎 ✨";
     position:absolute;
+    top:8px;
+    left:50%;
+    transform:translateX(-50%);
+    white-space:nowrap;
 
-    right:-10px;
-    top:-15px;
-
-    font-size:50px;
-
-    animation:spin 4s linear infinite;
+    animation:sideEmoji 2s infinite alternate;
 }
 
-@keyframes spin{
+@keyframes sideEmoji{
+    from{
+        letter-spacing:2px;
+        opacity:.5;
+    }
+
     to{
-        transform:rotate(360deg);
+        letter-spacing:12px;
+        opacity:1;
+    }
+}
+
+.card::after{
+    content:"🔥";
+    position:absolute;
+    right:10px;
+    bottom:8px;
+    font-size:30px;
+
+    animation:fire 1s infinite alternate;
+}
+
+@keyframes fire{
+    to{
+        transform:scale(1.35) rotate(10deg);
+        filter:drop-shadow(0 0 12px orange);
     }
 }
 
 .icon{
+    margin-top:15px;
     font-size:58px;
 
-    margin-bottom:12px;
+    animation:iconMove 1.5s infinite alternate;
 
-    animation:bounce 2s infinite;
-
-    filter:
-      drop-shadow(0 0 12px white);
+    filter:drop-shadow(0 0 15px white);
 }
 
-@keyframes bounce{
-    50%{
-        transform:translateY(-8px);
+@keyframes iconMove{
+    to{
+        transform:translateY(-10px) rotate(5deg) scale(1.08);
     }
 }
 
 .card h3{
+    margin:10px 0;
     font-size:22px;
-
-    margin-bottom:8px;
 }
 
 .description{
     color:#ccc;
-
-    font-size:14px;
-
     min-height:42px;
 }
 
+/* 💰 PRICE */
+
 .price{
-    font-family:'Orbitron',sans-serif;
+    position:relative;
+    display:inline-block;
 
-    font-size:25px;
+    margin:20px 0;
 
+    font-family:Orbitron,sans-serif;
+    font-size:27px;
     font-weight:900;
 
-    margin:18px 0;
+    color:#fff;
+
+    animation:price 1.3s infinite alternate;
 
     text-shadow:
-      0 0 10px #00eaff,
-      0 0 25px #8b5cf6;
+        0 0 10px #00eaff,
+        0 0 25px #8b5cf6;
+}
+
+/* Գնի կողքի շարժվող emoji */
+
+.price::before{
+    content:"💰";
+    position:absolute;
+    right:100%;
+    margin-right:8px;
+
+    animation:moneyLeft 1s infinite alternate;
+}
+
+.price::after{
+    content:"✨";
+    position:absolute;
+    left:100%;
+    margin-left:8px;
+
+    animation:moneyRight 1s infinite alternate;
+}
+
+@keyframes price{
+    from{
+        transform:scale(1);
+    }
+
+    to{
+        transform:scale(1.12);
+    }
+}
+
+@keyframes moneyLeft{
+    from{
+        transform:translateX(0) rotate(-15deg);
+    }
+
+    to{
+        transform:translateX(-8px) rotate(15deg);
+    }
+}
+
+@keyframes moneyRight{
+    from{
+        transform:translateX(0) rotate(15deg);
+    }
+
+    to{
+        transform:translateX(8px) rotate(-15deg);
+    }
 }
 
 /* 🛒 BUY */
@@ -388,99 +429,87 @@ nav a:hover{
 .buy{
     display:inline-block;
 
-    padding:13px 28px;
+    padding:14px 30px;
 
     color:white;
-
     text-decoration:none;
-
     font-weight:900;
 
     border-radius:35px;
 
-    background:
-      linear-gradient(
+    background:linear-gradient(
         135deg,
         #7c3aed,
         #2563eb,
         #00eaff
-      );
+    );
 
     background-size:200% 200%;
 
-    animation:buttonGlow 3s infinite;
+    animation:buyGlow 2s infinite;
 
-    box-shadow:
-      0 0 20px rgba(99,102,241,.6);
+    box-shadow:0 0 20px rgba(0,234,255,.6);
 
-    transition:.3s;
+    transition:.25s;
 }
 
-@keyframes buttonGlow{
+@keyframes buyGlow{
     50%{
         background-position:100% 100%;
-
         box-shadow:
-          0 0 35px #00eaff;
+            0 0 35px #00eaff,
+            0 0 60px #7c3aed;
     }
 }
 
 .buy:hover{
-    transform:scale(1.1);
+    transform:scale(1.12);
 }
 
 /* 📱 CONTACT */
 
 .contact{
     margin-top:60px;
-
     padding:35px 20px;
 
     text-align:center;
 
-    background:rgba(0,0,0,.7);
-
+    background:rgba(0,0,0,.72);
     backdrop-filter:blur(12px);
 
     border-radius:25px;
-
-    border:1px solid rgba(255,255,255,.25);
+    border:1px solid rgba(255,255,255,.3);
 }
 
 .instagram{
     display:inline-block;
 
     margin-top:18px;
-
-    padding:14px 28px;
+    padding:15px 30px;
 
     color:white;
-
     text-decoration:none;
-
     font-weight:900;
 
     border-radius:35px;
 
-    background:
-      linear-gradient(
+    background:linear-gradient(
         45deg,
         #feda75,
         #fa7e1e,
         #d62976,
         #962fbf,
         #4f5bd5
-      );
+    );
 
-    animation:insta 2s infinite alternate;
+    animation:instagram 1.5s infinite alternate;
 
-    box-shadow:
-      0 0 25px rgba(214,41,118,.6);
+    box-shadow:0 0 30px rgba(214,41,118,.7);
 }
 
-@keyframes insta{
+@keyframes instagram{
     to{
-        transform:scale(1.06);
+        transform:scale(1.08);
     }
 }
 
@@ -488,25 +517,24 @@ nav a:hover{
 
 footer{
     margin-top:60px;
-
     padding:30px 15px;
 
     text-align:center;
 
-    background:rgba(0,0,0,.8);
-
-    border-top:
-      1px solid rgba(255,255,255,.2);
+    background:rgba(0,0,0,.85);
+    border-top:1px solid rgba(255,255,255,.2);
 }
 
 .footerLogo{
-    font-family:'Orbitron',sans-serif;
-
+    font-family:Orbitron,sans-serif;
     font-size:25px;
 
-    margin-bottom:10px;
+    animation:logo 1.8s infinite alternate;
+}
 
-    animation:logoGlow 2s infinite alternate;
+footer p{
+    margin-top:10px;
+    color:#ddd;
 }
 
 /* 📱 MOBILE */
@@ -518,69 +546,64 @@ footer{
     }
 
     .card{
-        padding:25px 18px;
+        padding:28px 18px;
     }
 
     nav a{
-        padding:8px 15px;
+        padding:8px 14px;
         font-size:14px;
     }
 
+    .price{
+        font-size:24px;
+    }
 }
-
 </style>
 </head>
 
 <body>
 
-<!-- ✨ Շարժվող emoji-ներ -->
+<!-- 🌟 ՇԱՐԺՎՈՂ EMOJI-ՆԵՐ -->
 
-<div class="emoji" style="left:5%;animation-delay:0s;">💎</div>
-<div class="emoji" style="left:20%;animation-delay:2s;">🔥</div>
-<div class="emoji" style="left:35%;animation-delay:4s;">👑</div>
-<div class="emoji" style="left:55%;animation-delay:1s;">✨</div>
-<div class="emoji" style="left:70%;animation-delay:3s;">💰</div>
-<div class="emoji" style="left:90%;animation-delay:5s;">⚡</div>
-
+<div class="floating" style="left:3%;animation-delay:0s;">💎</div>
+<div class="floating" style="left:12%;animation-delay:2s;">🔥</div>
+<div class="floating" style="left:22%;animation-delay:4s;">💰</div>
+<div class="floating" style="left:34%;animation-delay:1s;">✨</div>
+<div class="floating" style="left:47%;animation-delay:5s;">👑</div>
+<div class="floating" style="left:58%;animation-delay:2.5s;">⚡</div>
+<div class="floating" style="left:70%;animation-delay:4.5s;">💎</div>
+<div class="floating" style="left:82%;animation-delay:1.5s;">🔥</div>
+<div class="floating" style="left:94%;animation-delay:3.5s;">✨</div>
 
 <header>
 
-    <div class="logo">
-        🔥 MKOYAN 🔥
-    </div>
+    <div class="logo">🔥 MKOYAN 🔥</div>
 
     <div class="subtitle">
         💎 PREMIUM SHOP • 👑 VIP • ⚡ FAST SERVICE
     </div>
 
     <a
-      class="youtube"
-      href="#"
-      onclick="return false;">
-      ▶️ MKOYAN YOUTUBE ▶️
+        class="youtube"
+        href="https://www.youtube.com/"
+        target="_blank"
+        rel="noopener">
+        ▶️ MKOYAN YOUTUBE ▶️
     </a>
 
 </header>
 
-
 <nav>
-
     <a href="#diamond">💎 Diamond</a>
-
     <a href="#vip">👑 VIP</a>
-
     <a href="#contact">📱 Instagram</a>
-
 </nav>
-
 
 <main class="container">
 
 <section class="welcome">
 
-    <h2>
-        ✨💎 Բարի գալուստ MKOYAN SHOP 💎✨
-    </h2>
+    <h2>✨💎 Բարի գալուստ MKOYAN SHOP 💎✨</h2>
 
     <p>
         🔥 Ընտրիր ապրանքդ • 🛒 Սեղմիր «Գնել» • 📱 Գրիր Instagram-ում 🔥
@@ -588,269 +611,159 @@ footer{
 
 </section>
 
-
-<!-- 💎 DIAMOND -->
-
 <section id="diamond">
 
 <div class="section-title">
-
-    <h2>
-        💎✨ DIAMOND ✨💎
-    </h2>
-
+    <h2>💎✨ DIAMOND ✨💎</h2>
 </div>
 
 <div class="products">
 
-
 <div class="card">
-
     <div class="icon">💎</div>
-
     <h3>100 Diamond</h3>
+    <p class="description">💎 Սկսնակ փաթեթ</p>
+    <div class="price">500 ֏</div>
 
-    <p class="description">
-        💎 Սկսնակ փաթեթ
-    </p>
-
-    <div class="price">
-        500 ֏
-    </div>
-
-    <a
-      class="buy"
-      href="https://www.instagram.com/a.mkoyannhhh/"
-      target="_blank"
-      rel="noopener">
-      🛒 Գնել 🔥
+    <a class="buy"
+       href="https://www.instagram.com/a.mkoyannhhh/"
+       target="_blank"
+       rel="noopener">
+       🛒 Գնել 🔥
     </a>
-
 </div>
 
-
 <div class="card">
-
     <div class="icon">💎</div>
-
     <h3>500 Diamond</h3>
+    <p class="description">🔥 Միջին փաթեթ</p>
+    <div class="price">2,000 ֏</div>
 
-    <p class="description">
-        🔥 Միջին փաթեթ
-    </p>
-
-    <div class="price">
-        2,000 ֏
-    </div>
-
-    <a
-      class="buy"
-      href="https://www.instagram.com/a.mkoyannhhh/"
-      target="_blank"
-      rel="noopener">
-      🛒 Գնել 🔥
+    <a class="buy"
+       href="https://www.instagram.com/a.mkoyannhhh/"
+       target="_blank"
+       rel="noopener">
+       🛒 Գնել 🔥
     </a>
-
 </div>
 
-
 <div class="card">
-
     <div class="icon">💎</div>
-
     <h3>1000 Diamond</h3>
+    <p class="description">⚡ Մեծ փաթեթ</p>
+    <div class="price">3,500 ֏</div>
 
-    <p class="description">
-        ⚡ Մեծ փաթեթ
-    </p>
-
-    <div class="price">
-        3,500 ֏
-    </div>
-
-    <a
-      class="buy"
-      href="https://www.instagram.com/a.mkoyannhhh/"
-      target="_blank"
-      rel="noopener">
-      🛒 Գնել 🔥
+    <a class="buy"
+       href="https://www.instagram.com/a.mkoyannhhh/"
+       target="_blank"
+       rel="noopener">
+       🛒 Գնել 🔥
     </a>
-
 </div>
-
 
 <div class="card">
-
     <div class="icon">💎</div>
-
     <h3>2500 Diamond</h3>
+    <p class="description">👑 MAX փաթեթ</p>
+    <div class="price">7,000 ֏</div>
 
-    <p class="description">
-        👑 MAX փաթեթ
-    </p>
-
-    <div class="price">
-        7,000 ֏
-    </div>
-
-    <a
-      class="buy"
-      href="https://www.instagram.com/a.mkoyannhhh/"
-      target="_blank"
-      rel="noopener">
-      🛒 Գնել 🔥
+    <a class="buy"
+       href="https://www.instagram.com/a.mkoyannhhh/"
+       target="_blank"
+       rel="noopener">
+       🛒 Գնել 🔥
     </a>
-
 </div>
 
 </div>
-
 </section>
-
-
-<!-- 👑 VIP -->
 
 <section id="vip">
 
 <div class="section-title">
-
-    <h2>
-        👑✨ VIP ✨👑
-    </h2>
-
+    <h2>👑✨ VIP ✨👑</h2>
 </div>
 
 <div class="products">
 
-
 <div class="card">
-
     <div class="icon">🥉</div>
-
     <h3>VIP Bronze</h3>
+    <p class="description">🥉 Bronze VIP</p>
+    <div class="price">1,000 ֏</div>
 
-    <p class="description">
-        🥉 Bronze VIP
-    </p>
-
-    <div class="price">
-        1,000 ֏
-    </div>
-
-    <a
-      class="buy"
-      href="https://www.instagram.com/a.mkoyannhhh/"
-      target="_blank"
-      rel="noopener">
-      🛒 Գնել 🔥
+    <a class="buy"
+       href="https://www.instagram.com/a.mkoyannhhh/"
+       target="_blank"
+       rel="noopener">
+       🛒 Գնել 🔥
     </a>
-
 </div>
 
-
 <div class="card">
-
     <div class="icon">🥈</div>
-
     <h3>VIP Silver</h3>
+    <p class="description">🥈 Silver VIP</p>
+    <div class="price">2,500 ֏</div>
 
-    <p class="description">
-        🥈 Silver VIP
-    </p>
-
-    <div class="price">
-        2,500 ֏
-    </div>
-
-    <a
-      class="buy"
-      href="https://www.instagram.com/a.mkoyannhhh/"
-      target="_blank"
-      rel="noopener">
-      🛒 Գնել 🔥
+    <a class="buy"
+       href="https://www.instagram.com/a.mkoyannhhh/"
+       target="_blank"
+       rel="noopener">
+       🛒 Գնել 🔥
     </a>
-
 </div>
 
-
 <div class="card">
-
     <div class="icon">🥇</div>
-
     <h3>VIP Gold</h3>
+    <p class="description">🥇 Gold VIP</p>
+    <div class="price">5,000 ֏</div>
 
-    <p class="description">
-        🥇 Gold VIP
-    </p>
-
-    <div class="price">
-        5,000 ֏
-    </div>
-
-    <a
-      class="buy"
-      href="https://www.instagram.com/a.mkoyannhhh/"
-      target="_blank"
-      rel="noopener">
-      🛒 Գնել 🔥
+    <a class="buy"
+       href="https://www.instagram.com/a.mkoyannhhh/"
+       target="_blank"
+       rel="noopener">
+       🛒 Գնել 🔥
     </a>
-
 </div>
-
 
 <div class="card">
-
     <div class="icon">👑</div>
-
     <h3>VIP Premium</h3>
+    <p class="description">👑 Ամենաբարձր VIP</p>
+    <div class="price">10,000 ֏</div>
 
-    <p class="description">
-        👑 Ամենաբարձր VIP
-    </p>
-
-    <div class="price">
-        10,000 ֏
-    </div>
-
-    <a
-      class="buy"
-      href="https://www.instagram.com/a.mkoyannhhh/"
-      target="_blank"
-      rel="noopener">
-      🛒 Գնել 🔥
+    <a class="buy"
+       href="https://www.instagram.com/a.mkoyannhhh/"
+       target="_blank"
+       rel="noopener">
+       🛒 Գնել 🔥
     </a>
-
 </div>
 
 </div>
-
 </section>
-
-
-<!-- 📱 CONTACT -->
 
 <section id="contact" class="contact">
 
-    <h2>
-        📱🔥 Պատվե՞ր ես ուզում 🔥📱
-    </h2>
+    <h2>📱🔥 Պատվե՞ր ես ուզում 🔥📱</h2>
 
     <p style="margin-top:12px;color:#ccc;">
         Գրիր մեզ Instagram-ում և կատարիր պատվերդ։
     </p>
 
     <a
-      class="instagram"
-      href="https://www.instagram.com/a.mkoyannhhh/"
-      target="_blank"
-      rel="noopener">
-      📸 @a.mkoyannhhh
+        class="instagram"
+        href="https://www.instagram.com/a.mkoyannhhh/"
+        target="_blank"
+        rel="noopener">
+        📸 @a.mkoyannhhh
     </a>
 
 </section>
 
 </main>
-
 
 <footer>
 
@@ -858,13 +771,9 @@ footer{
         💎🔥 MKOYAN SHOP 🔥💎
     </div>
 
-    <p>
-        ✨💎👑 Thank you for choosing MKOYAN 👑💎✨
-    </p>
+    <p>✨💎👑 Thank you for choosing MKOYAN 👑💎✨</p>
 
-    <p style="margin-top:10px;">
-        © 2026 MKOYAN SHOP
-    </p>
+    <p>© 2026 MKOYAN SHOP</p>
 
 </footer>
 

@@ -935,8 +935,6 @@ footer strong{
 <main class="container">
 
 
-<!-- ================= GAMES ================= -->
-
 <section id="games">
 
     <div class="title">
@@ -1155,8 +1153,6 @@ footer strong{
 </section>
 
 
-<!-- ================= DIAMONDS ================= -->
-
 <section id="diamonds">
 
     <div class="title">
@@ -1248,8 +1244,6 @@ footer strong{
 
 </section>
 
-
-<!-- ================= VIP ================= -->
 
 <section id="vip">
 
@@ -1343,8 +1337,6 @@ footer strong{
 </section>
 
 
-<!-- ================= PAYMENT ================= -->
-
 <section id="payment">
 
     <div class="title">
@@ -1397,8 +1389,6 @@ footer strong{
 </section>
 
 
-<!-- ================= ORDER ================= -->
-
 <section id="order">
 
     <div class="order">
@@ -1414,7 +1404,7 @@ footer strong{
 
         <a
             class="instagram"
-            href="https://www.instagram.com/"
+            href="https://www.instagram.com/a.mkoyannhhh/"
             target="_blank"
             rel="noopener"
         >
@@ -1443,8 +1433,6 @@ footer strong{
 
 </footer>
 
-
-<!-- ================= MODAL ================= -->
 
 <div
     class="modal"
@@ -1571,8 +1559,6 @@ footer strong{
 
 <script>
 
-/* ================= PRODUCT MODAL ================= */
-
 let selectedProduct = "";
 let selectedInfo = "";
 let selectedBank = "";
@@ -1643,30 +1629,45 @@ function sendInstagram(){
     const bank =
         document.getElementById("bankSelect").value;
 
-    let message =
-        "Բարև 👋%0A%0A" +
-        "🛒 Պատվեր՝ " +
-        selectedProduct +
-        "%0A" +
-        "📦 Տեղեկություն՝ " +
-        selectedInfo +
-        "%0A" +
-        "🔢 Քանակ՝ " +
-        quantity +
-        "%0A" +
-        "🎮 Game ID՝ " +
-        (gameId || "Չի լրացվել") +
-        "%0A" +
-        "🏦 Բանկ՝ " +
-        (bank || "Չի ընտրվել");
+    const message =
+`🎮🔥 YO! Բարև, MKOYAN SHOP 👋😎
+
+🚀💎 Ուրախ եմ հայտնվել ձեր հրաշալի գեյմերական աշխարհում! 🕹️🔥
+
+🛒✨ Ցանկանում եմ կատարել պատվեր և ստանալ իմ խաղային դոնաթը։ 💰🎮💎
+
+🔥🎯 Ապրանք՝ ${selectedProduct}
+📦 Տեղեկություն՝ ${selectedInfo}
+🔢 Քանակ՝ ${quantity}
+🎮 Game ID՝ ${gameId || "Չի լրացվել"}
+🏦 Բանկ՝ ${bank || "Չի ընտրվել"}
+
+💎🎮 Պատրաստ եմ լիցքավորել իմ խաղային աշխարհը! 🚀🔥
+
+❤️ Շնորհակալություն, MKOYAN SHOP — դուք իսկական գեյմերների անկյունն եք! 👑🎮
+
+🔥💎 MKOYAN SHOP — PLAY 🎮 • DONATE 💸 • WIN 🏆 • ENJOY 😎🔥`;
 
     /*
-      Այստեղ պետք է դնել քո իրական Instagram
-      DM/կոնտակտային հղումը։
+       Instagram-ը սովորական կայքից չի տալիս
+       երաշխավորված հնարավորություն՝ DM-ի տեքստը
+       ավտոմատ լրացնելու համար։
+
+       Բայց հաղորդագրությունը պահում ենք սարքում,
+       որպեսզի պատվերի տվյալները չկորչեն։
+    */
+
+    localStorage.setItem(
+        "mkoyanOrderMessage",
+        message
+    );
+
+    /*
+       Բացում ենք հենց քո Instagram էջը։
     */
 
     window.open(
-        "https://www.instagram.com/",
+        "https://www.instagram.com/a.mkoyannhhh/",
         "_blank"
     );
 
@@ -1698,12 +1699,6 @@ document.addEventListener("keydown",function(e){
 
 
 /* ================= PARALLAX ================= */
-
-/*
-   Քո ամբողջ ֆոնը թեթև շարժվում է մկնիկի
-   շարժման հետ։ Հեռախոսում նույնպես աշխատում
-   է touch շարժման ժամանակ։
-*/
 
 let px = 0;
 let py = 0;

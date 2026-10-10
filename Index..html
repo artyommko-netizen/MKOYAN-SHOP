@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="hy">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#090914">
+<meta name="description" content="MKOYAN SHOP — քո խաղային աշխարհը։ Գտիր քո սիրելի խաղը և կապվիր մեզ հետ։">
+<title>MKOYAN SHOP 💎</title>
+
+<style>
+:root {
+    --bg: #090914;
+    --card: #17172b;
+    --purple: #a855f7;
+    --pink: #ff36b7;
+    --blue: #31d9ff;
+    --text: #ffffff;
+    --muted: #b9b9d0;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background:
+        radial-gradient(ellipse at top, #251044 0%, transparent 45%),
+        var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button, input {
+    font: inherit;
+}
+
+button, a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+header {
+    padding: 20px 15px;
+    text-align: center;
+    background: rgba(15, 13, 32, .92);
+    border-bottom: 1px solid #a855f755;
+    box-shadow: 0 4px 30px #a855f722;
+}
+
+.logo {
+    font-size: clamp(27px, 6vw, 43px);
+    font-weight: 1000;
+    letter-spacing: 2px;
+    background: linear-gradient(90deg, #31d9ff, #d26bff, #ff36b7);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    filter: drop-shadow(0 0 12px #a855f766);
+}
+
+.header-sub {
+    color: var(--muted);
+    margin-top: 8px;
+    font-size: 14px;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 14px 10px;
+    background: #101020;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    border-bottom: 1px solid #ffffff12;
+}
+
+.nav-btn {
+    padding: 10px 15px;
+    border: 1px solid #a855f755;
+    border-radius: 20px;
+    background: #1c1730;
+    color: white;
+    font-weight: bold;
+    font-size: 13px;
+    transition: .25s;
+}
+
+.nav-btn:hover {
+    background: #772bd0;
+    box-shadow: 0 0 16px #a855f777;
+}
+
+.hero {
+    text-align: center;
+    padding: 48px 18px 35px;
+}
+
+.hero h2 {
+    font-size: clamp(25px, 5vw, 40px);
+    line-height: 1.3;
+    margin-bottom: 15px;
+}
+
+.gradient-text {
+    color: #d68cff;
+    text-shadow: 0 0 20px #a855f766;
+}
+
+.hero p {
+    color: var(--muted);
+    line-height: 1.8;
+    max-width: 600px;
+    margin: 0 auto 22px;
+}
+
+.primary-btn {
+    display: inline-block;
+    padding: 14px 23px;
+    background: linear-gradient(100deg, #762be8, #e334c7);
+    border-radius: 12px;
+    font-weight: bold;
+    box-shadow: 0 0 22px #a855f744;
+    transition: .25s;
+}
+
+.primary-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 28px #d34cff88;
+}
+
+.welcome {
+    max-width: 900px;
+    margin: 0 auto 25px;
+    padding: 20px;
+    border: 1px solid #a855f766;
+    border-radius: 18px;
+    background: linear-gradient(120deg, #22123d, #11182f);
+    text-align: center;
+    line-height: 1.9;
+    box-shadow: 0 0 25px #a855f722;
+}
+
+.welcome strong {
+    color: #e1a6ff;
+}
+
+.container {
+    width: min(1100px, 94%);
+    margin: auto;
+}
+
+.section-title {
+    text-align: center;
+    font-size: clamp(23px, 4vw, 31px);
+    margin: 35px 0 12px;
+}
+
+.section-description {
+    text-align: center;
+    color: var(--muted);
+    font-size: 14px;
+    margin: 0 auto 22px;
+    line-height: 1.7;
+}
+
+.search-box {
+    display: block;
+    width: 100%;
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 15px 18px;
+    color: white;
+    background: #17172b;
+    border: 1px solid #8b5cf6;
+    border-radius: 13px;
+    outline: none;
+}
+
+.search-box:focus {
+    box-shadow: 0 0 18px #8b5cf666;
+}
+
+.filters {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 9px;
+    margin: 20px 0 25px;
+}
+
+.filter-btn {
+    border: 1px solid #a855f755;
+    border-radius: 20px;
+    padding: 9px 14px;
+    background: #17172b;
+    color: white;
+    cursor: pointer;
+}
+
+.filter-btn.active,
+.filter-btn:hover {
+    background: #7c3aed;
+    box-shadow: 0 0 14px #8b5cf655;
+}
+
+.games {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(145px, 1fr));
+    gap: 16px;
+}
+
+.game-card {
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    padding: 22px 12px 16px;
+    background: linear-gradient(155deg, #201a37, #11111f);
+    border: 1px solid #a855f744;
+    border-radius: 17px;
+    transition: transform .25s, box-shadow .25s, border-color .25s;
+}
+
+.game-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 15%;
+    width: 70%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #d26bff, transparent);
+}
+
+.game-card:hover {
+    transform: translateY(-5px);
+    border-color: #d26bff;
+    box-shadow: 0 0 23px #a855f733;
+}
+
+.game-icon {
+    width: 75px;
+    height: 75px;
+    margin: 0 auto 13px;
+    border-radius: 19px;
+    display: grid;
+    place-items: center;
+    font-size: 39px;
+    background: linear-gradient(135deg, #37215c, #172b50);
+    box-shadow: 0 0 18px #8b5cf622;
+}
+
+.game-card h3 {
+    font-size: 17px;
+    margin-bottom: 9px;
+}
+
+.game-card p {
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.6;
+    min-height: 39px;
+}
+
+.game-tag {
+    display: inline-block;
+    margin: 10px 0;
+    font-size: 11px;
+    padding: 5px 9px;
+    border-radius: 15px;
+    color: #e5c7ff;
+    background: #7c3aed33;
+}
+
+.buy-btn {
+    display: block;
+    width: 100%;
+    padding: 11px 7px;
+    margin-top: 8px;
+    border: 0;
+    border-radius: 9px;
+    background: linear-gradient(100deg, #762be8, #d946ef);
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.buy-btn:hover {
+    filter: brightness(1.18);
+    box-shadow: 0 0 15px #c026d355;
+}
+
+.empty-message {
+    text-align: center;
+    color: var(--muted);
+    padding: 30px 10px;
+    display: none;
+}
+
+.vip-box {
+    margin: 45px 0;
+    padding: 30px 20px;
+    text-align: center;
+    border-radius: 22px;
+    border: 1px solid #ffcc5577;
+    background: linear-gradient(130deg, #32200f, #211329, #17172b);
+    box-shadow: 0 0 25px #ffbd5922;
+}
+
+.vip-box h2 {
+    color: #ffd779;
+    font-size: 27px;
+    margin-bottom: 12px;
+}
+
+.vip-box p {
+    color: #e0d5e9;
+    line-height: 1.8;
+    margin-bottom: 18px;
+}
+
+.socials {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 15px;
+    margin: 22px 0 45px;
+}
+
+.social-card {
+    padding: 22px 15px;
+    text-align: center;
+    border: 1px solid #ffffff20;
+    border-radius: 16px;
+    background: #17172b;
+}
+
+.social-card h3 {
+    margin-bottom: 10px;
+}
+
+.social-card p {
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.7;
+    margin-bottom: 15px;
+}
+
+.social-btn {
+    display: inline-block;
+    padding: 12px 19px;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+.youtube {
+    background: #ff2020;
+}
+
+.instagram {
+    background: linear-gradient(45deg, #feda75, #fa7e1e, #d62976, #962fbf, #4f5bd5);
+}
+
+.info-box {
+    padding: 25px 18px;
+    margin: 35px 0;
+    text-align: center;
+    border: 1px solid #a855f744;
+    border-radius: 17px;
+    background: #17172b;
+    line-height: 1.9;
+}
+
+.info-box h2 {
+    margin-bottom: 10px;
+}
+
+.info-box p {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+footer {
+    text-align: center;
+    padding: 28px 15px;
+    background: #101020;
+    border-top: 1px solid #a855f733;
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 2;
+}
+
+footer strong {
+    color: #d68cff;
+}
+
+/* Ողջույնի պատուհան */
+.modal {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background: rgba(5, 4, 15, .88);
+    backdrop-filter: blur(8px);
+    transition: opacity .3s;
+}
+
+.modal.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.modal-box {
+    width: 100%;
+    max-width: 430px;
+    padding: 30px 22px;
+    border-radius: 22px;
+    border: 1px solid #d26bff;
+    background: linear-gradient(145deg, #271341, #10172c);
+    text-align: center;
+    box-shadow: 0 0 45px #a855f755;
+    animation: appear .5s ease;
+}
+
+.modal-logo {
+    font-size: 34px;
+    margin-bottom: 13px;
+}
+
+.modal-box h2 {
+    color: #e1a6ff;
+    font-size: 25px;
+    margin-bottom: 12px;
+}
+
+.modal-box p {
+    color: #ded6ec;
+    font-size: 14px;
+    line-height: 1.9;
+    margin-bottom: 20px;
+}
+
+@keyframes appear {
+    from {
+        transform: translateY(15px) scale(.95);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+}
+
+@media (max-width: 420px) {
+    .games {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+    }
+
+    .game-card {
+        padding: 17px 9px 12px;
+    }
+
+    .game-icon {
+        width: 63px;
+        height: 63px;
+        font-size: 33px;
+    }
+
+    .game-card h3 {
+        font-size: 15px;
+    }
+
+    nav {
+        gap: 7px;
+    }
+
+    .nav-btn {
+        padding: 9px 11px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation: none !important;
+        scroll-behavior: auto !important;
+        transition: none !important;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header id="top">
+    <div class="logo">💎 MKOYAN SHOP</div>
+    <p class="header-sub">🎮 Քո խաղային աշխարհը սկսվում է այստեղ 🚀</p>
+</header>
+
+<nav>
+    <a class="nav-btn" href="#games">🎮 Խաղեր</a>
+    <a class="nav-btn" href="#vip">👑 VIP</a>
+    <a class="nav-btn" href="#social">📱 Մեր էջերը</a>
+</nav>
+
+<section class="hero">
+    <h2>ԲԱՐԻ ԳԱԼՈՒՍՏ<br>
+        <span class="gradient-text">MKOYAN SHOP 💜</span>
+    </h2>
+
+    <p>
+        🔥 Մուտք գործիր քո խաղային աշխարհ։<br>
+        💎 Ընտրիր սիրելի խաղդ, ուսումնասիրիր առաջարկները
+        և կապվիր մեզ հետ պատվերի համար։<br>
+        ⚡ Քո խաղը։ Քո ընտրությունը։ Քո կանոնները։
+    </p>
+
+    <a href="#games" class="primary-btn">🚀 ԳՏՆԵԼ ԻՄ ԽԱՂԸ</a>
+</section>
+
+<div class="container">
+
+    <div class="welcome">
+        <strong>💜 Բարի գալուստ MKOYAN ընտանիք 💜</strong><br>
+        🎮 Այստեղ սկսվում է քո հաջորդ խաղային արկածը։<br>
+        🔥 Ընտրիր խաղդ, գտիր քեզ հետաքրքրող առաջարկը
+        և դարձիր մեր խաղային աշխարհի մի մասը։<br>
+        👑 <strong>MKOYAN SHOP — խաղա քո ոճով։</strong> 🚀
+    </div>
+
+    <section id="games">
+        <h2 class="section-title">🎮 ՄԵՐ ԽԱՂԵՐԸ</h2>
+        <p class="section-description">
+            💎 Ընտրիր խաղը և սեղմիր «Գնել»՝
+            Instagram-ով պատվերի մանրամասները քննարկելու համար։
+        </p>
+
+        <input
+            id="search"
+            class="search-box"
+            type="search"
+            placeholder="🔎 Որոնել խաղը..."
+            aria-label="Որոնել խաղը"
+        >
+
+        <div class="filters">
+            <button class="filter-btn active" data-filter="all">🌟 Բոլորը</button>
+            <button class="filter-btn" data-filter="mobile">📱 Mobile</button>
+            <button class="filter-btn" data-filter="pc">🖥️ PC</button>
+            <button class="filter-btn" data-filter="other">🎯 Այլ</button>
+        </div>
+
+        <div class="games" id="gameList">
+
+            <article class="game-card" data-category="mobile" data-name="free fire">
+                <div class="game-icon">🔥</div>
+                <h3>Free Fire</h3>
+                <p>💎 Diamonds և խաղային առաջարկներ</p>
+                <span class="game-tag">MOBILE</span>
+                <button class="buy-btn" data-product="Free Fire Diamonds">🛒 Գնել</button>
+            </article>
+
+            <article class="game-card" data-category="mobile" data-name="black russia">
+                <div class="game-icon">🚘</div>
+                <h3>Black Russia</h3>
+                <p>💰 Donate և խաղային առաջարկներ</p>
+                <span class="game-tag">MOBILE</span>
+                <button class="buy-btn" data-product="Black Russia Donate">🛒 Գնել</button>
+            </article>
+
+            <article class="game-card" data-category="other" data-name="roblox">
+                <div class="game-icon">🎮</div>
+                <h3>Roblox</h3>
+                <p>💎 Robux և այլ առաջարկներ</p>
+                <span class="game-tag">GAMING</span>
+                <button class="buy-btn" data-product="Roblox Robux">🛒 Գնել</button>
+            </article>
+
+            <article class="game-card" data-category="mobile" data-name="pubg mobile">
+                <div class="game-icon">🏆</div>
+                <h3>PUBG Mobile</h3>
+                <p>🪙 UC և խաղային առաջարկներ</p>
+                <span class="game-tag">MOBILE</span>
+                <button class="buy-btn" data-product="PUBG Mobile UC">🛒 Գնել</button>
+            </article>
+
+            <article class="game-card" data-category="mobile" data-name="brawl stars">
+                <div class="game-icon">⭐</div>
+                <h3>Brawl Stars</h3>
+                <p>💎 Խաղային փաթեթներ</p>
+                <span class="game-tag">MOBILE</span>
+                <button class="buy-btn" data-product="Brawl Stars">🛒 Գնել</button>
+            </article>
+
+            <article class="game-card" data-category="mobile" data-name="standoff 2">
+                <div class="game-icon">🎯</div>
+                <h3>Standoff 2</h3>
+                <p>🪙 Gold և խաղային առաջարկներ</p>
+                <span class="game-tag">MOBILE</span>
+                <button class="buy-btn" data-product="Standoff 2 Gold">🛒 Գնել</button>
+            </article>
+
+            <article class="game-card" data-category="pc" data-name="minecraft">
+                <div class="game-icon">🟩</div>
+                <h3>Minecraft</h3>
+                <p>⛏️ Խաղային առաջարկներ</p>
+                <span class="game-tag">PC / MOBILE</span>
+                <button class="buy-btn" data-product="Minecraft">🛒 Գնել</button>
+            </article>
+
+            <article class="game-card" data-category="pc" data-name="gta 5 gta v">
+                <div class="game-icon">🚗</div>
+                <h3>GTA V</h3>
+                <p>🏙️ Խաղային առաջարկներ</p>
+                <span class="game-tag">PC / CONSOLE</span>
+                <button class="buy-btn" data-product="GTA V">🛒 Գնել</button>
+            </article>
+
+            <article class="game-card" data-category="mobile" data-name="call of duty mobile cod">
+                <div class="game-icon">🎖️</div>
+                <h3>Call of Duty Mobile</h3>
+                <p>🪙 CP և այլ առաջարկներ</p>
+                <span class="game-tag">MOBILE</span>
+                <button class="buy-btn" data-product="Call of Duty Mobile CP">🛒 Գնել</button>
+            </article>
+
+            <article class="game-card" data-category="mobile" data-name="mobile legends">
+                <div class="game-icon">🐉</div>
+                <h3>Mobile Legends</h3>
+                <p>💎 Diamonds և առաջարկներ</p>
+                <span class="game-tag">MOBILE</span>
+                <button class="buy-btn" data-product="Mobile Legends Diamonds">🛒 Գնել</button>
+            </article>
+
+            <article class="game-card" data-category="other" data-name="efootball">
+                <div class="game-icon">⚽</div>
+                <h3>eFootball</h3>
+                <p>⚽ Ֆուտբոլային խաղային առաջարկներ</p>
+                <span class="game-tag">SPORTS</span>
+                <button class="buy-btn" data-product="eFootball">🛒 Գնել</button>
+            </article>
+
+            <article class="game-card" data-category="pc" data-name="fortnite">
+                <div class="game-icon">🛡️</div>
+                <h3>Fortnite</h3>
+                <p>🎮 Խաղային առաջարկներ</p>
+                <span class="game-tag">PC / CONSOLE</span>
+                <button class="buy-btn" data-product="Fortnite">🛒 Գնել</button>
+            </article>
+
+            <article class="game-card" data-category="mobile" data-name="genshin impact">
+                <div class="game-icon">🌌</div>
+                <h3>Genshin Impact</h3>
+                <p>💎 Խաղային առաջարկներ</p>
+                <span class="game-tag">MOBILE / PC</span>
+                <button class="buy-btn" data-product="Genshin Impact">🛒 Գնել</button>
+            </article>
+
+            <article class="game-card" data-category="mobile" data-name="clash of clans">
+                <div class="game-icon">🏰</div>
+                <h3>Clash of Clans</h3>
+                <p>⚔️ Խաղային առաջարկներ</p>
+                <span class="game-tag">MOBILE</span>
+                <button class="buy-btn" data-product="Clash of Clans">🛒 Գնել</button>
+            </article>
+
+            <article class="game-card" data-category="mobile" data-name="clash royale">
+                <div class="game-icon">👑</div>
+                <h3>Clash Royale</h3>
+                <p>🏆 Խաղային առաջարկներ</p>
+                <span class="game-tag">MOBILE</span>
+                <button class="buy-btn" data-product="Clash Royale">🛒 Գնել</button>
+            </article>
+
+            <article class="game-card" data-category="other" data-name="among us">
+                <div class="game-icon">🚀</div>
+                <h3>Among Us</h3>
+                <p>👾 Խաղային առաջարկներ</p>
+                <span class="game-tag">GAMING</span>
+                <button class="buy-btn" data-product="Among Us">🛒 Գնել</button>
+            </article>
+
+            <article class="game-card" data-category="mobile" data-name="mobile games">
+                <div class="game-icon">📱</div>
+                <h3>Այլ Mobile խաղեր</h3>
+                <p>🎮 Հարցրու քո նախընտրած խաղի մասին</p>
+                <span class="game-tag">MOBILE</span>
+                <button class="buy-btn" data-product="Այլ Mobile խաղ">🛒 Գնել</button>
+            </article>
+
+            <article class="game-card" data-category="pc" data-name="pc games">
+                <div class="game-icon">🖥️</div>
+                <h3>Այլ PC խաղեր</h3>
+                <p>🎯 Հարցրու հասանելի առաջարկների մասին</p>
+                <span class="game-tag">PC</span>
+                <button class="buy-btn" data-product="Այլ PC խաղ">🛒 Գնել</button>
+            </article>
+
+        </div>
+
+        <p class="empty-message" id="emptyMessage">
+            😕 Այս անունով խաղ չգտնվեց։ Փորձիր այլ բառ։
+        </p>
+    </section>
+
+    <section class="vip-box" id="vip">
+        <h2>👑 MKOYAN VIP CLUB</h2>
+        <p>
+            🔥 Փնտրո՞ւմ ես հատուկ առաջարկներ։<br>
+            💎 Գրիր մեզ Instagram-ում և հարցրու հասանելի տարբերակների մասին։<br>
+            ⚡ Գները և հասանելիությունը ճշտվում են պատվերից առաջ։
+        </p>
+        <a class="primary-btn"
+           href="https://www.instagram.com/a.mkoyannhhh/"
+           target="_blank"
+           rel="noopener noreferrer">
+            👑 ՀԱՐՑՆԵԼ VIP-Ի ՄԱՍԻՆ
+        </a>
+    </section>
+
+    <section id="social">
+        <h2 class="section-title">💜 ՄԻԱՑԻՐ MKOYAN-ԻՆ</h2>
+        <p class="section-description">
+            🎮 Հետևիր մեզ՝ նոր վիդեոների և նորությունների համար։
+        </p>
+
+        <div class="socials">
+            <div class="social-card">
+                <h3>▶️ YouTube</h3>
+                <p>🔥 Խաղեր, վիդեոներ և հետաքրքիր պահեր։</p>
+                <a class="social-btn youtube"
+                   href="https://www.youtube.com/@mkoyannnaaa"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    ▶ ՄՏՆԵԼ YOUTUBE
+                </a>
+            </div>
+
+            <div class="social-card">
+                <h3>📸 Instagram</h3>
+                <p>💜 Հետևիր էջիս և կապվիր ինձ հետ պատվերի համար։</p>
+                <a class="social-btn instagram"
+                   href="https://www.instagram.com/a.mkoyannhhh/"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    📸 ՄՏՆԵԼ INSTAGRAM
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="info-box">
+        <h2>🛒 Ինչպե՞ս պատվիրել</h2>
+        <p>
+            1️⃣ Ընտրիր քո ուզած խաղը։<br>
+            2️⃣ Սեղմիր «Գնել»։<br>
+            3️⃣ Instagram-ում քննարկիր գինը և պատվերի մանրամասները։<br><br>
+            🔐 Երբեք մի՛ ուղարկիր քո խաղային հաշվի գաղտնաբառը։<br>
+            💎 Գնումից առաջ ճշտիր գինը, վճարման պայմաններն ու
+            առաջարկի հասանելիությունը։
+        </p>
+    </section>
+
+</div>
+
+<footer>
+    <strong>💎 MKOYAN SHOP</strong><br>
+    🎮 ՔՈ ԽԱՂԸ • ՔՈ ԸՆՏՐՈՒԹՅՈՒՆԸ • ՔՈ ԱՇԽԱՐՀԸ 🚀<br>
+    © 2026 MKOYAN SHOP
+</footer>
+
+<!-- Ողջույնի անիմացիոն պատուհան -->
+<div class="modal" id="welcomeModal" role="dialog"
+     aria-modal="true" aria-labelledby="welcomeTitle">
+    <div class="modal-box">
+        <div class="modal-logo">🎮💎👑</div>
+        <h2 id="welcomeTitle">ԲԱՐԻ ԳԱԼՈՒՍՏ!</h2>
+        <p>
+            💜 Բարի գալուստ MKOYAN SHOP։<br>
+            🔥 Քո խաղային արկածը սկսվում է այստեղ։<br>
+            🎮 Ընտրիր խաղդ և բացահայտիր առաջարկները։<br>
+            🚀 <strong>Խաղա քո ոճով։</strong>
+        </p>
+        <button class="primary-btn" id="enterBtn">
+            🚀 ՄՈՒՏՔ ԳՈՐԾԵԼ
+        </button>
+    </div>
+</div>
+
+<script>
+// Instagram պատվերի հղումը
+const instagramURL = "https://www.instagram.com/a.mkoyannhhh/";
+
+// «Գնել» կոճակներ
+document.querySelectorAll(".buy-btn").forEach(button => {
+    button.addEventListener("click", () => {
+        const product = button.dataset.product;
+
+        const message =
+            "Դու ընտրել ես՝ " + product +
+            "\n\nInstagram-ում գրիր մեզ՝ գինն ու հասանելիությունը ճշտելու համար։";
+
+        alert(message);
+        window.open(instagramURL, "_blank", "noopener,noreferrer");
+    });
+});
+
+// Որոնում և կատեգորիաների ֆիլտր
+const search = document.getElementById("search");
+const cards = [...document.querySelectorAll(".game-card")];
+const filterButtons = [...document.querySelectorAll(".filter-btn")];
+const emptyMessage = document.getElementById("emptyMessage");
+
+let activeFilter = "all";
+
+function filterGames() {
+    const query = search.value.trim().toLowerCase();
+    let visible = 0;
+
+    cards.forEach(card => {
+        const name = card.dataset.name.toLowerCase();
+        const title = card.querySelector("h3").textContent.toLowerCase();
+        const matchesText = (name + " " + title).includes(query);
+        const matchesCategory =
+            activeFilter === "all" ||
+            card.dataset.category === activeFilter;
+
+        const show = matchesText && matchesCategory;
+
+        card.style.display = show ? "" : "none";
+
+        if (show) visible++;
+    });
+
+    emptyMessage.style.display = visible ? "none" : "block";
+}
+
+search.addEventListener("input", filterGames);
+
+filterButtons.forEach(button => {
+    button.addEventListener("click", () => {
+        activeFilter = button.dataset.filter;
+
+        filterButtons.forEach(item =>
+            item.classList.toggle("active", item === button)
+        );
+
+        filterGames();
+    });
+});
+
+// Ողջույնի պատուհան
+const modal = document.getElementById("welcomeModal");
+const enterBtn = document.getElementById("enterBtn");
+
+enterBtn.addEventListener("click", () => {
+    modal.classList.add("hidden");
+});
+
+document.addEventListener("keydown", event => {
+    if (event.key === "Escape") {
+        modal.classList.add("hidden");
+    }
+});
+</script>
+
+</body>
+  </html>

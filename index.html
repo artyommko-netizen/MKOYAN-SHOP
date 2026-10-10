@@ -3,8 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#10051f">
-<title>MKOYAN SHOP | Gaming Store</title>
+<title>MKOYAN SHOP</title>
 
 <style>
 * {
@@ -13,455 +12,262 @@
     box-sizing: border-box;
 }
 
-:root {
-    --purple: #a855f7;
-    --pink: #ec4899;
-    --dark: #090611;
-}
-
 body {
     font-family: Arial, sans-serif;
-    background: var(--dark);
     color: white;
-    overflow-x: hidden;
+    background: #080b18;
 }
 
-/* ՔՈ ՆԿԱՐՈՎ ՖՈՆ */
-body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    z-index: -2;
+.hero {
+    min-height: 440px;
     background:
-        linear-gradient(
-            rgba(7, 4, 18, 0.76),
-            rgba(7, 4, 18, 0.91)
-        ),
-        url("background.jpg") center / cover no-repeat;
+      linear-gradient(rgba(3,5,20,.70),rgba(3,5,20,.95)),
+      url('my-photo.jpg') center/cover no-repeat;
+    padding: 25px 15px 50px;
+    text-align: center;
 }
 
-/* ՎԵՐԵՎԻ ՄԱՍ */
 header {
-    text-align: center;
-    padding: 25px 12px;
-    background: rgba(14, 6, 29, 0.82);
-    border-bottom: 1px solid var(--purple);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    max-width: 1100px;
+    margin: auto;
 }
 
 .logo {
-    font-size: clamp(27px, 7vw, 43px);
+    font-size: 27px;
     font-weight: 900;
-    letter-spacing: 2px;
-    color: #e9c5ff;
-    text-shadow:
-        0 0 10px #a855f7,
-        0 0 28px #7e22ce;
+    color: #00eaff;
+    text-shadow: 0 0 15px #00eaff;
 }
 
-header p {
-    margin-top: 10px;
-    color: #d8c5ef;
-    font-size: 14px;
+.badge {
+    background: #10172d;
+    padding: 10px 15px;
+    border: 1px solid #00eaff;
+    border-radius: 20px;
 }
 
-/* ՆԱՎԻԳԱՑԻԱ */
-nav {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 18px;
-    padding: 16px 10px;
-    background: rgba(10, 6, 20, 0.92);
+.hero-content {
+    margin: 90px auto 30px;
 }
 
-nav a {
-    color: white;
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: bold;
-}
-
-nav a:hover {
-    color: #d8a5ff;
-}
-
-/* ԳԼԽԱՎՈՐ ԲԱԺԻՆ */
-.hero {
-    text-align: center;
-    padding: 65px 18px;
-    background:
-        radial-gradient(
-            ellipse at center,
-            rgba(126, 34, 206, 0.34),
-            transparent 70%
-        );
-}
-
-.hero h2 {
-    font-size: clamp(27px, 6vw, 43px);
-    margin-bottom: 18px;
-    text-shadow: 0 0 20px #a855f7;
+.hero h1 {
+    font-size: clamp(35px, 8vw, 65px);
+    text-shadow: 0 0 20px #00d9ff;
 }
 
 .hero p {
-    color: #e0d5ed;
-    line-height: 1.8;
-    max-width: 500px;
-    margin: auto;
-}
-
-.hero-button {
-    display: inline-block;
-    margin-top: 25px;
-    padding: 14px 26px;
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 12px;
-    background: linear-gradient(100deg, #7c3aed, #db2777);
-    box-shadow: 0 0 22px #a855f755;
-}
-
-/* ԲԱԺԻՆՆԵՐ */
-.section-title {
-    text-align: center;
-    font-size: clamp(23px, 5vw, 30px);
-    color: #dfb7ff;
-    text-shadow: 0 0 15px #9333ea;
-    margin: 35px 10px 22px;
-}
-
-.section-description {
-    text-align: center;
-    color: #cbbbd9;
-    padding: 0 15px;
-    margin-top: -12px;
-    margin-bottom: 20px;
-    font-size: 14px;
-}
-
-/* ԽԱՂԵՐԻ ՔԱՐՏԵՐ */
-.games {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 15px;
-    max-width: 950px;
-    padding: 15px;
-    margin: auto;
-}
-
-.game-card {
-    overflow: hidden;
-    border-radius: 17px;
-    border: 1px solid #7735a8;
-    background: rgba(19, 12, 32, 0.95);
-    box-shadow: 0 0 17px #8b5cf622;
-    transition: transform 0.25s, box-shadow 0.25s;
-}
-
-.game-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 0 25px #a855f766;
-}
-
-.game-image {
-    width: 100%;
-    height: 145px;
-    object-fit: cover;
-    display: block;
-    background: linear-gradient(135deg, #35105b, #11101c);
-}
-
-.game-content {
-    padding: 15px 10px;
-    text-align: center;
-}
-
-.game-content h3 {
+    color: #cbd5ff;
+    margin: 15px 0 25px;
     font-size: 17px;
-    margin-bottom: 9px;
 }
 
-.game-content p {
-    font-size: 12px;
-    color: #cbbbd9;
-    min-height: 30px;
-    line-height: 1.5;
-}
-
-/* ԿՈՃԱԿՆԵՐ */
-.buy-button {
-    display: block;
-    width: 100%;
-    margin-top: 13px;
-    padding: 12px 5px;
-    border: 0;
-    border-radius: 9px;
-    color: white;
-    font-weight: bold;
-    font-size: 14px;
+.button {
+    display: inline-block;
+    padding: 13px 25px;
+    color: #001018;
+    background: linear-gradient(90deg,#00eaff,#7c5cff);
+    border: none;
+    border-radius: 12px;
     text-decoration: none;
-    background: linear-gradient(100deg, #7c3aed, #c026d3);
+    font-weight: bold;
     cursor: pointer;
 }
 
-.buy-button:active {
-    transform: scale(0.97);
+section {
+    max-width: 1100px;
+    margin: auto;
+    padding: 35px 15px;
 }
 
-/* VIP / DIAMOND */
-.special-card {
-    text-align: center;
-    margin: 15px;
-    padding: 24px 15px;
-    border: 1px solid #a855f7;
-    border-radius: 18px;
-    background: rgba(24, 10, 40, 0.94);
-    box-shadow: 0 0 20px #9333ea22;
+h2 {
+    font-size: 28px;
+    margin-bottom: 22px;
+    color: #00eaff;
 }
 
-.special-icon {
-    font-size: 43px;
-    margin-bottom: 12px;
+.games {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(145px,1fr));
+    gap: 18px;
 }
 
-.special-card h3 {
-    color: #e9c5ff;
+.card {
+    background: #11172b;
+    border: 1px solid #252f50;
+    border-radius: 17px;
+    overflow: hidden;
+    transition: .25s;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    border-color: #00eaff;
+    box-shadow: 0 0 18px #00eaff35;
+}
+
+.card img {
+    width: 100%;
+    height: 145px;
+    object-fit: cover;
+    background: #1b2545;
+}
+
+.card-content {
+    padding: 15px;
+}
+
+.card h3 {
     margin-bottom: 10px;
 }
 
-.special-card p {
-    color: #d3c2e2;
-    line-height: 1.7;
-    font-size: 14px;
+.card p {
+    color: #aab5d5;
+    font-size: 13px;
+    margin-bottom: 15px;
 }
 
-.special-card .buy-button {
-    max-width: 240px;
-    margin: 17px auto 0;
-}
-
-/* ԿԱՊ */
-.contact {
+.card .button {
+    width: 100%;
     text-align: center;
-    padding: 28px 18px;
-    margin: 35px 15px;
-    border: 1px solid #63308c;
-    border-radius: 18px;
-    background: rgba(18, 9, 31, 0.95);
+    padding: 11px 5px;
 }
 
-.contact h2 {
-    color: #dfb7ff;
-    margin-bottom: 13px;
+.vip {
+    background: linear-gradient(135deg,#23164b,#121a36);
+    border: 1px solid #a76bff;
+    border-radius: 20px;
+    padding: 25px;
+    text-align: center;
 }
 
-.contact p {
-    color: #d0c3dc;
-    line-height: 1.8;
-    font-size: 14px;
+.vip h2 {
+    color: #d3a2ff;
 }
 
 footer {
-    padding: 25px 12px;
     text-align: center;
-    color: #a99bb8;
-    background: rgba(8, 5, 15, 0.97);
-    border-top: 1px solid #42205d;
+    padding: 30px 15px;
+    background: #050711;
+    color: #8995b5;
+}
+
+footer a {
+    color: #00eaff;
+    margin: 8px;
+    text-decoration: none;
+}
+
+.note {
     font-size: 12px;
-}
-
-@media (min-width: 700px) {
-    .games {
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-    }
-
-    .game-image {
-        height: 180px;
-    }
-
-    .special-sections {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        max-width: 950px;
-        margin: auto;
-    }
-}
-
-@media (max-width: 360px) {
-    .games {
-        gap: 9px;
-        padding: 9px;
-    }
-
-    .game-image {
-        height: 110px;
-    }
-
-    .game-content h3 {
-        font-size: 15px;
-    }
+    color: #8e9ab8;
+    margin-top: 12px;
 }
 </style>
 </head>
 
 <body>
 
-<header>
-    <div class="logo">⚡ MKOYAN SHOP ⚡</div>
-    <p>YOUR GAME • YOUR WORLD • YOUR STYLE</p>
-</header>
+<div class="hero">
+    <header>
+        <div class="logo">⚡ MKOYAN SHOP</div>
+        <div class="badge">🎮 GAMING STORE</div>
+    </header>
 
-<nav>
-    <a href="#games">🎮 Խաղեր</a>
-    <a href="#diamonds">💎 Diamonds</a>
-    <a href="#vip">👑 VIP</a>
-    <a href="#contact">📩 Կապ</a>
-</nav>
-
-<section class="hero">
-    <h2>ԲԱՐԻ ԳԱԼՈՒՍՏ MKOYAN SHOP</h2>
-    <p>
-        Քո խաղային աշխարհը մեկ վայրում։<br>
-        Ընտրիր սիրելի խաղդ և բացահայտիր մեր առաջարկները։
-    </p>
-    <a class="hero-button" href="#games">🔥 ՏԵՍՆԵԼ ԽԱՂԵՐԸ</a>
-</section>
+    <div class="hero-content">
+        <h1>MKOYAN SHOP</h1>
+        <p>Քո խաղերը։ Քո ընտրությունը։ Քո աշխարհը։ 🔥</p>
+        <a href="#games" class="button">ԲԱՑԵԼ ԽԱՆՈՒԹԸ</a>
+    </div>
+</div>
 
 <section id="games">
-    <h2 class="section-title">🎮 ՄԵՐ ԽԱՂԵՐԸ</h2>
-    <p class="section-description">
-        Ընտրիր քո սիրելի խաղը
-    </p>
+    <h2>🎮 ԸՆՏՐԻՐ ՔՈ ԽԱՂԸ</h2>
 
     <div class="games">
 
-        <article class="game-card">
-            <img
-                class="game-image"
-                src="https://placehold.co/600x400/281044/ffffff?text=FREE+FIRE"
-                alt="Free Fire խաղի նկար">
-            <div class="game-content">
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1612287230202-1ff1d85d1bdf?auto=format&fit=crop&w=600&q=80"
+                 alt="Gaming">
+            <div class="card-content">
                 <h3>🔥 Free Fire</h3>
-                <p>Diamonds և խաղային առաջարկներ</p>
-                <button class="buy-button" onclick="order('Free Fire')">
-                    Գնել
-                </button>
+                <p>Diamond-ների բաժին</p>
+                <a class="button" href="#contact">ԳՆԵԼ</a>
             </div>
-        </article>
+        </div>
 
-        <article class="game-card">
-            <img
-                class="game-image"
-                src="https://placehold.co/600x400/173b26/ffffff?text=ROBLOX"
-                alt="Roblox խաղի նկար">
-            <div class="game-content">
-                <h3>🟩 Roblox</h3>
-                <p>Robux և խաղային առաջարկներ</p>
-                <button class="buy-button" onclick="order('Roblox')">
-                    Գնել
-                </button>
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1606144042614-b2417e99c4e3?auto=format&fit=crop&w=600&q=80"
+                 alt="Gaming console">
+            <div class="card-content">
+                <h3>🧱 Roblox</h3>
+                <p>Robux-ի բաժին</p>
+                <a class="button" href="#contact">ԳՆԵԼ</a>
             </div>
-        </article>
+        </div>
 
-        <article class="game-card">
-            <img
-                class="game-image"
-                src="https://placehold.co/600x400/24304f/ffffff?text=GTA+BLACK+RUSSIA"
-                alt="GTA և Black Russia խաղերի նկար">
-            <div class="game-content">
-                <h3>🚘 GTA / Black Russia</h3>
-                <p>Խաղային արժույթ և առաջարկներ</p>
-                <button class="buy-button" onclick="order('GTA / Black Russia')">
-                    Գնել
-                </button>
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=600&q=80"
+                 alt="Gaming setup">
+            <div class="card-content">
+                <h3>🚘 GTA</h3>
+                <p>Խաղային առաջարկներ</p>
+                <a class="button" href="#contact">ԳՆԵԼ</a>
             </div>
-        </article>
+        </div>
 
-        <article class="game-card">
-            <img
-                class="game-image"
-                src="https://placehold.co/600x400/52331c/ffffff?text=PUBG+MOBILE"
-                alt="PUBG Mobile խաղի նկար">
-            <div class="game-content">
-                <h3>🎯 PUBG Mobile</h3>
-                <p>UC և խաղային առաջարկներ</p>
-                <button class="buy-button" onclick="order('PUBG Mobile')">
-                    Գնել
-                </button>
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?auto=format&fit=crop&w=600&q=80"
+                 alt="Video games">
+            <div class="card-content">
+                <h3>🎮 Այլ խաղեր</h3>
+                <p>Նոր առաջարկներ</p>
+                <a class="button" href="#contact">ԳՆԵԼ</a>
             </div>
-        </article>
+        </div>
 
     </div>
 </section>
 
-<section id="diamonds">
-    <h2 class="section-title">💎 DIAMOND SHOP</h2>
-    <div class="special-sections">
-        <div class="special-card">
-            <div class="special-icon">💎</div>
-            <h3>Diamond Packages</h3>
-            <p>Ընտրիր քո ուզած Diamond փաթեթը։</p>
-            <button class="buy-button" onclick="order('Diamond Packages')">
-                Ընտրել փաթեթը
-            </button>
-        </div>
-
-        <div class="special-card">
-            <div class="special-icon">✨</div>
-            <h3>Special Offers</h3>
-            <p>Հատուկ խաղային առաջարկներ։</p>
-            <button class="buy-button" onclick="order('Special Offers')">
-                Տեսնել առաջարկները
-            </button>
-        </div>
+<section>
+    <div class="vip">
+        <h2>👑 VIP ZONE</h2>
+        <p style="margin:15px 0;color:#ddd">
+            Բացահայտիր MKOYAN SHOP-ի VIP առաջարկները։
+        </p>
+        <a href="#contact" class="button">ՏԵՍՆԵԼ ԱՌԱՋԱՐԿՆԵՐԸ</a>
     </div>
 </section>
 
-<section id="vip">
-    <h2 class="section-title">👑 VIP SHOP</h2>
-    <div class="special-sections">
-        <div class="special-card">
-            <div class="special-icon">🥇</div>
-            <h3>VIP GOLD</h3>
-            <p>Պրեմիում խաղային փաթեթների բաժին։</p>
-            <button class="buy-button" onclick="order('VIP GOLD')">
-                Ընտրել VIP
-            </button>
-        </div>
-
-        <div class="special-card">
-            <div class="special-icon">🏆</div>
-            <h3>VIP PREMIUM</h3>
-            <p>Բացահայտիր Premium առաջարկները։</p>
-            <button class="buy-button" onclick="order('VIP PREMIUM')">
-                Ընտրել VIP
-            </button>
-        </div>
+<section id="contact">
+    <h2>📲 ԿԱՊ ՄԵԶ ՀԵՏ</h2>
+    <div class="card-content">
+        <p style="margin-bottom:15px">
+            Պատվերի և գնելու պայմանների համար կապ հաստատիր ինձ հետ։
+        </p>
+        <a class="button"
+           href="https://www.instagram.com/a.mkoyannhhh/"
+           target="_blank">ԳՐԵԼ INSTAGRAM-ՈՎ</a>
     </div>
-</section>
-
-<section id="contact" class="contact">
-    <h2>📩 ԿԱՊ MKOYAN SHOP-Ի ՀԵՏ</h2>
-    <p>
-        Պատվերների համար կապի՛ր խանութի սեփականատիրոջ հետ։<br>
-        Կապի կոճակը կաշխատի, երբ ավելացնենք քո իրական կապի տվյալները։
-    </p>
 </section>
 
 <footer>
-    <p>© 2026 MKOYAN SHOP • Բոլոր իրավունքները պաշտպանված են</p>
-    <p style="margin-top:8px">MADE WITH ⚡ BY MKOYAN</p>
+    <div class="logo">MKOYAN SHOP ⚡</div>
+    <p style="margin:12px 0">Քո գեյմինգ աշխարհը 🎮</p>
+    <a href="https://www.youtube.com/@mkoyannnaaa" target="_blank">
+        YouTube
+    </a>
+    <a href="https://www.instagram.com/a.mkoyannhhh/" target="_blank">
+        Instagram
+    </a>
+    <p class="note">
+        Խաղերի անուններն ու ապրանքանիշերը պատկանում են իրենց սեփականատերերին։
+    </p>
 </footer>
-
-<script>
-function order(product) {
-    alert(
-        "Դու ընտրեցիր՝ " + product +
-        "\n\nՊատվեր կատարելու համար անհրաժեշտ է միացնել խանութի կապի կամ պատվերի համակարգը։"
-    );
-}
-</script>
 
 </body>
 </html>
